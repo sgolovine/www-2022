@@ -35,7 +35,7 @@ const ThemeSwitch: React.FC = () => {
         type="checkbox"
         className="toggle"
         checked={darkTheme}
-        onClick={toggleDarkTheme}
+        onChange={toggleDarkTheme}
       />
     </div>
   )
