@@ -1,11 +1,9 @@
 import { AppPage } from "~/model/PageProps"
+import { LandingPage } from "~/features/landing"
+import { BaseLayout } from "~/components/layout"
 
-const Page: AppPage = () => {
-  return (
-    <div>
-      <p>Index Page</p>
-    </div>
-  )
-}
+const Page: AppPage = () => <LandingPage />
+
+Page.getLayout = page => <BaseLayout>{page}</BaseLayout>
 
 export default Page

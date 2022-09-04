@@ -1,9 +1,9 @@
 import React, { ReactElement, ReactNode } from "react"
 import { AppProps } from "next/app"
-import type { NextPage } from "next"
+import { AppPage } from "~/model/PageProps"
 
 import "../styles/tailwind.css"
-import { AppPage } from "~/model/PageProps"
+import "../styles/global.css"
 
 type AppPropsWithLayout = AppProps & {
   Component: AppPage
