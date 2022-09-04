@@ -6,24 +6,24 @@ export const links: Link[] = [
     id: "work",
     title: strings.links.work,
     icon: "officeBuilding",
-    href: "#",
+    href: "/work",
   },
   {
     id: "resume",
     title: strings.links.resume,
     icon: "documentText",
-    href: "#",
+    href: "/resume",
   },
   {
     id: "blog",
     title: strings.links.blog,
     icon: "pencilSquare",
-    href: "#",
+    href: "/blog",
   },
   {
     id: "snippets",
     title: strings.links.snippets,
     icon: "paperClip",
-    href: "#",
+    href: "/snippets",
   },
 ]

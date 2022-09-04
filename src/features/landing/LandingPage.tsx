@@ -15,7 +15,12 @@ const LandingPage: React.FC = () => {
       {/* Links List */}
       <div className="pt-4 grid grid-cols-1 grid-rows-auto gap-5">
         {links.map(link => (
-          <LinkButton key={link.id} title={link.title} icon={link.icon} />
+          <LinkButton
+            key={link.id}
+            href={link.href}
+            title={link.title}
+            icon={link.icon}
+          />
         ))}
       </div>
 

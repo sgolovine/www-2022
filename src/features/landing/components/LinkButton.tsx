@@ -1,14 +1,16 @@
 import clsx from "clsx"
+import Link from "next/link"
 import { useState } from "react"
 import { AllIcons, getIcon } from "~/components/icons"
 
 interface LinkButtonProps {
   title: string
   icon: AllIcons
+  href: string
 }
 const transition = clsx("ease-in-out", "duration-100", "transition-all")
 
-const LinkButton: React.FC<LinkButtonProps> = ({ title, icon }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({ title, icon, href = "#" }) => {
   const IconComponent = getIcon(icon)
   const [hovering, setHovering] = useState<boolean>(false)
 
@@ -20,11 +22,8 @@ const LinkButton: React.FC<LinkButtonProps> = ({ title, icon }) => {
     "flex",
     "flex-row",
     "items-center",
-    // Hover
-    {
-      "bg-gray-100": hovering,
-      "dark:bg-slate-800": hovering,
-    }
+    "hover:bg-gray-100",
+    "hover:dark:bg-slate-800"
   )
 
   const textClasses = clsx(
@@ -39,16 +38,18 @@ const LinkButton: React.FC<LinkButtonProps> = ({ title, icon }) => {
   )
 
   return (
-    <div
-      className={containerClasses}
-      onMouseEnter={() => setHovering(true)}
-      onMouseLeave={() => setHovering(false)}
-    >
-      <span className="text-gray-700 dark:text-gray-50">
-        <IconComponent />
-      </span>
-      <p className={textClasses}>{title}</p>
-    </div>
+    <Link href={href}>
+      <div
+        className={containerClasses}
+        onMouseEnter={() => setHovering(true)}
+        onMouseLeave={() => setHovering(false)}
+      >
+        <span className="text-gray-700 dark:text-gray-50">
+          <IconComponent />
+        </span>
+        <p className={textClasses}>{title}</p>
+      </div>
+    </Link>
   )
 }
 

@@ -7,7 +7,7 @@ const SocialButton: React.FC<Link> = ({ href, icon }) => {
 
   return (
     <a href={href} target="_blank" rel="noopener noreferrer">
-      <Icon className="h-6 w-6 fill-gray-500 dark:fill-gray-100" />
+      <Icon className="h-6 w-6 fill-gray-500 hover:fill-gray-400 dark:fill-gray-100" />
     </a>
   )
 }
