@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { useDarkTheme } from "~/hooks/useDarkTheme"
 import { HeaderRoute } from "~/model/HeaderRoute"
 import { getIcon } from "../icons"
 import { ThemeSwitch } from "../themeSwitch"
