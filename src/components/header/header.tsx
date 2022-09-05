@@ -1,8 +1,8 @@
 import clsx from "clsx"
 import Link from "next/link"
-import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import { useState } from "react"
 import headerRoutes from "~/config/headerRoutes"
-import { Routes } from "~/model/Routes"
 import { getIcon } from "../icons"
 import { MobileMenu } from "../mobileMenu"
 import { ThemeSwitch } from "../themeSwitch"
@@ -20,15 +20,9 @@ const CloseIcon = getIcon("close")
 
 const Header: React.FC<HeaderProps> = ({ title, pageNavigation }) => {
   const showPageNavigation = !!pageNavigation
-  const [currentRoute, setCurrentRoute] = useState<string>(Routes.Home)
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
+  const { pathname: currentRoute } = useRouter()
   const routes = headerRoutes.filter(route => route.href !== currentRoute)
-
-  useEffect(() => {
-    if (typeof window !== undefined) {
-      setCurrentRoute(window.location.pathname)
-    }
-  }, [])
 
   const containerClasses = clsx(
     "w-full",

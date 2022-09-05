@@ -1,4 +1,4 @@
-import { BaseLayout } from "~/components/layout"
+import { PageLayout } from "~/components/layout"
 import { featureFlags } from "~/config/featureFlags"
 import { featureStubs } from "~/config/featureStubs"
 import { SnippetsPage } from "~/features/snippets"
@@ -13,6 +13,8 @@ const Page: AppPage = () => {
 
   return <SnippetsPage />
 }
-Page.getLayout = page => <BaseLayout>{page}</BaseLayout>
+Page.getLayout = page => (
+  <PageLayout header={{ title: "Snippets" }}>{page}</PageLayout>
+)
 
 export default Page
