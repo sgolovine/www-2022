@@ -1,28 +1,28 @@
 import { Link } from "../model/Link"
-import { strings } from "./strings"
+import labels from "~/labels.json"
 
 export const links: Link[] = [
   {
     id: "work",
-    title: strings.links.work,
+    title: labels.landingPage.links.work,
     icon: "officeBuilding",
     href: "/work",
   },
   {
     id: "resume",
-    title: strings.links.resume,
+    title: labels.landingPage.links.resume,
     icon: "documentText",
     href: "/resume",
   },
   {
     id: "blog",
-    title: strings.links.blog,
+    title: labels.landingPage.links.blog,
     icon: "pencilSquare",
     href: "/blog",
   },
   {
     id: "snippets",
-    title: strings.links.snippets,
+    title: labels.landingPage.links.snippets,
     icon: "paperClip",
     href: "/snippets",
   },

@@ -1,3 +1,4 @@
+import { BaseLayout } from "~/components/layout"
 import { featureFlags } from "~/config/featureFlags"
 import { featureStubs } from "~/config/featureStubs"
 import { WorkPage } from "~/features/work"
@@ -12,5 +13,6 @@ const Page: AppPage = () => {
 
   return <WorkPage />
 }
+Page.getLayout = page => <BaseLayout>{page}</BaseLayout>
 
 export default Page

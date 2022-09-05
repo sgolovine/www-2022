@@ -1,37 +1,37 @@
 import { socialMediaConfig } from "~/config/socialMedia"
 import { Link } from "../model/Link"
-import { strings } from "./strings"
+import labels from "~/labels.json"
 
 // We do not use the `title` property
 // When rendering these links.
 export const socialLinks: Link[] = [
   {
     id: "email",
-    title: "Email",
+    title: labels.landingPage.social.email,
     href: socialMediaConfig.email,
     icon: "envelope",
   },
   {
     id: "ig",
-    title: strings.social.instagram,
+    title: labels.landingPage.social.instagram,
     icon: "instagram",
     href: socialMediaConfig.instagram,
   },
   {
     id: "linkedin",
-    title: strings.social.linkedin,
+    title: labels.landingPage.social.linkedin,
     icon: "linkedin",
     href: socialMediaConfig.linkedin,
   },
   {
     id: "gh",
-    title: strings.social.github,
+    title: labels.landingPage.social.github,
     icon: "github",
     href: socialMediaConfig.github,
   },
   {
     id: "wa",
-    title: strings.social.whatsApp,
+    title: labels.landingPage.social.whatsApp,
     icon: "whatsApp",
     href: socialMediaConfig.whatsApp,
   },

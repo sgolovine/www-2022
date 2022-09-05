@@ -1,10 +1,17 @@
 import type { ReactNode } from "react"
-import { ThemeSwitch } from "../ThemeSwitch"
+import { ThemeSwitch } from "../themeSwitch"
 
-const BaseLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
+const BaseLayout: React.FC<{
+  children: ReactNode
+  hideThemeToggle?: boolean
+}> = ({ children, hideThemeToggle }) => {
   return (
     <div>
-      <ThemeSwitch />
+      {!hideThemeToggle && (
+        <span className="absolute top-4 right-4">
+          <ThemeSwitch />
+        </span>
+      )}
       <div>{children}</div>
     </div>
   )

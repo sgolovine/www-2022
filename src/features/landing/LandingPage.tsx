@@ -4,13 +4,16 @@ import ProfilePicture from "./components/ProfilePicture"
 import SocialButton from "./components/SocialButton"
 import { links } from "./config/links"
 import { socialLinks } from "./config/socialLinks"
-import { strings } from "./config/strings"
+import labels from "~/labels.json"
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="max-w-xl mx-auto pt-8">
+    <div className="max-w-xl mx-auto pt-12 px-4 pb-4">
       <ProfilePicture />
-      <PageHeader title={strings.header} bio={strings.bio} />
+      <PageHeader
+        title={labels.landingPage.header}
+        bio={labels.landingPage.bio}
+      />
 
       {/* Links List */}
       <div className="pt-4 grid grid-cols-1 grid-rows-auto gap-5">

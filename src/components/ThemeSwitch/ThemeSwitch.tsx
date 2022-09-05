@@ -1,40 +1,24 @@
-import { useEffect } from "react"
-import useLocalStorage from "~/hooks/useLocalStorage"
+import { useDarkTheme } from "~/hooks/useDarkTheme"
+import { getIcon } from "../icons"
 
-const ThemeSwitch: React.FC = () => {
-  const [darkTheme, setDarkTheme] = useLocalStorage<boolean>(
-    "dark-theme-v1",
-    false
-  )
+const SunIcon = getIcon("sun")
+const MoonIcon = getIcon("moon")
 
-  useEffect(() => {
-    if (darkTheme) {
-      enableDarkTheme()
-    } else {
-      disableDarkTheme()
-    }
-  }, [darkTheme])
-
-  const enableDarkTheme = () => {
-    if (typeof document !== undefined) {
-      document.body.classList.add("dark")
-    }
-  }
-
-  const disableDarkTheme = () => {
-    if (typeof document !== undefined) {
-      document.body.classList.remove("dark")
-    }
-  }
-
-  const toggleDarkTheme = () => setDarkTheme(prev => !prev)
-
+const ThemeSwitch = () => {
+  const { isDark, toggleDarkTheme } = useDarkTheme()
   return (
-    <div className="top-2 right-2 absolute">
+    <div className="flex flex-row items-center">
+      <span className="mr-4">
+        {isDark ? (
+          <MoonIcon className="h-6 w-6 fill-gray-50" />
+        ) : (
+          <SunIcon className="h-6 w-6 fill-gray-800" />
+        )}
+      </span>
       <input
         type="checkbox"
         className="toggle"
-        checked={darkTheme}
+        checked={isDark}
         onChange={toggleDarkTheme}
       />
     </div>
