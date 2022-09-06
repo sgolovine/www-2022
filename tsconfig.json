@@ -1,4 +1,9 @@
 {
+  "ts-node": {
+    "compilerOptions": {
+      "module": "NodeNext"
+    }
+  },
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -17,9 +22,10 @@
     "incremental": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@logger": ["./logger/index.ts"]
     }
   },
-  "include": ["src/**/*", "src/**/[.*].tsx"],
+  "include": ["src/**/*", "src/**/[.*].tsx", "scripts", "logger"],
   "exclude": ["node_modules", ".cache", "public", ".next", "dist"]
 }

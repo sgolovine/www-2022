@@ -2,6 +2,7 @@
 title: Test Snippet One
 description: This is a brief description of the snippet.
 tags: javascript,react
+published: false
 ---
 
 This is a simple piece of code.
