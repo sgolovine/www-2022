@@ -23,6 +23,8 @@ const LinkButton: React.FC<LinkButtonProps> = ({ title, icon, href = "#" }) => {
     "flex-row",
     "items-center",
     "hover:bg-gray-100",
+    "active:bg-gray-300",
+    "active:dark:bg-slate-600",
     "hover:dark:bg-slate-800"
   )
 

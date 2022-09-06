@@ -2,6 +2,7 @@ export enum Routes {
   Home = "/",
   Work = "/work",
   Blog = "/blog",
-  Snippets = "/snippets",
+  BlogSnippets = "/blog/snippets",
+  BlogCategories = "/blog/categories",
   Resume = "/resume",
 }

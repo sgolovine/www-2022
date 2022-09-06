@@ -1,3 +1,4 @@
+import clsx from "clsx"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { HeaderRoute } from "~/model/HeaderRoute"
@@ -10,6 +11,18 @@ interface Props {
   onClose: () => void
   routes: HeaderRoute[]
 }
+
+const linkClasses = clsx(
+  "border-b-4",
+  "border-transparent",
+  "hover:border-blue-500",
+  "hover:dark:border-gray-200",
+  "active:border-blue-400",
+  "active:text-gray-600",
+  "active:dark:border-gray-400",
+  "active:dark:text-gray-400",
+  "text-gray-900"
+)
 
 const MobileMenu: React.FC<Props> = ({ onClose, routes }) => {
   const { push } = useRouter()
@@ -31,7 +44,11 @@ const MobileMenu: React.FC<Props> = ({ onClose, routes }) => {
       </div>
       <div className="pt-4 flex flex-col gap-5 p-4">
         {routes.map(route => (
-          <div key={route.id} onClick={() => handleNavigate(route.href)}>
+          <div
+            key={route.id}
+            onClick={() => handleNavigate(route.href)}
+            className={linkClasses}
+          >
             <a className="text-2xl font-bold dark:text-white">{route.title}</a>
           </div>
         ))}

@@ -4,6 +4,9 @@ import { featureStubs } from "~/config/featureStubs"
 import { BlogPage } from "~/features/blog"
 import { useFeatureRedirect } from "~/hooks/useFeatureRedirect"
 import { AppPage } from "~/model/PageProps"
+import { Routes } from "~/model/Routes"
+import labels from "~/labels.json"
+import { pageNavigationConfig } from "~/features/blog/config/pageNavigation"
 
 const Page: AppPage = () => {
   useFeatureRedirect({
@@ -13,8 +16,16 @@ const Page: AppPage = () => {
 
   return <BlogPage />
 }
+
 Page.getLayout = page => (
-  <PageLayout header={{ title: "Blog" }}>{page}</PageLayout>
+  <PageLayout
+    header={{
+      title: labels.headerRoutes.blog,
+      pageNavigation: pageNavigationConfig,
+    }}
+  >
+    {page}
+  </PageLayout>
 )
 
 export default Page

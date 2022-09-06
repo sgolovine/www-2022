@@ -6,6 +6,10 @@
     "snippets": "Snippets",
     "resume": "Resume"
   },
+  "blog": {
+    "categories": "Categories",
+    "snippets": "Snippets"
+  },
   "landingPage": {
     "header": "Sunny Golovine",
     "bio": "Hey! My name is Sunny and I'm a software engineer from Denver, CO. I specialize in building websites and mobile applications using Javascript and React. When I'm not coding you can find me out hiking or on a paddleboard.",
