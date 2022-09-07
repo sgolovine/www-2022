@@ -9,24 +9,20 @@ export interface BlogPost extends PostBase {
   date: string
   category: string
   tags: string
-  postPreview: string
 }
 
 export interface Snippet extends PostBase {}
 
-export interface PostMap {
-  posts: {
-    cwd: string
-    data: {
-      relativePath: string
-      postMetadata: BlogPost
-    }[]
-  }
-  snippets: {
-    cwd: string
-    data: {
-      relativePath: string
-      postMetadata: Snippet
-    }[]
-  }
+export interface PostMap<PostType> {
+  cwd: string
+  data: {
+    relativePath: string
+    postMetadata: PostType
+    postPreview: string
+  }[]
+}
+
+export interface ContentMap {
+  posts: PostMap<BlogPost>
+  snippets: PostMap<Snippet>
 }

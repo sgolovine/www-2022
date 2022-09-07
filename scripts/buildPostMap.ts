@@ -3,7 +3,7 @@ import matter from "gray-matter"
 import path from "path"
 import glob from "glob"
 import AppLogger from "../logger"
-import { BlogPost, PostMap, Snippet } from "~/model/Post"
+import { BlogPost, ContentMap, PostMap, Snippet } from "~/model/Post"
 
 // For post previews we take the first X number of characters
 // Of the post. This variable defines how many characters we take.
@@ -15,7 +15,7 @@ const logger = new AppLogger({
 
 const postDir = path.resolve(process.cwd(), "public", "posts")
 const snippetsDir = path.resolve(process.cwd(), "public", "snippets")
-const outPath = path.resolve(process.cwd(), "public", "post-map.json")
+const outPath = path.resolve(process.cwd(), "src", "__postmap__.json")
 
 async function globAsync(pattern: string, cwd: string): Promise<string[]> {
   logger.log(`globbing pattern ${pattern}`, `glob directory: ${cwd}`)
@@ -62,7 +62,7 @@ function fetchPost<PostType>(files: string[], cwd: string, isSnippet: boolean) {
     const allPosts = fetchPost<BlogPost>(postFiles, postDir, false)
     const allSnippets = fetchPost<Snippet>(snippetFiles, snippetsDir, true)
 
-    const map: PostMap = {
+    const map: ContentMap = {
       posts: {
         cwd: postDir,
         data: allPosts,

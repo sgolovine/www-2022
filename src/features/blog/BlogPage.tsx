@@ -1,8 +1,20 @@
-const BlogPage = () => {
+import BlogItem from "./components/BlogItem"
+import BlogListLayout from "./components/BlogListLayout"
+import { BlogPageProps } from "./types/BlogPageProps"
+
+const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
   return (
-    <div>
-      <p>Blog Page</p>
-    </div>
+    <BlogListLayout>
+      {posts.data.map(post => {
+        return (
+          <BlogItem
+            key={post.relativePath}
+            meta={post.postMetadata}
+            preview={post.postPreview}
+          />
+        )
+      })}
+    </BlogListLayout>
   )
 }
 

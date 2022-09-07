@@ -10,5 +10,5 @@ export type AppPage<Props = {}> = NextPage<Props> & {
 // Return type for getStaticProps.
 // Usage: function getStaticProps(): StaticProps<Props> { ... }
 export type StaticProps<Props = {}> = Promise<{
-  props: Props
+  props: Partial<Props>
 }>
