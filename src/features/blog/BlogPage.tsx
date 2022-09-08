@@ -6,6 +6,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
   return (
     <BlogListLayout>
       {posts.data.map(post => {
+        console.log(post)
         return (
           <BlogItem
             key={post.relativePath}

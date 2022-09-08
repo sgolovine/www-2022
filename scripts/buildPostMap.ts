@@ -29,25 +29,27 @@ async function globAsync(pattern: string, cwd: string): Promise<string[]> {
   })
 }
 
-function fetchPost<PostType>(files: string[], cwd: string, isSnippet: boolean) {
+function fetchPosts<PostType>(
+  files: string[],
+  cwd: string,
+  isSnippet: boolean
+) {
   logger.info(`Fetching posts in directory: ${cwd}`)
   return files.map(file => {
     const fullPath = path.resolve(cwd, file)
     const postFile = fs.readFileSync(fullPath, "utf-8")
-    const postMatter = matter(postFile, { excerpt: true })
-    if (!isSnippet) {
-      return {
-        relativePath: file,
-        postMetadata: postMatter.data as PostType,
-        postPreview: postMatter.content
-          .substring(0, PREVIEW_LENGTH)
-          // Remove leading \n from previews.
-          .replace("\n", ""),
-      }
-    }
+    const postMatter = matter(postFile)
+
+    const getPostPreview = (content: string) =>
+      content.substring(0, PREVIEW_LENGTH).replace("\n", "")
+
     return {
       relativePath: file,
-      postMetadata: postMatter.data as PostType,
+      postMetadata: {
+        ...postMatter.data,
+        type: isSnippet ? "snippet" : "post",
+      } as PostType,
+      postPreview: isSnippet ? undefined : getPostPreview(postMatter.content),
     }
   })
 }
@@ -59,8 +61,8 @@ function fetchPost<PostType>(files: string[], cwd: string, isSnippet: boolean) {
     const postFiles = await globAsync("**/*.md", postDir)
     const snippetFiles = await globAsync("**/*.md", snippetsDir)
 
-    const allPosts = fetchPost<BlogPost>(postFiles, postDir, false)
-    const allSnippets = fetchPost<Snippet>(snippetFiles, snippetsDir, true)
+    const allPosts = fetchPosts<BlogPost>(postFiles, postDir, false)
+    const allSnippets = fetchPosts<Snippet>(snippetFiles, snippetsDir, true)
 
     const map: ContentMap = {
       posts: {
