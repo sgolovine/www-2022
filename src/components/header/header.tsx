@@ -9,13 +9,20 @@ import { MobileMenu } from "../mobileMenu"
 import { ThemeSwitch } from "../themeSwitch"
 
 export interface HeaderProps {
-  title: string
+  title?: string
   pageNavigation?: HeaderRoute[]
+  showBackArrow?: boolean
 }
 const MenuIcon = getIcon("bars3")
 const CloseIcon = getIcon("close")
+const ArrowLeft = getIcon("arrowLeft")
 
-const Header: React.FC<HeaderProps> = ({ title, pageNavigation }) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  pageNavigation,
+  showBackArrow,
+}) => {
+  const router = useRouter()
   const showPageNavigation = !!pageNavigation
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const { pathname: currentRoute } = useRouter()
@@ -62,13 +69,42 @@ const Header: React.FC<HeaderProps> = ({ title, pageNavigation }) => {
     "active:dark:text-gray-200"
   )
 
+  const headerLinkContainerClasses = clsx(
+    "hidden",
+    "sm:flex",
+    "flex-row",
+    "items-center",
+    "gap-4",
+    "grow-0",
+    "sm:grow",
+    {
+      "px-6": !!title,
+      "px-2": !title,
+    }
+  )
+
+  const handleGoBack = () => {
+    router.back()
+  }
+
   return (
     <>
       <div className={containerClasses}>
-        <p className="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-50 grow sm:grow-0">
-          {title}
-        </p>
-        <div className="hidden sm:flex px-6 flex-row items-center gap-4 grow-0 sm:grow">
+        <span className="grow sm:grow-0">
+          {showBackArrow && (
+            <span className="flex flex-row items-center text-gray-800 hover:text-gray-600 dark:text-gray-50 hover:dark:text-gray-500 active:text-gray-900 active:dark:text-gray-200">
+              <button onClick={handleGoBack}>
+                <ArrowLeft className="h-6 w-6" />
+              </button>
+            </span>
+          )}
+          {title && (
+            <p className="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-50">
+              {title}
+            </p>
+          )}
+        </span>
+        <div className={headerLinkContainerClasses}>
           {routes.map(route => (
             <Link key={route.id} href={route.href}>
               <a className={linkClasses}>{route.title}</a>

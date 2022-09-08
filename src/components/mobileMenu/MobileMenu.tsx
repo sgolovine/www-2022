@@ -33,7 +33,7 @@ const MobileMenu: React.FC<Props> = ({ onClose, routes }) => {
   }
 
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 bg-white dark:bg-slate-900">
+    <div className="absolute top-0 left-0 right-0 bottom-0 bg-white dark:bg-slate-900 z-50">
       <div className="flex flex-row items-start justify-between p-4 border-b-2 dark:border-slate-800">
         <p className="text-lg font-bold dark:text-gray-50">Menu</p>
         <div>

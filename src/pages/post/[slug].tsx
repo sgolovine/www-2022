@@ -1,5 +1,7 @@
+import { PageLayout } from "~/components/layout"
+import PostTemplate from "~/features/blog/templates/PostTemplate"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { BlogPost } from "~/model/Post"
+import { BlogPost, Snippet } from "~/model/Post"
 import { getPostBySlug } from "~/services/getPostBySlug.node"
 import { getStaticPostPaths } from "~/services/getStaticPostPaths.node"
 
@@ -11,18 +13,16 @@ interface Params {
 
 interface Props {
   preview?: string
-  metadata: BlogPost
+  metadata: BlogPost | Snippet
 }
 
-const Page: AppPage<Props> = () => {
-  return (
-    <div>
-      <p>Post Template Page</p>
-    </div>
-  )
+const Page: AppPage<Props> = ({ preview, metadata }) => {
+  return <PostTemplate meta={metadata} />
 }
 
-Page.getLayout = page => <div>{page}</div>
+Page.getLayout = page => (
+  <PageLayout header={{ showBackArrow: true }}>{page}</PageLayout>
+)
 
 export const getStaticProps = async ({
   params: { slug },

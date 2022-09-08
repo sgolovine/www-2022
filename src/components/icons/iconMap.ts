@@ -3,6 +3,8 @@ import { GithubIcon } from "./brand/Github"
 import { InstagramIcon } from "./brand/Instagram"
 import { LinkedIn } from "./brand/LinkedIn"
 import { WhatsApp } from "./brand/WhatsApp"
+import ArrowLeft from "./hero/ArrowLeft"
+import ArrowUpRight from "./hero/ArrowUpRight"
 import Bars3 from "./hero/Bars3"
 import Close from "./hero/Close"
 import { DocumentText } from "./hero/DocumentText"
@@ -15,6 +17,8 @@ import { PencilSquare } from "./hero/PencilSquare"
 import Sun from "./hero/Sun"
 
 const allIcons = {
+  arrowUpRight: ArrowUpRight,
+  arrowLeft: ArrowLeft,
   github: GithubIcon,
   linkedin: LinkedIn,
   instagram: InstagramIcon,
