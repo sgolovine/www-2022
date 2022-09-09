@@ -4,9 +4,14 @@ import { Routes } from "~/model/Routes"
 
 export const pageNavigationConfig: HeaderRoute[] = [
   {
+    id: "allPosts",
+    title: labels.blog.allPosts,
+    href: Routes.Blog,
+  },
+  {
     id: "categories",
     title: labels.blog.categories,
     href: Routes.BlogCategories,
   },
-  { id: "two", title: labels.blog.snippets, href: Routes.BlogSnippets },
+  { id: "snippets", title: labels.blog.snippets, href: Routes.BlogSnippets },
 ]

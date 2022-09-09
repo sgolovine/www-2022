@@ -8,7 +8,8 @@
   },
   "blog": {
     "categories": "Categories",
-    "snippets": "Snippets"
+    "snippets": "Snippets",
+    "allPosts": "All Posts"
   },
   "resume": {
     "downloadPDF": "Download PDF",

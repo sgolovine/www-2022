@@ -2,6 +2,7 @@ import clsx from "clsx"
 import dayjs from "dayjs"
 import { useRouter } from "next/router"
 import { useState } from "react"
+import { themeClasses } from "~/config/themeClasses"
 import { BlogPost } from "~/model/Post"
 
 interface Props {
@@ -10,26 +11,26 @@ interface Props {
 }
 
 const titleClasses = clsx(
+  themeClasses.transition,
+  themeClasses.headerColor,
   "text-lg",
-  "font-medium",
-  "text-gray-900",
-  "dark:text-gray-200"
+  "font-medium"
 )
 
 const previewClasses = clsx(
+  themeClasses.transition,
+  themeClasses.textColor,
   "text-sm",
   "pt-0",
-  "pb-2",
-  "text-gray-700",
-  "dark:text-gray-300"
+  "pb-2"
 )
 
 const dateClasses = clsx(
+  themeClasses.transition,
+  themeClasses.textColor,
   "text-xs",
   "font-medium",
-  "uppercase",
-  "text-gray-600",
-  "dark:text-gray-400"
+  "uppercase"
 )
 
 const BlogItem: React.FC<Props> = ({ meta, preview }) => {
@@ -37,12 +38,12 @@ const BlogItem: React.FC<Props> = ({ meta, preview }) => {
   const [isHovering, setIsHovering] = useState<boolean>(false)
   const router = useRouter()
 
-  const containerClasses = clsx("p-2", "rounded-md", {
-    "bg-white": !isHovering,
-    "bg-gray-100": isHovering,
-    "dark:bg-slate-900": !isHovering,
-    "dark:bg-slate-800": isHovering,
-  })
+  const containerClasses = clsx(
+    themeClasses.buttonColor,
+    themeClasses.transition,
+    "p-2",
+    "rounded-md"
+  )
 
   const postPreviewText = !!meta.description
     ? meta.description
