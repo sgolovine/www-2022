@@ -15,6 +15,8 @@ import { OfficeBuilding } from "./hero/OfficeBuilding"
 import { PaperClip } from "./hero/PaperClip"
 import { PencilSquare } from "./hero/PencilSquare"
 import Sun from "./hero/Sun"
+import { TextDecrease } from "./material/TextDecrease"
+import { TextIncrease } from "./material/TextIncrease"
 
 const allIcons = {
   arrowUpRight: ArrowUpRight,
@@ -33,6 +35,8 @@ const allIcons = {
   close: Close,
   sun: Sun,
   moon: Moon,
+  textIncrease: TextIncrease,
+  textDecrease: TextDecrease,
 }
 
 export type AllIcons = keyof typeof allIcons

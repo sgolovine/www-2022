@@ -18,5 +18,8 @@ export const themeClasses = {
     "dark:fill-gray-100"
   ),
   iconSize: clsx("h-6", "w-6"),
+  // This is the same as textColor. Adapted to use fill
+  // Instead of text-color
+  iconColor: clsx("fill-gray-700", "dark:fill-white"),
   transition: clsx("ease-in-out", "duration-100", "transition-all"),
 }

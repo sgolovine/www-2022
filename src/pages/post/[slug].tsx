@@ -1,3 +1,4 @@
+import { MDXRemoteSerializeResult } from "next-mdx-remote"
 import { PageLayout } from "~/components/layout"
 import PostTemplate from "~/features/blog/templates/PostTemplate"
 import { AppPage, StaticProps } from "~/model/PageProps"
@@ -12,12 +13,12 @@ interface Params {
 }
 
 interface Props {
-  preview?: string
   metadata: BlogPost | Snippet
+  mdx: string
 }
 
-const Page: AppPage<Props> = ({ preview, metadata }) => {
-  return <PostTemplate meta={metadata} />
+const Page: AppPage<Props> = ({ metadata, mdx }) => {
+  return <PostTemplate meta={metadata} mdx={mdx} />
 }
 
 Page.getLayout = page => (
@@ -34,8 +35,8 @@ export const getStaticProps = async ({
 
   return {
     props: {
-      preview: post.postPreview,
-      metadata: post.postMetadata,
+      metadata: post.meta.postMetadata,
+      mdx: post.mdx,
     },
   }
 }

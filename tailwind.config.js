@@ -8,7 +8,7 @@ module.exports = {
   variants: {
     extends: {},
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"), require("@tailwindcss/typography")],
   // For not everything is disabled except for the essentials
   // We need for the custom components daisyui provides.
   daisyui: {
