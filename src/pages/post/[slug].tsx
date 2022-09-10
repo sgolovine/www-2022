@@ -1,8 +1,6 @@
 import { PageLayout } from "~/components/layout"
-import PostTemplate from "~/features/blog/pages/PostTemplatePage"
-import { PostTemplatePageProps } from "~/features/blog/types/PostTemplatePageProps"
+import { PostTemplatePageProps, PostTemplatePage } from "~/features/blog"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { BlogPost, Snippet } from "~/model/Post"
 import { getPostBySlug } from "~/services/getPostBySlug.node"
 import { getStaticPostPaths } from "~/services/getStaticPostPaths.node"
 
@@ -13,7 +11,7 @@ interface Params {
 }
 
 const Page: AppPage<PostTemplatePageProps> = ({ meta, mdx }) => {
-  return <PostTemplate meta={meta} mdx={mdx} />
+  return <PostTemplatePage meta={meta} mdx={mdx} />
 }
 
 Page.getLayout = page => <PageLayout>{page}</PageLayout>

@@ -1,13 +1,15 @@
 import { PageLayout } from "~/components/layout"
-import { pageNavigationConfig } from "~/features/blog/config/pageNavigation"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import labels from "~/labels.json"
+import {
+  CategoryLandingPageProps,
+  CategoryLandingPage,
+  pageNavigationConfig,
+} from "~/features/blog"
 import { getAllCategories } from "~/services/getAllCategories.node"
-import { CategoriesPageProps } from "~/features/blog/types/CategoriesPageProps"
-import CategoriesPage from "~/features/blog/pages/CategoriesPage"
 
-const Page: AppPage<CategoriesPageProps> = ({ categories }) => {
-  return <CategoriesPage categories={categories} />
+const Page: AppPage<CategoryLandingPageProps> = ({ categories }) => {
+  return <CategoryLandingPage categories={categories} />
 }
 
 Page.getLayout = page => (
@@ -21,13 +23,14 @@ Page.getLayout = page => (
   </PageLayout>
 )
 
-export const getStaticProps = async (): StaticProps<CategoriesPageProps> => {
-  const allCategories = await getAllCategories()
-  return {
-    props: {
-      categories: allCategories,
-    },
+export const getStaticProps =
+  async (): StaticProps<CategoryLandingPageProps> => {
+    const allCategories = await getAllCategories()
+    return {
+      props: {
+        categories: allCategories,
+      },
+    }
   }
-}
 
 export default Page

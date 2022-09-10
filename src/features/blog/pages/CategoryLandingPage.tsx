@@ -4,9 +4,11 @@ import { categoryLabels } from "~/config/categoryLabels"
 import { themeClasses } from "~/config/themeClasses"
 import { AppPage } from "~/model/PageProps"
 import BlogListLayout from "../components/BlogListLayout"
-import { CategoriesPageProps } from "../types/CategoriesPageProps"
+import { CategoryLandingPageProps } from "../types/CategoryLandingPageProps"
 
-const CategoriesPage: AppPage<CategoriesPageProps> = ({ categories }) => (
+const CategoryLandingPage: AppPage<CategoryLandingPageProps> = ({
+  categories,
+}) => (
   <BlogListLayout>
     {categories?.map(category => {
       return (
@@ -30,4 +32,4 @@ const CategoriesPage: AppPage<CategoriesPageProps> = ({ categories }) => (
   </BlogListLayout>
 )
 
-export default CategoriesPage
+export default CategoryLandingPage

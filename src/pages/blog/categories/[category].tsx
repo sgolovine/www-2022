@@ -1,6 +1,5 @@
 import { categoryLabels } from "~/config/categoryLabels"
-import CategoryPage from "~/features/blog/pages/CategoryPage"
-import { CategoryPageProps } from "~/features/blog/types/CategoryPageProps"
+import { CategoryPageProps, CategoryPage } from "~/features/blog"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { getPostsByCategory } from "~/services/getPostsByCategory.node"
 import { getStaticCategoryPaths } from "~/services/getStaticCategoryPaths.node"
