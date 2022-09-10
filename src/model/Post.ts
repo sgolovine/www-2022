@@ -11,6 +11,7 @@ export interface BlogPost extends PostBase {
   date: string
   category?: string
   tags?: string
+  headerImage?: string
 }
 
 export interface Snippet extends PostBase {}

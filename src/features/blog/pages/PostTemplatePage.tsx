@@ -1,16 +1,13 @@
 import clsx from "clsx"
 import dayjs from "dayjs"
 import { MDXRemote } from "next-mdx-remote"
+import dynamic from "next/dynamic"
 import { useState } from "react"
 import { getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
 import { BlogPost, Snippet } from "~/model/Post"
+import PostImage from "../components/PostImage"
 import { PostTemplatePageProps } from "../types/PostTemplatePageProps"
-
-interface Props {
-  meta: BlogPost | Snippet
-  mdx: string
-}
 
 const TextIncreaseIcon = getIcon("textIncrease")
 const TextDecreaseIcon = getIcon("textDecrease")
@@ -111,10 +108,21 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
             </button>
           </div>
         </div>
-        <hr className="my-4" />
+        {meta.headerImage ? (
+          <div className="py-4">
+            <PostImage src={meta.headerImage} alt="Header Image" />
+          </div>
+        ) : (
+          <hr className="my-4" />
+        )}
         {/* Main Content */}
         <div className={proseClasses}>
-          <MDXRemote compiledSource={mdx} />
+          <MDXRemote
+            compiledSource={mdx}
+            components={{
+              img: dynamic(() => import("../components/PostImage")),
+            }}
+          />
         </div>
       </div>
     )

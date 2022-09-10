@@ -1,10 +1,10 @@
 ---
-title: Test Post
+title: Test Post with Header Image
 date: 09/06/2022
 description: This is a short description of the following post
 category: tech
 tags: react,javascript,webpack
-headerImage: header.jpeg
+headerImage: post-image-two.jpeg
 published: true
 slug: test-post-1
 ---

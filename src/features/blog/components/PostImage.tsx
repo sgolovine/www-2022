@@ -1,19 +1,23 @@
 import { Image } from "~/components/Image"
 
 interface Props {
-  src: string
+  src?: string
   alt?: string
 }
 
-export const PostImage: React.FC<Props> = ({ src, alt }) => {
+const PostImage: React.FC<Props> = ({ src, alt }) => {
+  const imgSrc = `/images/posts/${src}`
+
   return (
-    <div className="blog-post-image-container">
+    <div className="blog-post-image-container rounded-lg drop-shadow-lg">
       <Image
-        src={src}
+        src={imgSrc}
         alt={alt}
         layout="fill"
-        className="blog-post-image-component"
+        className="blog-post-image-component rounded-lg drop-shadow-lg"
       />
     </div>
   )
 }
+
+export default PostImage
