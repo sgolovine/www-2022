@@ -3,7 +3,7 @@ import { Header, HeaderProps } from "../header"
 import BaseLayout from "./BaseLayout"
 
 const PageLayout: React.FC<{
-  header: HeaderProps
+  header?: HeaderProps
   children: ReactNode
 }> = ({ header, children }) => (
   <BaseLayout hideThemeToggle>

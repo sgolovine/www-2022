@@ -1,21 +1,13 @@
 import { PageLayout } from "~/components/layout"
-import { featureFlags } from "~/config/featureFlags"
-import { featureStubs } from "~/config/featureStubs"
-import { BlogPage } from "~/features/blog"
-import { useFeatureRedirect } from "~/hooks/useFeatureRedirect"
+import { AllPostsPage } from "~/features/blog"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import labels from "~/labels.json"
 import { pageNavigationConfig } from "~/features/blog/config/pageNavigation"
 import { getAllPosts } from "~/services/getAllPosts.node"
-import { BlogPageProps } from "~/features/blog/types/BlogPageProps"
+import { AllPostsPageProps } from "~/features/blog/types/AllPostsPageProps"
 
-const Page: AppPage<BlogPageProps> = ({ posts }) => {
-  useFeatureRedirect({
-    url: featureStubs.blog,
-    flag: featureFlags.nativeBlogPage,
-  })
-
-  return <BlogPage posts={posts} />
+const Page: AppPage<AllPostsPageProps> = ({ posts }) => {
+  return <AllPostsPage posts={posts} />
 }
 
 Page.getLayout = page => (
@@ -29,7 +21,7 @@ Page.getLayout = page => (
   </PageLayout>
 )
 
-export async function getStaticProps(): StaticProps<BlogPageProps> {
+export async function getStaticProps(): StaticProps<AllPostsPageProps> {
   const allPosts = await getAllPosts()
   return {
     props: {

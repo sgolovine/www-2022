@@ -1,6 +1,6 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote"
 import { PageLayout } from "~/components/layout"
-import PostTemplate from "~/features/blog/templates/PostTemplate"
+import PostTemplate from "~/features/blog/pages/PostTemplatePage"
+import { PostTemplatePageProps } from "~/features/blog/types/PostTemplatePageProps"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { BlogPost, Snippet } from "~/model/Post"
 import { getPostBySlug } from "~/services/getPostBySlug.node"
@@ -12,22 +12,15 @@ interface Params {
   }
 }
 
-interface Props {
-  metadata: BlogPost | Snippet
-  mdx: string
+const Page: AppPage<PostTemplatePageProps> = ({ meta, mdx }) => {
+  return <PostTemplate meta={meta} mdx={mdx} />
 }
 
-const Page: AppPage<Props> = ({ metadata, mdx }) => {
-  return <PostTemplate meta={metadata} mdx={mdx} />
-}
-
-Page.getLayout = page => (
-  <PageLayout header={{ showBackArrow: true }}>{page}</PageLayout>
-)
+Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
 export const getStaticProps = async ({
   params: { slug },
-}: Params): StaticProps<Props> => {
+}: Params): StaticProps<PostTemplatePageProps> => {
   const post = await getPostBySlug(slug)
   if (!post) {
     throw "Error fetching post"
@@ -35,7 +28,7 @@ export const getStaticProps = async ({
 
   return {
     props: {
-      metadata: post.meta.postMetadata,
+      meta: post.meta.postMetadata,
       mdx: post.mdx,
     },
   }

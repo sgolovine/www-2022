@@ -1,12 +1,11 @@
-import BlogItem from "./components/BlogItem"
-import BlogListLayout from "./components/BlogListLayout"
-import { BlogPageProps } from "./types/BlogPageProps"
+import BlogItem from "../components/BlogItem"
+import BlogListLayout from "../components/BlogListLayout"
+import { AllPostsPageProps } from "../types/AllPostsPageProps"
 
-const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
+const AllPostsPage: React.FC<AllPostsPageProps> = ({ posts }) => {
   return (
     <BlogListLayout>
       {posts.data.map(post => {
-        console.log(post)
         return (
           <BlogItem
             key={post.relativePath}
@@ -19,4 +18,4 @@ const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
   )
 }
 
-export default BlogPage
+export default AllPostsPage

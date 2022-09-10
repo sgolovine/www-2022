@@ -1,5 +1,5 @@
 import { PostMap, BlogPost } from "~/model/Post"
 
-export interface BlogPageProps {
+export interface AllPostsPageProps {
   posts: PostMap<BlogPost>
 }

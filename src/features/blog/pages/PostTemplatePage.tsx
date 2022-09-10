@@ -5,6 +5,7 @@ import { useState } from "react"
 import { getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
 import { BlogPost, Snippet } from "~/model/Post"
+import { PostTemplatePageProps } from "../types/PostTemplatePageProps"
 
 interface Props {
   meta: BlogPost | Snippet
@@ -18,7 +19,7 @@ const formatDate = (date: string): string => {
   return dayjs(date).format("MMM DD")
 }
 
-const PostTemplate: React.FC<Props> = ({ meta, mdx }) => {
+const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
   const isSnippet = meta.type === "snippet"
 
   // 1: prose-sm
@@ -136,4 +137,4 @@ const PostTemplate: React.FC<Props> = ({ meta, mdx }) => {
   )
 }
 
-export default PostTemplate
+export default PostTemplatePage
