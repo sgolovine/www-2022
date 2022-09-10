@@ -1,11 +1,10 @@
 import clsx from "clsx"
-import dayjs from "dayjs"
 import { useRouter } from "next/router"
 import { themeClasses } from "~/config/themeClasses"
-import { BlogPost } from "~/model/Post"
+import { Snippet } from "~/model/Post"
 
 interface Props {
-  meta: BlogPost
+  meta: Snippet
   preview?: string
 }
 
@@ -24,16 +23,7 @@ const previewClasses = clsx(
   "pb-2"
 )
 
-const dateClasses = clsx(
-  themeClasses.transition,
-  themeClasses.textColor,
-  "text-xs",
-  "font-medium",
-  "uppercase"
-)
-
-const BlogItem: React.FC<Props> = ({ meta, preview }) => {
-  const displayDate = dayjs(meta.date).format("MMM D")
+const SnippetItem: React.FC<Props> = ({ meta, preview }) => {
   const router = useRouter()
 
   const containerClasses = clsx(
@@ -52,7 +42,7 @@ const BlogItem: React.FC<Props> = ({ meta, preview }) => {
   const shouldShowPostPreview = typeof postPreviewText === "string"
 
   const handleClick = () => {
-    router.push(`/post/${meta.slug}`)
+    router.push(`/snippet/${meta.slug}`)
   }
 
   return (
@@ -61,15 +51,8 @@ const BlogItem: React.FC<Props> = ({ meta, preview }) => {
       {shouldShowPostPreview && (
         <p className={previewClasses}>{postPreviewText}...</p>
       )}
-      {meta?.category ? (
-        <p className={dateClasses}>
-          {displayDate} | {meta.category}
-        </p>
-      ) : (
-        <p className={dateClasses}>{displayDate}</p>
-      )}
     </div>
   )
 }
 
-export default BlogItem
+export default SnippetItem

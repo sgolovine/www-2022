@@ -1,10 +1,22 @@
+import BlogListLayout from "../components/BlogListLayout"
+import SnippetItem from "../components/SnippetItem"
 import { SnippetsLandingPageProps } from "../types/SnippetsLandingPageProps"
 
-const SnippetsLandingPage: React.FC<SnippetsLandingPageProps> = ({}) => {
+const SnippetsLandingPage: React.FC<SnippetsLandingPageProps> = ({
+  snippets,
+}) => {
   return (
-    <div>
-      <p>Snippets Landing Page</p>
-    </div>
+    <BlogListLayout>
+      {snippets.data.map(post => {
+        return (
+          <SnippetItem
+            key={post.relativePath}
+            meta={post.postMetadata}
+            preview={post.postPreview}
+          />
+        )
+      })}
+    </BlogListLayout>
   )
 }
 
