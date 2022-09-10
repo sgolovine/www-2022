@@ -42,10 +42,10 @@ export const getStaticProps = async ({
 }
 
 export const getStaticPaths = async () => {
-  const staticPostPaths = await getStaticPostPaths()
+  const { paths } = await getStaticPostPaths()
 
   return {
-    paths: staticPostPaths.paths,
+    paths: paths,
     fallback: false,
   }
 }
