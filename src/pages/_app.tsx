@@ -4,6 +4,7 @@ import { AppPage } from "~/model/PageProps"
 
 import "../styles/tailwind.css"
 import "../styles/global.css"
+import "../styles/post-image.css"
 
 type AppPropsWithLayout = AppProps & {
   Component: AppPage
