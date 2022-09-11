@@ -3,3 +3,4 @@ dist
 .next
 .DS_Store
 src/__postmap__.json
+tsconfig.tsbuildinfo
