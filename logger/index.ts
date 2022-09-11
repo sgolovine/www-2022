@@ -1,3 +1,3 @@
-import AppLogger from "./AppLogger";
+import AppLogger from "./AppLogger"
 
-export default AppLogger;
+export default AppLogger
