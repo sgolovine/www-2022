@@ -1,5 +1,4 @@
 import clsx from "clsx"
-import Link from "next/link"
 import { useRouter } from "next/router"
 import { HeaderRoute } from "~/model/HeaderRoute"
 import { getIcon } from "../icons"
