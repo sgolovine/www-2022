@@ -8,7 +8,7 @@ slug: snippet-one
 
 This is a simple piece of code.
 
-```js
+```javascript
 const ResumePage = () => {
   return (
     <div>

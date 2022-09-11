@@ -8,7 +8,7 @@ slug: snippet-two
 
 This is a simple piece of code.
 
-```js
+```javascript
 export class Foobar {
   constructor(foo) {
     this.foo = foo

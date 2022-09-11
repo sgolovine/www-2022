@@ -3,6 +3,7 @@ import { MDXRemote } from "next-mdx-remote"
 import dynamic from "next/dynamic"
 import { getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
+import { MarkdownRenderer } from "../components/MarkdownRenderer"
 import PostImage from "../components/PostImage"
 import { useFontSize } from "../hooks/useFontSize"
 import { SnippetTemplatePageProps } from "../types/SnippetTemplatePageProps"
@@ -77,14 +78,7 @@ const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
       </div>
       <hr className="my-4" />
       {/* Main Content */}
-      <div className={proseClasses}>
-        <MDXRemote
-          compiledSource={mdx}
-          components={{
-            img: dynamic(() => import("../components/PostImage")),
-          }}
-        />
-      </div>
+      <MarkdownRenderer classes={proseClasses} mdx={mdx} />
     </div>
   )
 }
