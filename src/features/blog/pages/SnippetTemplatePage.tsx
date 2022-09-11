@@ -1,18 +1,19 @@
 import clsx from "clsx"
-import dayjs from "dayjs"
 import { MDXRemote } from "next-mdx-remote"
 import dynamic from "next/dynamic"
 import { getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
 import PostImage from "../components/PostImage"
-import { formatDate } from "../helpers/formatDate"
 import { useFontSize } from "../hooks/useFontSize"
-import { PostTemplatePageProps } from "../types/PostTemplatePageProps"
+import { SnippetTemplatePageProps } from "../types/SnippetTemplatePageProps"
 
 const TextIncreaseIcon = getIcon("textIncrease")
 const TextDecreaseIcon = getIcon("textDecrease")
 
-const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
+const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
+  meta,
+  mdx,
+}) => {
   const { handleFontSizeDecrease, handleFontSizeIncrease, proseClasses } =
     useFontSize()
 
@@ -27,7 +28,7 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
             "uppercase"
           )}
         >
-          {meta.category}
+          Snippet
         </p>
       </div>
       <p
@@ -54,9 +55,6 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
           <p className={clsx(themeClasses.textColor, "text-xs", "font-bold")}>
             Sunny Golovine
           </p>
-          <p className={clsx(themeClasses.textColor, "text-xs", "font-bold")}>
-            {formatDate(meta.date)}
-          </p>
         </div>
         <div className="flex flex-row items-end gap-3">
           <button
@@ -77,13 +75,7 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
           </button>
         </div>
       </div>
-      {meta.headerImage ? (
-        <div className="py-4">
-          <PostImage src={meta.headerImage} alt="Header Image" />
-        </div>
-      ) : (
-        <hr className="my-4" />
-      )}
+      <hr className="my-4" />
       {/* Main Content */}
       <div className={proseClasses}>
         <MDXRemote
@@ -97,4 +89,4 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
   )
 }
 
-export default PostTemplatePage
+export default SnippetTemplatePage

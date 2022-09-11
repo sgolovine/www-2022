@@ -38,3 +38,32 @@ export async function getPostBySlug(slug: string) {
     throw e
   }
 }
+
+export async function getSnippetBySlug(slug: string) {
+  try {
+    const postMapFile = await fs.readFile(postMapPath, "utf-8")
+    const postMap: ContentMap = JSON.parse(postMapFile)
+    const selectedPostMetadata = postMap?.snippets?.data.find(
+      postItem => postItem.postMetadata.slug === slug
+    )
+    if (selectedPostMetadata) {
+      // fetch the MD file
+      const rawBlogPost = await fs.readFile(
+        path.resolve(postMap.snippets.cwd, selectedPostMetadata.relativePath),
+        "utf-8"
+      )
+
+      const mdxSource = await serialize(rawBlogPost, {
+        parseFrontmatter: true,
+      })
+
+      return {
+        meta: selectedPostMetadata,
+        mdx: mdxSource.compiledSource,
+      }
+    }
+  } catch (e) {
+    logger.error("Error fetching post.", "Unable to read postmap.")
+    throw e
+  }
+}

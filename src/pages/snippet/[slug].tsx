@@ -1,7 +1,8 @@
 import { PageLayout } from "~/components/layout"
-import { PostTemplatePageProps, PostTemplatePage } from "~/features/blog"
+import SnippetTemplatePage from "~/features/blog/pages/SnippetTemplatePage"
+import { SnippetTemplatePageProps } from "~/features/blog/types/SnippetTemplatePageProps"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { getPostBySlug } from "~/services/getPostBySlug.node"
+import { getSnippetBySlug } from "~/services/getPostBySlug.node"
 import { getStaticPostPaths } from "~/services/getStaticPostPaths.node"
 
 interface Params {
@@ -10,16 +11,16 @@ interface Params {
   }
 }
 
-const Page: AppPage<PostTemplatePageProps> = ({ meta, mdx }) => {
-  return <PostTemplatePage meta={meta} mdx={mdx} />
+const Page: AppPage<SnippetTemplatePageProps> = props => {
+  return <SnippetTemplatePage {...props} />
 }
 
 Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
 export const getStaticProps = async ({
   params: { slug },
-}: Params): StaticProps<PostTemplatePageProps> => {
-  const post = await getPostBySlug(slug)
+}: Params): StaticProps<SnippetTemplatePageProps> => {
+  const post = await getSnippetBySlug(slug)
   if (!post) {
     throw "Error fetching post"
   }
@@ -33,7 +34,7 @@ export const getStaticProps = async ({
 }
 
 export const getStaticPaths = async () => {
-  const { paths } = await getStaticPostPaths({ snippet: false })
+  const { paths } = await getStaticPostPaths({ snippet: true })
 
   return {
     paths: paths,
