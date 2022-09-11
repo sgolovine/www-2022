@@ -9,7 +9,15 @@
   "blog": {
     "categories": "Categories",
     "snippets": "Snippets",
-    "allPosts": "Posts"
+    "snippet": "Snippet",
+    "allPosts": "Posts",
+    "post": "Post",
+    "author": "Sunny Golovine",
+    "template": {
+      "defaultHeaderAlt": "Header Image",
+      "otherPostsHeader": "Other Posts",
+      "otherPostsDescription": "Check out some of my other recent posts."
+    }
   },
   "resume": {
     "downloadPDF": "Download PDF",

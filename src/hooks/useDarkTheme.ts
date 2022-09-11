@@ -4,7 +4,8 @@ import useLocalStorage from "./useLocalStorage"
 export const useDarkTheme = () => {
   const [darkTheme, setDarkTheme] = useLocalStorage<boolean>(
     "dark-theme-v1",
-    false
+    false,
+    "useDarkTheme"
   )
 
   useEffect(() => {

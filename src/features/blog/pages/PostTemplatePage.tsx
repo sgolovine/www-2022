@@ -1,7 +1,4 @@
 import clsx from "clsx"
-import dayjs from "dayjs"
-import { MDXRemote } from "next-mdx-remote"
-import dynamic from "next/dynamic"
 import { getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
 import { MarkdownRenderer } from "../components/MarkdownRenderer"
@@ -9,11 +6,17 @@ import PostImage from "../components/PostImage"
 import { formatDate } from "../helpers/formatDate"
 import { useFontSize } from "../hooks/useFontSize"
 import { PostTemplatePageProps } from "../types/PostTemplatePageProps"
+import labels from "~/labels.json"
+import BlogItem from "../components/BlogItem"
 
 const TextIncreaseIcon = getIcon("textIncrease")
 const TextDecreaseIcon = getIcon("textDecrease")
 
-const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
+const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
+  meta,
+  mdx,
+  recentPosts,
+}) => {
   const { handleFontSizeDecrease, handleFontSizeIncrease, proseClasses } =
     useFontSize()
 
@@ -28,7 +31,7 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
             "uppercase"
           )}
         >
-          {meta.category}
+          {meta.category ?? labels.blog.post}
         </p>
       </div>
       <p
@@ -53,7 +56,7 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
       <div className="flex flex-row items-center justify-between pt-4">
         <div className="flex flex-col">
           <p className={clsx(themeClasses.textColor, "text-xs", "font-bold")}>
-            Sunny Golovine
+            {labels.blog.author}
           </p>
           <p className={clsx(themeClasses.textColor, "text-xs", "font-bold")}>
             {formatDate(meta.date)}
@@ -80,13 +83,47 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({ meta, mdx }) => {
       </div>
       {meta.headerImage ? (
         <div className="py-4">
-          <PostImage src={meta.headerImage} alt="Header Image" />
+          <PostImage
+            src={meta.headerImage}
+            alt={labels.blog.template.defaultHeaderAlt}
+          />
         </div>
       ) : (
         <hr className="my-4" />
       )}
       {/* Main Content */}
       <MarkdownRenderer classes={proseClasses} mdx={mdx} />
+      {recentPosts && recentPosts.length > 0 && (
+        <>
+          <hr className="my-4" />
+          <div>
+            <h2
+              className={clsx(
+                themeClasses.headerColor,
+                "text-xl",
+                "text-center",
+                "font-bold"
+              )}
+            >
+              {labels.blog.template.otherPostsHeader}
+            </h2>
+            <p className={clsx(themeClasses.textColor, "text-center")}>
+              {labels.blog.template.otherPostsDescription}
+            </p>
+            <div className="flex flex-col gap-5 py-5">
+              {recentPosts.map(post => {
+                return (
+                  <BlogItem
+                    hideAdditionalData
+                    key={post.relativePath}
+                    meta={post.postMetadata}
+                  />
+                )
+              })}
+            </div>
+          </div>
+        </>
+      )}
     </div>
   )
 }

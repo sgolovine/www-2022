@@ -1,6 +1,7 @@
-import { BlogPost, Snippet } from "~/model/Post"
+import { BlogPost, PostMapData } from "~/model/Post"
 
 export interface PostTemplatePageProps {
   meta: BlogPost
   mdx: string
+  recentPosts: PostMapData<BlogPost>[]
 }

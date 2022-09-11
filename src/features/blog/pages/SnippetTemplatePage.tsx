@@ -1,12 +1,10 @@
 import clsx from "clsx"
-import { MDXRemote } from "next-mdx-remote"
-import dynamic from "next/dynamic"
 import { getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
 import { MarkdownRenderer } from "../components/MarkdownRenderer"
-import PostImage from "../components/PostImage"
 import { useFontSize } from "../hooks/useFontSize"
 import { SnippetTemplatePageProps } from "../types/SnippetTemplatePageProps"
+import labels from "~/labels.json"
 
 const TextIncreaseIcon = getIcon("textIncrease")
 const TextDecreaseIcon = getIcon("textDecrease")
@@ -29,7 +27,7 @@ const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
             "uppercase"
           )}
         >
-          Snippet
+          {labels.blog.snippet}
         </p>
       </div>
       <p
@@ -54,7 +52,7 @@ const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
       <div className="flex flex-row items-center justify-between pt-4">
         <div className="flex flex-col">
           <p className={clsx(themeClasses.textColor, "text-xs", "font-bold")}>
-            Sunny Golovine
+            {labels.blog.author}
           </p>
         </div>
         <div className="flex flex-row items-end gap-3">

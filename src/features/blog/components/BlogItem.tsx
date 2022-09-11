@@ -7,6 +7,7 @@ import { BlogPost } from "~/model/Post"
 interface Props {
   meta: BlogPost
   preview?: string
+  hideAdditionalData?: boolean
 }
 
 const titleClasses = clsx(
@@ -32,7 +33,7 @@ const dateClasses = clsx(
   "uppercase"
 )
 
-const BlogItem: React.FC<Props> = ({ meta, preview }) => {
+const BlogItem: React.FC<Props> = ({ meta, preview, hideAdditionalData }) => {
   const displayDate = dayjs(meta.date).format("MMM D")
   const router = useRouter()
 
@@ -58,7 +59,7 @@ const BlogItem: React.FC<Props> = ({ meta, preview }) => {
   return (
     <div className={containerClasses} onClick={handleClick}>
       <p className={titleClasses}>{meta.title}</p>
-      {shouldShowPostPreview && (
+      {shouldShowPostPreview && !hideAdditionalData && (
         <p className={previewClasses}>{postPreviewText}...</p>
       )}
       {meta?.category ? (

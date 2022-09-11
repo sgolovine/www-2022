@@ -1,8 +1,16 @@
 // Taken from: https://usehooks.com/useLocalStorage/
 
+import AppLogger from "@logger"
 import { useState } from "react"
 
-export default function useLocalStorage<T>(key: string, initialValue: T) {
+export default function useLocalStorage<T>(
+  key: string,
+  initialValue: T,
+  logPrefix?: string
+) {
+  const logger = new AppLogger({
+    prefix: logPrefix ?? "useLocalStorage",
+  })
   // State to store our value
   // Pass initial state function to useState so logic is only executed once
   const [storedValue, setStoredValue] = useState<T>(() => {
@@ -16,7 +24,7 @@ export default function useLocalStorage<T>(key: string, initialValue: T) {
       return item ? JSON.parse(item) : initialValue
     } catch (error) {
       // If error also return initialValue
-      console.log(error)
+      logger.log(error)
       return initialValue
     }
   })
@@ -35,7 +43,7 @@ export default function useLocalStorage<T>(key: string, initialValue: T) {
       }
     } catch (error) {
       // A more advanced implementation would handle the error case
-      console.log(error)
+      logger.log(error)
     }
   }
   return [storedValue, setValue] as const

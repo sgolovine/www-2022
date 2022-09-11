@@ -11,9 +11,9 @@ interface Params {
   }
 }
 
-const Page: AppPage<SnippetTemplatePageProps> = props => {
-  return <SnippetTemplatePage {...props} />
-}
+const Page: AppPage<SnippetTemplatePageProps> = props => (
+  <SnippetTemplatePage {...props} />
+)
 
 Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
