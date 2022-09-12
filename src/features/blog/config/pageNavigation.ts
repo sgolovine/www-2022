@@ -8,10 +8,10 @@ export const pageNavigationConfig: HeaderRoute[] = [
     title: labels.blog.allPosts,
     href: Routes.Blog,
   },
-  {
-    id: "categories",
-    title: labels.blog.categories,
-    href: Routes.BlogCategories,
-  },
+  // {
+  //   id: "categories",
+  //   title: labels.blog.categories,
+  //   href: Routes.BlogCategories,
+  // },
   { id: "snippets", title: labels.blog.snippets, href: Routes.BlogSnippets },
 ]

@@ -26,7 +26,6 @@ const Header: React.FC<HeaderProps> = ({
   const showPageNavigation = !!pageNavigation
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const { pathname: currentRoute } = useRouter()
-  const routes = headerRoutes.filter(route => route.href !== currentRoute)
 
   const containerClasses = clsx(
     "w-full",
@@ -77,10 +76,7 @@ const Header: React.FC<HeaderProps> = ({
     "gap-4",
     "grow-0",
     "sm:grow",
-    {
-      "px-6": !!title,
-      "px-2": !title,
-    }
+    "px-2"
   )
 
   const handleGoBack = () => {
@@ -99,17 +95,27 @@ const Header: React.FC<HeaderProps> = ({
             </span>
           )}
           {title && (
-            <p className="text-lg sm:text-xl font-bold text-gray-800 dark:text-gray-50">
+            <p className="text-lg sm:hidden font-bold text-gray-800 dark:text-gray-50">
               {title}
             </p>
           )}
         </span>
         <div className={headerLinkContainerClasses}>
-          {routes.map(route => (
-            <Link key={route.id} href={route.href}>
-              <a className={linkClasses}>{route.title}</a>
-            </Link>
-          ))}
+          {headerRoutes.map(route => {
+            const isActive = route.href === currentRoute
+            return (
+              <Link key={route.id} href={route.href}>
+                <a
+                  className={clsx(linkClasses, {
+                    "text-blue-500": isActive,
+                    "font-medium": isActive,
+                  })}
+                >
+                  {route.title}
+                </a>
+              </Link>
+            )
+          })}
         </div>
         <span
           className="block sm:hidden"
@@ -128,7 +134,7 @@ const Header: React.FC<HeaderProps> = ({
         </span>
       </div>
       {menuOpen && (
-        <MobileMenu routes={routes} onClose={() => setMenuOpen(false)} />
+        <MobileMenu routes={headerRoutes} onClose={() => setMenuOpen(false)} />
       )}
       {showPageNavigation && (
         <div className="border-b-2 pt-2 px-2 border-gray-200 dark:border-slate-700">
