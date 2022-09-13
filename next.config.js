@@ -11,13 +11,13 @@ module.exports = {
     nextImageExportOptimizer_storePicturesInWEBP: true,
     nextImageExportOptimizer_generateAndUseBlurImages: true,
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/blog/post/:slug",
-  //       destination: "/post/:slug",
-  //       permanent: true,
-  //     },
-  //   ]
-  // },
+  async redirects() {
+    return [
+      {
+        source: "/snippets",
+        to: "/blog/snippets",
+        permanent: true,
+      },
+    ]
+  },
 }

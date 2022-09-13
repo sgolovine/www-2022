@@ -1,31 +1,32 @@
 import { PageLayout } from "~/components/layout"
-import { featureFlags } from "~/config/featureFlags"
-import { featureStubs } from "~/config/featureStubs"
-import { ResumePage } from "~/features/resume"
-import { useFeatureRedirect } from "~/hooks/useFeatureRedirect"
-import { AppPage } from "~/model/PageProps"
+import { ResumePage, pageNavigationConfig } from "~/features/resume"
+import { AppPage, StaticProps } from "~/model/PageProps"
 import labels from "~/labels.json"
+import { ResumePageProps } from "~/features/resume/types/ResumePageProps"
+import { getResume } from "~/services/getResume.node"
 
-const Page: AppPage = () => {
-  useFeatureRedirect({
-    url: featureStubs.resume,
-    flag: featureFlags.nativeResumePage,
-  })
-
-  return <ResumePage />
+const Page: AppPage<ResumePageProps> = props => {
+  return <ResumePage {...props} />
 }
+
 Page.getLayout = page => (
   <PageLayout
     header={{
       title: labels.headerRoutes.resume,
-      pageNavigation: [
-        { id: "download-pdf", title: labels.resume.downloadPDF, href: "#" },
-        { id: "download-doc", title: labels.resume.downloadDOC, href: "#" },
-      ],
+      pageNavigation: pageNavigationConfig,
     }}
   >
     {page}
   </PageLayout>
 )
+
+export const getStaticProps = async (): StaticProps<ResumePageProps> => {
+  const resumeJSON = await getResume()
+  return {
+    props: {
+      data: resumeJSON,
+    },
+  }
+}
 
 export default Page

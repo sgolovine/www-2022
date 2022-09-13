@@ -5,4 +5,6 @@ export enum Routes {
   BlogSnippets = "/blog/snippets",
   BlogCategories = "/blog/categories",
   Resume = "/resume",
+  ResumeDownloadDoc = "/resume/download-doc",
+  ResumeDownloadPdf = "/resume/download-pdf",
 }
