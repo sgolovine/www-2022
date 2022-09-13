@@ -15,7 +15,7 @@ module.exports = {
     return [
       {
         source: "/snippets",
-        to: "/blog/snippets",
+        destination: "/blog/snippets",
         permanent: true,
       },
     ]

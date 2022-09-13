@@ -1,10 +1,10 @@
 import { PageLayout } from "~/components/layout"
 import labels from "~/labels.json"
 import { AppPage } from "~/model/PageProps"
-import { pageNavigationConfig } from "~/features/resume"
+import { DownloadDocPage, pageNavigationConfig } from "~/features/resume"
 
 const Page: AppPage = () => {
-  return <p>Download DOC Page</p>
+  return <DownloadDocPage />
 }
 
 Page.getLayout = page => {
