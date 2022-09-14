@@ -7,4 +7,5 @@ export const featureFlags = {
   // Disable redirects by useFeatureRedirect without
   // Having to mess with individual flags above.
   disableFeatureRedirects: true,
+  enableResumeDownloadLinks: false,
 }

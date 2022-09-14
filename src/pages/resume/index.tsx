@@ -4,6 +4,7 @@ import { AppPage, StaticProps } from "~/model/PageProps"
 import labels from "~/labels.json"
 import { ResumePageProps } from "~/features/resume/types/ResumePageProps"
 import { getResume } from "~/services/getResume.node"
+import { featureFlags } from "~/config/featureFlags"
 
 const Page: AppPage<ResumePageProps> = props => {
   return <ResumePage {...props} />
@@ -13,7 +14,9 @@ Page.getLayout = page => (
   <PageLayout
     header={{
       title: labels.headerRoutes.resume,
-      pageNavigation: pageNavigationConfig,
+      pageNavigation: featureFlags.enableResumeDownloadLinks
+        ? pageNavigationConfig
+        : undefined,
     }}
   >
     {page}
