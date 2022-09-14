@@ -2,4 +2,6 @@
   base = "/"
   publish = "/dist"
   command = "npm run build"
+
+[context.production]
   environment = { NETLIFY_NEXT_PLUGIN_SKIP = "true", AWS_LAMBDA_JS_RUNTIME = "nodejs16.x" }
