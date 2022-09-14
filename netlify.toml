@@ -2,4 +2,4 @@
   base = "/"
   publish = "/dist"
   command = "npm run build"
-  environment = { NODE_VERSION = "16.14.0", NETLIFY_NEXT_PLUGIN_SKIP = "true", AWS_LAMBDA_JS_RUNTIME = "nodejs16.x" }
+  environment = { NETLIFY_NEXT_PLUGIN_SKIP = "true", AWS_LAMBDA_JS_RUNTIME = "nodejs16.x" }
