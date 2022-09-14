@@ -1,17 +1,18 @@
-:root {
+.OuterContainer {
   --pk-size: 256px;
-  --pk-container-padding: 15px;
-  --pk-container-size: calc(var(--punk-size) + var(--container-padding));
+  --pk-container-padding: 0px;
+  --pk-container-size: calc(var(--pk-size) + var(--pk-container-padding));
   --pk-container-border-radius: 7.5px;
   --pk-svg-size: 120px;
   --pk-colors-white: #ffffff;
+  --pk-colors-grey: #333;
 }
 
 .PunkBorderContainer {
   height: var(--pk-container-size);
   width: var(--pk-container-size);
-  padding: calc(var(--pk-container-padding) / 2);
   background-color: var(--pk-colors-white);
+  padding: calc(var(--pk-container-padding) / 2);
   border-radius: var(--pk-container-border-radius);
 }
 
