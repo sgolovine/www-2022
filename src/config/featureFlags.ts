@@ -8,4 +8,6 @@ export const featureFlags = {
   // Having to mess with individual flags above.
   disableFeatureRedirects: true,
   enableResumeDownloadLinks: false,
+  // Punk related flags
+  showPunkOnLandingPage: false,
 }

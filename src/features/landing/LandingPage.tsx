@@ -5,11 +5,19 @@ import SocialButton from "./components/SocialButton"
 import { links } from "./config/links"
 import { socialLinks } from "./config/socialLinks"
 import labels from "~/labels.json"
+import { featureFlags } from "~/config/featureFlags"
+import { Punk } from "~/components/punk"
 
 const LandingPage: React.FC = () => {
   return (
     <div className="max-w-xl mx-auto pt-12 px-4 pb-4">
-      <ProfilePicture />
+      {featureFlags.showPunkOnLandingPage ? (
+        <div className="flex flex-row items-center justify-center">
+          <Punk />
+        </div>
+      ) : (
+        <ProfilePicture />
+      )}
       <PageHeader
         title={labels.landingPage.header}
         bio={labels.landingPage.bio}
