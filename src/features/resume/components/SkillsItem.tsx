@@ -1,4 +1,6 @@
+import clsx from "clsx"
 import React from "react"
+import { themeClasses } from "~/config/themeClasses"
 import { ResumeSkillItem } from "../types/Resume"
 import { Pill } from "./common/Pill"
 
@@ -9,8 +11,10 @@ export const SkillsItem: React.FC<ResumeSkillItem> = ({
 }) => (
   <div className="pt-4 pb-12">
     <div className="flex flex-row items-center justify-between">
-      <p className="text-xl font-bold">{name}</p>
-      <p className="text-sm text-gray-400">{level}</p>
+      <p className={clsx("text-xl", "font-bold", themeClasses.textColor)}>
+        {name}
+      </p>
+      <p className={clsx("text-sm", themeClasses.detailTextColor)}>{level}</p>
     </div>
     <div className="flex flex-row items-center pt-4">
       {keywords.map((keyword, index) => (

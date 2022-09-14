@@ -3,6 +3,7 @@ import clsx from "clsx"
 import { ResumeWorkItem } from "../types/Resume"
 import { getTenure } from "../helpers/getTenure"
 import { getTimePeriod } from "../helpers/getTimePeriod"
+import { themeClasses } from "~/config/themeClasses"
 
 export const WorkItem: React.FC<ResumeWorkItem> = ({
   name,
@@ -19,7 +20,7 @@ export const WorkItem: React.FC<ResumeWorkItem> = ({
   const tenure = getTenure(startDate, endDate)
 
   const renderName = () => {
-    const classes = clsx("text-xl", "font-bold")
+    const classes = clsx(themeClasses.headerColor, "text-xl", "font-bold")
 
     if (!positionsUI) {
       return <p className={classes}>{singlePosition.position}</p>
@@ -58,13 +59,28 @@ export const WorkItem: React.FC<ResumeWorkItem> = ({
         return (
           <div key={index} className={borderClassnames}>
             <div className="flex flex-row items-center justify-between">
-              <p className="text-lg font-bold">{position.position}</p>
-              <p className="text-sm text-gray-400">{timePeriod}</p>
+              <p
+                className={clsx(
+                  themeClasses.headerColor,
+                  "text-lg",
+                  "font-bold"
+                )}
+              >
+                {position.position}
+              </p>
+              <p className={clsx(themeClasses.detailTextColor, "text-sm")}>
+                {timePeriod}
+              </p>
             </div>
-            <p className="text-sm text-gray-400">{tenure}</p>
+            <p className={clsx("text-sm", themeClasses.detailTextColor)}>
+              {tenure}
+            </p>
             <div className="pt-2">
               {position.summary.map((summaryItem, index) => (
-                <p key={index} className="text-sm my-2">
+                <p
+                  key={index}
+                  className={clsx(themeClasses.textColor, "text-sm", "my-2")}
+                >
                   {summaryItem}
                 </p>
               ))}
@@ -79,7 +95,10 @@ export const WorkItem: React.FC<ResumeWorkItem> = ({
     <div className="my-4">
       <div>
         {singlePosition.summary.map((summaryItem, index) => (
-          <p key={index} className="text-sm my-2">
+          <p
+            key={index}
+            className={clsx("text-sm", "my-2", themeClasses.textColor)}
+          >
             {summaryItem}
           </p>
         ))}
@@ -91,10 +110,14 @@ export const WorkItem: React.FC<ResumeWorkItem> = ({
     <div className="pt-4 pb-12">
       <div className="flex flex-row items-center justify-between">
         {renderName()}
-        <p className="text-sm text-gray-400">{formattedDate}</p>
+        <p className={clsx(themeClasses.detailTextColor, "text-sm")}>
+          {formattedDate}
+        </p>
       </div>
-      {!positionsUI && <p className="font-medium">{name}</p>}
-      <p className="text-sm text-gray-400">{tenure}</p>
+      {!positionsUI && (
+        <p className={clsx(themeClasses.textColor, "font-medium")}>{name}</p>
+      )}
+      <p className={clsx(themeClasses.detailTextColor, "text-sm")}>{tenure}</p>
       <div className="pt-2">
         {positionsUI ? renderMultiPositions() : renderSinglePosition()}
       </div>

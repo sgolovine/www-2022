@@ -3,6 +3,7 @@ import clsx from "clsx"
 export const themeClasses = {
   headerColor: clsx("text-gray-800", "dark:text-white"),
   textColor: clsx("text-gray-700", "dark:text-white"),
+  detailTextColor: clsx("text-gray-500", "dark:text-gray-600"),
   buttonColor: clsx(
     "hover:bg-gray-100",
     "active:bg-gray-300",

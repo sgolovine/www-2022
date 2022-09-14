@@ -8,6 +8,12 @@ import { ResumePageProps } from "../types/ResumePageProps"
 import clsx from "clsx"
 import { themeClasses } from "~/config/themeClasses"
 
+const sectionHeaderClasses = clsx(
+  "text-2xl",
+  "font-medium",
+  themeClasses.headerColor
+)
+
 const ResumePage: React.FC<ResumePageProps> = ({ data }) => (
   <>
     <div className="max-w-3xl mx-auto my-4 px-4">
@@ -15,19 +21,15 @@ const ResumePage: React.FC<ResumePageProps> = ({ data }) => (
         <h1 className={clsx(themeClasses.headerColor, "text-3xl")}>
           {data.basics.name}
         </h1>
-        <p className={clsx(themeClasses.textColor, "text-sm", "pt-2")}>
+        <p className={clsx(themeClasses.detailTextColor, "text-sm", "pt-2")}>
           {data.basics.label}
         </p>
-        <p className={clsx(themeClasses.textColor, "text-sm", "pt-1")}>
+        <p className={clsx(themeClasses.detailTextColor, "text-sm", "pt-1")}>
           {data.basics.location.city}, {data.basics.location.region}
         </p>
       </div>
       <div className="py-4 pt-6">
-        <h2
-          className={clsx(themeClasses.headerColor, "text-2xl", "font-medium")}
-        >
-          Summary
-        </h2>
+        <h2 className={sectionHeaderClasses}>Summary</h2>
         <div className="pt-4 pb-12">
           {data.basics.summary.map((paragraph, index) => (
             <p className={clsx(themeClasses.textColor, "pb-4")} key={index}>
@@ -38,7 +40,7 @@ const ResumePage: React.FC<ResumePageProps> = ({ data }) => (
       </div>
 
       <div className="py-4">
-        <h2 className="text-2xl">Work</h2>
+        <h2 className={sectionHeaderClasses}>Work</h2>
         {data.work.map((workItem, index) => (
           <WorkItem
             key={index}
@@ -51,7 +53,7 @@ const ResumePage: React.FC<ResumePageProps> = ({ data }) => (
         ))}
       </div>
       <div className="py-4">
-        <h2 className="text-2xl">Projects</h2>
+        <h2 className={sectionHeaderClasses}>Projects</h2>
         <div className="py-4">
           {data.projects.map((item, index) => (
             <ProjectItem
@@ -65,7 +67,7 @@ const ResumePage: React.FC<ResumePageProps> = ({ data }) => (
         </div>
       </div>
       <div className="py-4">
-        <h2 className="text-2xl">Skills</h2>
+        <h2 className={sectionHeaderClasses}>Skills</h2>
         {data.skills.map((skillsItem, index) => (
           <SkillsItem
             key={index}
@@ -76,7 +78,7 @@ const ResumePage: React.FC<ResumePageProps> = ({ data }) => (
         ))}
       </div>
       <div className="py-4">
-        <h2 className="text-2xl">Education</h2>
+        <h2 className={sectionHeaderClasses}>Education</h2>
         <div className="py-4">
           {data.education.map((item, index) => (
             <EducationItem
