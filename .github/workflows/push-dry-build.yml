@@ -26,5 +26,8 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
+      - name: Generate Post Map
+        run: npm run build-posts
+
       - name: Dry Build
         run: npm run build-dry
