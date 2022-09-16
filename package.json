@@ -9,6 +9,7 @@
     "prepare": "husky install",
     "dev": "next dev --port 8080",
     "build": "next build && next export -o dist && next-image-export-optimizer",
+    "build-dry": "next build && next export -o .next/dry",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "lint": "next lint",
