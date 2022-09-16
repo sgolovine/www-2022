@@ -4,3 +4,5 @@
 dist
 node_modules
 src/__postmap__.json
+public/images
+public/resume
