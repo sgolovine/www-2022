@@ -17,12 +17,12 @@ const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
     useFontSize()
 
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-2xl mx-auto">
       <div className="flex flex-row items-start justify-center pb-4">
         <p
           className={clsx(
             themeClasses.textColor,
-            "text-xs",
+            "text-sm",
             "font-bold",
             "uppercase"
           )}
@@ -51,7 +51,7 @@ const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
       )}
       <div className="flex flex-row items-center justify-between pt-4">
         <div className="flex flex-col">
-          <p className={clsx(themeClasses.textColor, "text-xs", "font-bold")}>
+          <p className={clsx(themeClasses.textColor, "text-sm", "font-bold")}>
             {labels.blog.author}
           </p>
         </div>
