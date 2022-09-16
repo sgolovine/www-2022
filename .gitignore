@@ -3,4 +3,5 @@ dist
 .next
 .DS_Store
 src/__postmap__.json
+src/__version__.json
 tsconfig.tsbuildinfo
