@@ -28,7 +28,7 @@ const previewClasses = clsx(
 const dateClasses = clsx(
   themeClasses.transition,
   themeClasses.textColor,
-  "text-xs",
+  "text-sm",
   "font-medium",
   "uppercase"
 )
