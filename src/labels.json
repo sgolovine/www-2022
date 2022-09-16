@@ -4,7 +4,8 @@
     "work": "Work",
     "blog": "Blog",
     "snippets": "Snippets",
-    "resume": "Resume"
+    "resume": "Resume",
+    "contact": "Contact"
   },
   "blog": {
     "categories": "Categories",
@@ -37,7 +38,8 @@
       "work": "Work",
       "resume": "Resume",
       "blog": "Blog",
-      "snippets": "Snippets"
+      "snippets": "Snippets",
+      "contact": "Contact Me"
     }
   },
   "workPage": {

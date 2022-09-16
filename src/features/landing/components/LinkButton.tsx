@@ -34,7 +34,7 @@ const LinkButton: React.FC<LinkButtonProps> = ({ title, icon, href = "#" }) => {
     <Link href={href}>
       <div className={containerClasses}>
         <span className="text-gray-700 dark:text-gray-50">
-          <IconComponent />
+          <IconComponent className="h-6 w-6" />
         </span>
         <p className={textClasses}>{title}</p>
       </div>

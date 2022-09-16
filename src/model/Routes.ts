@@ -7,4 +7,5 @@ export enum Routes {
   Resume = "/resume",
   ResumeDownloadDoc = "/resume/download-doc",
   ResumeDownloadPdf = "/resume/download-pdf",
+  Contact = "/contact",
 }
