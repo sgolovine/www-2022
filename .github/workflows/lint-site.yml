@@ -25,7 +25,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Generate Posts
+      - name: Generate Post Map
         run: npm run build-posts
 
       - name: Generate Version
