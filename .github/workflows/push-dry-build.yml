@@ -1,0 +1,27 @@
+# This runs when the site has been pushed to the main branch.
+# We run a build and export but do not upload the files anywhere.
+# This is strictly for making sure our site still works.
+
+name: Push Dry Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-posts:
+    name: "Push Dry Build"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Use NodeJS 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.14.0"
+
+      - name: Dry Build
+        run: npm run build-dry

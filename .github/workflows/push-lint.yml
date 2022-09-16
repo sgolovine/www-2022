@@ -1,0 +1,38 @@
+# This is a general lint tasks that lints
+# The site whenever we push to the main branch
+
+name: Push Lint
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: "Push Lint"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Use NodeJS 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.14.0"
+
+      - name: Install UI Dependencies
+        run: npm ci
+
+      - name: Check Formatting
+        run: npm run format
+
+      - name: Check Types
+        run: npm run tsc
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Lint Posts
+        run: npm run lint-posts

@@ -3,5 +3,6 @@
 .vscode
 dist
 node_modules
-public
 src/__postmap__.json
+public/images
+public/resume
