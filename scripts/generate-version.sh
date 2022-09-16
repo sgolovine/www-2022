@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env sh
+
 # This script will yank the version from package.json
 # As well as yanking the current commit in teh git repo
 # And echoing that to a configuration file this config 
@@ -22,5 +23,5 @@ cat << EOF > ./src/__version__.json
 }
 EOF
 
-echo "Sucessfully wrote version to src/version.json"
+echo "Sucessfully wrote version to src/__version__.json"
 exit 0
