@@ -11,13 +11,4 @@ module.exports = {
     nextImageExportOptimizer_storePicturesInWEBP: true,
     nextImageExportOptimizer_generateAndUseBlurImages: true,
   },
-  async redirects() {
-    return [
-      {
-        source: "/snippets",
-        destination: "/blog/snippets",
-        permanent: true,
-      },
-    ]
-  },
 }
