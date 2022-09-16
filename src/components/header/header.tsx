@@ -32,6 +32,7 @@ const getLinkClasses = (isActive: boolean) =>
     "dark:ring-slate-800",
     {
       "text-blue-500": isActive,
+      "dark:text-blue-500": isActive,
     }
   )
 
@@ -45,6 +46,7 @@ const getSublinkClasses = (isActive: boolean) =>
     "rounded-md",
     {
       "text-blue-500": isActive,
+      "dark:text-blue-500": isActive,
     }
   )
 
