@@ -1,0 +1,28 @@
+# This workflow lints our blog posts and
+# Snippets that in /public/posts and /public/snippets
+name: Lint Posts
+
+on:
+  pull_request:
+    paths:
+      - public/posts/**/*
+      - public/snippets/**/*
+    branches:
+      - main
+
+jobs:
+  lint-posts:
+    name: "Lint Posts"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Use NodeJS 16
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.14.0"
+
+      - name: Install Dependencies
+        run: npm ci

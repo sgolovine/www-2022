@@ -9,13 +9,15 @@
     "prepare": "husky install",
     "dev": "next dev --port 8080",
     "build": "next build && next export -o dist && next-image-export-optimizer",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "lint": "next lint",
     "tsc": "tsc",
     "serve": "http-server dist --port 9090",
     "build-posts": "ts-node ./scripts/buildPostMap.ts",
-    "create-post": "ts-node ./scripts/createPost.ts"
+    "create-post": "ts-node ./scripts/createPost.ts",
+    "lint-posts": "prettier --check public/posts/**/*.md public/snippets/**/*.md",
+    "lint-posts:fix": "prettier --write public/posts/**/*.md public/snippets/**/*.md"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",
