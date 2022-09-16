@@ -1,5 +1,6 @@
 import clsx from "clsx"
 import { themeClasses } from "~/config/themeClasses"
+import { ContactForm } from "./ContactForm"
 import type { ContactPageProps } from "./types/ContactPageProps"
 
 const ContactPage: React.FC<ContactPageProps> = ({}) => {
@@ -13,6 +14,9 @@ const ContactPage: React.FC<ContactPageProps> = ({}) => {
         Fill out the form below to send me a message. Alternatively you can send
         me an email directly at: hey@sunny.gg
       </p>
+      <div className="py-2">
+        <ContactForm />
+      </div>
     </div>
   )
 }
