@@ -18,6 +18,10 @@ module.exports = {
   core: {
     builder: "@storybook/builder-webpack5",
   },
+  reactOptions: {
+    fastRefresh: true,
+    strictMode: true,
+  },
   babel: async options => ({
     ...options,
     plugins: [
