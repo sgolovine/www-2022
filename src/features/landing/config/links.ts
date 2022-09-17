@@ -27,4 +27,10 @@ export const links: Link[] = [
     icon: "paperClip",
     href: Routes.BlogSnippets,
   },
+  {
+    id: "contact",
+    title: labels.landingPage.links.contact,
+    icon: "envelope",
+    href: Routes.Contact,
+  },
 ]

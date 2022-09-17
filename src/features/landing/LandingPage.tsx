@@ -7,10 +7,12 @@ import { socialLinks } from "./config/socialLinks"
 import labels from "~/labels.json"
 import { featureFlags } from "~/config/featureFlags"
 import { Punk } from "~/components/punk"
+import clsx from "clsx"
+import { themeClasses } from "~/config/themeClasses"
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="max-w-xl mx-auto pt-12 px-4 pb-4">
+    <div className={clsx(themeClasses.container, "pt-12", "px-4", "pb-4")}>
       {featureFlags.showPunkOnLandingPage ? (
         <div className="flex flex-row items-center justify-center">
           <Punk />

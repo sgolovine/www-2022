@@ -18,15 +18,15 @@ const routes: HeaderRoute[] = [
     title: labels.headerRoutes.blog,
     href: Routes.Blog,
   },
-  // {
-  //   id: "snippets",
-  //   title: labels.headerRoutes.snippets,
-  //   href: Routes.BlogSnippets,
-  // },
   {
     id: "resume",
     title: labels.headerRoutes.resume,
     href: Routes.Resume,
+  },
+  {
+    id: "contact",
+    title: labels.headerRoutes.contact,
+    href: Routes.Contact,
   },
 ]
 

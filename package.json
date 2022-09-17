@@ -30,6 +30,7 @@
     "clsx": "^1.2.1",
     "daisyui": "^2.24.0",
     "dayjs": "^1.11.5",
+    "email-validator": "^2.0.4",
     "glob": "^8.0.3",
     "gray-matter": "^4.0.3",
     "lodash.uniq": "^4.5.0",
