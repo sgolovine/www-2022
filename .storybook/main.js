@@ -12,6 +12,7 @@ module.exports = {
         },
       },
     },
+    "storybook-tailwind-dark-mode",
   ],
   framework: "@storybook/react",
   core: {
@@ -26,6 +27,7 @@ module.exports = {
           root: ["../"],
           alias: {
             "~": "./src",
+            "@logger": "./logger",
           },
         },
       ],
