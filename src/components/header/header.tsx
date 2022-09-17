@@ -13,7 +13,6 @@ import Headroom from "react-headroom"
 export interface HeaderProps {
   title?: string
   pageNavigation?: HeaderRoute[]
-  showBackArrow?: boolean
 }
 const MenuIcon = getIcon("bars3")
 const CloseIcon = getIcon("close")
@@ -77,11 +76,7 @@ const headerLinkContainerClasses = clsx(
   "px-2"
 )
 
-const Header: React.FC<HeaderProps> = ({
-  title,
-  pageNavigation,
-  showBackArrow,
-}) => {
+const Header: React.FC<HeaderProps> = ({ title, pageNavigation }) => {
   const router = useRouter()
   const showPageNavigation = !!pageNavigation
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
@@ -96,13 +91,6 @@ const Header: React.FC<HeaderProps> = ({
       <Headroom upTolerance={5} downTolerance={5}>
         <div className={containerClasses}>
           <span className="grow sm:grow-0">
-            {showBackArrow && (
-              <span className="flex flex-row items-center text-gray-800 hover:text-gray-600 dark:text-gray-50 hover:dark:text-gray-500 active:text-gray-900 active:dark:text-gray-200">
-                <button onClick={handleGoBack}>
-                  <ArrowLeft className="h-6 w-6" />
-                </button>
-              </span>
-            )}
             {title && (
               <p className="text-lg sm:hidden font-bold text-gray-800 dark:text-gray-50">
                 {title}
