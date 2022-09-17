@@ -13,6 +13,7 @@ module.exports = {
       },
     },
     "storybook-tailwind-dark-mode",
+    "storybook-addon-next-router",
   ],
   framework: "@storybook/react",
   core: {

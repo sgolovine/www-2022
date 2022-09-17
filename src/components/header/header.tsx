@@ -77,14 +77,9 @@ const headerLinkContainerClasses = clsx(
 )
 
 const Header: React.FC<HeaderProps> = ({ title, pageNavigation }) => {
-  const router = useRouter()
   const showPageNavigation = !!pageNavigation
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const { pathname: currentRoute } = useRouter()
-
-  const handleGoBack = () => {
-    router.back()
-  }
 
   return (
     <>
