@@ -1,11 +1,11 @@
-import WorkLayout from "./component/WorkLayout"
 import WorkSection from "./component/WorkSection"
 import labels from "~/labels.json"
 import { WorkItem } from "./component/WorkItem"
+import { themeClasses } from "~/config/themeClasses"
 
 const WorkPage = () => {
   return (
-    <WorkLayout>
+    <div className={themeClasses.container}>
       <WorkSection
         header={labels.workPage.professionalProjects.header}
         description={labels.workPage.professionalProjects.description}
@@ -22,7 +22,7 @@ const WorkPage = () => {
           githubLink="https://github.com/sgolovine/sunny.gg"
         />
       </WorkSection>
-    </WorkLayout>
+    </div>
   )
 }
 
