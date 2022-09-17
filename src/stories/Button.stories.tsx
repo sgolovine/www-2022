@@ -11,18 +11,21 @@ const Template: ComponentStory<typeof ButtonComponent> = args => (
   <ButtonComponent {...args}>Click Me</ButtonComponent>
 )
 
-export const Button = Template.bind({
+export const Button = Template.bind({})
+Button.args = {
   onClick: () => console.log("I have been clicked"),
   sm: false,
-})
+}
 
-export const ButtonSmall = Template.bind({
+export const ButtonSmall = Template.bind({})
+ButtonSmall.args = {
   onClick: () => console.log("I have been clicked"),
   sm: true,
-})
+}
 
-export const ButtonTransparent = Template.bind({
+export const ButtonTransparent = Template.bind({})
+ButtonTransparent.args = {
   onClick: () => console.log("I have been clicked"),
   sm: false,
   transparent: true,
-})
+}
