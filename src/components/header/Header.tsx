@@ -5,6 +5,7 @@ import { ThemeSwitch } from "../themeSwitch"
 import { makeStyles } from "./Header.classes"
 
 interface Props {
+  menuOpen: boolean
   title?: string
   headerLinks: HeaderRoute[]
   pageLinks?: HeaderRoute[]
@@ -28,6 +29,7 @@ const Header: React.FC<Props> = ({
   pageLinks,
   title,
   onMenuClick,
+  menuOpen,
 }) => {
   const showPageLinks = (pageLinks && pageLinks.length > 0) ?? false
   const {
@@ -65,7 +67,10 @@ const Header: React.FC<Props> = ({
           <ThemeSwitch />
         </div>
         <div className={mobileMenuContainer}>
-          <IconButton onClick={onMenuClick} icon="bars3" />
+          <IconButton
+            onClick={onMenuClick}
+            icon={menuOpen ? "close" : "bars3"}
+          />
         </div>
       </div>
       <div className={pageNavigationContainer}>

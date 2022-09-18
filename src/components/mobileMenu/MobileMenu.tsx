@@ -1,14 +1,12 @@
 import clsx from "clsx"
-import { HeaderRoute } from "~/model/Routes"
-import { IconButton } from "../common/iconButton"
-import { getIcon } from "../icons"
+import { Transition } from "@headlessui/react"
 import { ThemeSwitch } from "../themeSwitch"
-
-const CloseIcon = getIcon("close")
+import { HeaderRoute } from "~/model/Routes"
 
 interface Props {
-  onClose: () => void
   routes: HeaderRoute[]
+  visible: boolean
+  onClose: () => void
 }
 
 const linkClasses = clsx(
@@ -22,7 +20,7 @@ const linkClasses = clsx(
   "text-gray-900"
 )
 
-const MobileMenu: React.FC<Props> = ({ onClose, routes }) => {
+const MobileMenu: React.FC<Props> = ({ onClose, routes, visible }) => {
   const handleClick = (route: HeaderRoute) => {
     if (route.onClick) {
       route.onClick(route.link)
@@ -30,29 +28,52 @@ const MobileMenu: React.FC<Props> = ({ onClose, routes }) => {
     onClose()
   }
 
+  const delayVisible = setTimeout(() => {
+    return visible
+  }, 150)
+
+  const outerContainerClasses = clsx({
+    block: !delayVisible,
+    absolute: delayVisible,
+    "top-16": delayVisible,
+    "bottom-0": delayVisible,
+    "left-0": delayVisible,
+    "right-0": delayVisible,
+  })
+
   return (
-    <div className="absolute top-0 left-0 right-0 bottom-0 bg-white dark:bg-slate-900 z-50">
-      <div className="flex flex-row items-start justify-between p-4">
-        <p className="text-lg font-bold dark:text-gray-50">Menu</p>
-        <div>
-          <IconButton icon="close" onClick={onClose} />
+    <Transition
+      show={visible}
+      enter="transition ease-in-out duration-150 h-full"
+      enterFrom="-translate-x-full"
+      enterTo="translate-x-0"
+      entered="h-full"
+      leave="transition ease-in-out duration-50"
+      leaveFrom="translate-x-0"
+      leaveTo="-translate-x-full"
+    >
+      <div className="h-full bg-red-500 dark:bg-slate-900 z-50 border">
+        <div className="flex flex-row items-start justify-between p-4">
+          <p className="text-lg font-bold dark:text-gray-50">Menu</p>
         </div>
+        <div className="pt-4 flex flex-col gap-5 p-4">
+          {routes.map(route => (
+            <div
+              key={route.id}
+              onClick={() => handleClick(route)}
+              className={linkClasses}
+            >
+              <a className="text-2xl font-bold dark:text-white">
+                {route.title}
+              </a>
+            </div>
+          ))}
+        </div>
+        <span className="absolute bottom-4 left-4">
+          <ThemeSwitch />
+        </span>
       </div>
-      <div className="pt-4 flex flex-col gap-5 p-4">
-        {routes.map(route => (
-          <div
-            key={route.id}
-            onClick={() => handleClick(route)}
-            className={linkClasses}
-          >
-            <a className="text-2xl font-bold dark:text-white">{route.title}</a>
-          </div>
-        ))}
-      </div>
-      <span className="absolute bottom-4 left-4">
-        <ThemeSwitch />
-      </span>
-    </div>
+    </Transition>
   )
 }
 

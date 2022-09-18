@@ -25,14 +25,17 @@ const HeaderWrapper: React.FC<Props> = ({ pageLinks }) => {
   return (
     <>
       <Header
+        menuOpen={menuOpen}
         headerLinks={headerRoutes}
         title={pageTitle}
         pageLinks={pageRoutes}
-        onMenuClick={() => setMenuOpen(true)}
+        onMenuClick={() => setMenuOpen(prev => !prev)}
       />
-      <span className={menuWrapperClasses}>
-        <MobileMenu onClose={() => setMenuOpen(false)} routes={headerRoutes} />
-      </span>
+      <MobileMenu
+        onClose={() => setMenuOpen(false)}
+        visible={menuOpen}
+        routes={headerRoutes}
+      />
     </>
   )
 }
