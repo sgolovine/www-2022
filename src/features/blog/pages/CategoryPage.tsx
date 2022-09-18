@@ -5,9 +5,7 @@ import { pageNavigationConfig } from "../config/pageNavigation"
 import { CategoryPageProps } from "../types/CategoryPageProps"
 
 const CategoryPage: React.FC<CategoryPageProps> = ({ headerLabel, posts }) => (
-  <PageLayout
-    header={{ title: headerLabel, pageNavigation: pageNavigationConfig }}
-  >
+  <PageLayout>
     <BlogListLayout>
       {posts.data.map(post => {
         return (

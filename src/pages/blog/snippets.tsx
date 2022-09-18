@@ -9,16 +9,7 @@ const Page: AppPage<SnippetsLandingPageProps> = props => {
   return <SnippetsLandingPage {...props} />
 }
 
-Page.getLayout = page => (
-  <PageLayout
-    header={{
-      title: labels.headerRoutes.blog,
-      pageNavigation: pageNavigationConfig,
-    }}
-  >
-    {page}
-  </PageLayout>
-)
+Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
 export async function getStaticProps(): StaticProps<SnippetsLandingPageProps> {
   const allSnippets = await getAllSnippets()

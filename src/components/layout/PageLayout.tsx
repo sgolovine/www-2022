@@ -1,12 +1,10 @@
 import { ReactNode } from "react"
 import { HeaderRoute } from "~/model/Routes"
-import { HeaderProps } from "../header"
-import { HeaderWrapper } from "../headerv2"
+import { HeaderWrapper } from "../header"
 import BaseLayout from "./BaseLayout"
 
 interface LayoutProps {
   children: ReactNode
-  header?: HeaderProps
   pageLinks?: HeaderRoute[]
 }
 

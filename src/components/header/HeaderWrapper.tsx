@@ -13,7 +13,9 @@ interface Props {
 
 const HeaderWrapper: React.FC<Props> = ({ pageLinks }) => {
   const [menuOpen, setMenuOpen] = useState<boolean>(false)
-  const { headerRoutes, pageTitle } = useHeader()
+  const { headerRoutes, pageTitle, pageRoutes } = useHeader({
+    pageLinks,
+  })
 
   const menuWrapperClasses = clsx({
     hidden: !menuOpen,
@@ -25,7 +27,7 @@ const HeaderWrapper: React.FC<Props> = ({ pageLinks }) => {
       <Header
         headerLinks={headerRoutes}
         title={pageTitle}
-        pageLinks={pageLinks}
+        pageLinks={pageRoutes}
         onMenuClick={() => setMenuOpen(true)}
       />
       <span className={menuWrapperClasses}>

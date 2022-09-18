@@ -6,8 +6,6 @@ const Page: AppPage<ContactPageProps> = props => {
   return <ContactPage {...props} />
 }
 
-Page.getLayout = page => (
-  <PageLayout header={{ title: "Contact Me" }}>{page}</PageLayout>
-)
+Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
 export default Page
