@@ -4,8 +4,13 @@ export function makeStyles({
   active = false,
   transparent = false,
   sm = false,
-}: Partial<Record<"active" | "transparent" | "sm", boolean>>): string {
-  const baseClasses = clsx("border", "font-medium", {
+  noBorder = false,
+}: Partial<
+  Record<"active" | "transparent" | "sm" | "noBorder", boolean>
+>): string {
+  const baseClasses = clsx("font-medium", {
+    // Border
+    border: !noBorder,
     // Background
     "bg-blue-500": !transparent,
     "dark:bg-slate-700": !transparent,

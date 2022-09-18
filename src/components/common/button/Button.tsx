@@ -7,6 +7,7 @@ interface ButtonProps {
   sm?: boolean
   transparent?: boolean
   isActive?: boolean
+  noBorder?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({
@@ -15,11 +16,13 @@ const Button: React.FC<ButtonProps> = ({
   sm,
   transparent,
   isActive,
+  noBorder,
 }) => {
   const classes = makeStyles({
     active: isActive,
     transparent,
     sm,
+    noBorder,
   })
   const handleClick = () => !!onClick && onClick()
 

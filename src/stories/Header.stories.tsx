@@ -1,10 +1,90 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { Header as HeaderComponent } from "../components/header"
+import { Header as HeaderComponent } from "../components/headerv2"
+import { HeaderRoute, Routes } from "~/model/Routes"
+
+const headerLinks: HeaderRoute[] = [
+  {
+    id: "home",
+    title: "Home",
+    link: Routes.Home,
+    showOnHeader: true,
+    showOnMobileMenu: true,
+    showOnHomepage: true,
+    isActive: true,
+    onClick: route => console.log("Selected route", route),
+  },
+  {
+    id: "work",
+    title: "Work",
+    link: Routes.Work,
+    showOnHeader: true,
+    showOnMobileMenu: true,
+    showOnHomepage: true,
+    isActive: false,
+    onClick: route => console.log("Selected route", route),
+  },
+  {
+    id: "blog",
+    title: "Blog",
+    link: Routes.Blog,
+    showOnHeader: true,
+    showOnMobileMenu: true,
+    showOnHomepage: true,
+    isActive: false,
+    onClick: route => console.log("Selected route", route),
+  },
+  {
+    id: "resume",
+    title: "Resume",
+    link: Routes.Resume,
+    showOnHeader: true,
+    showOnMobileMenu: true,
+    showOnHomepage: true,
+    isActive: false,
+    onClick: route => console.log("Selected route", route),
+  },
+  {
+    id: "contact",
+    title: "Contact",
+    link: Routes.Contact,
+    showOnHeader: true,
+    showOnMobileMenu: true,
+    showOnHomepage: true,
+    isActive: false,
+    onClick: route => console.log("Selected route", route),
+  },
+]
+
+const pageLinks: HeaderRoute[] = [
+  {
+    id: "blog-posts",
+    title: "Posts",
+    link: Routes.Blog,
+    showOnHeader: false,
+    showOnMobileMenu: false,
+    showOnHomepage: false,
+    isActive: true,
+    onClick: route => console.log("Selected route", route),
+  },
+  {
+    id: "blog-snippets",
+    title: "Snippets",
+    link: Routes.BlogSnippets,
+    showOnHeader: false,
+    showOnMobileMenu: false,
+    showOnHomepage: false,
+    isActive: false,
+    onClick: route => console.log("Selected route", route),
+  },
+]
 
 export default {
   title: "Header",
   component: HeaderComponent,
+  parameters: {
+    layout: "fullscreen",
+  },
 } as ComponentMeta<typeof HeaderComponent>
 
 const Template: ComponentStory<typeof HeaderComponent> = args => (
@@ -13,32 +93,13 @@ const Template: ComponentStory<typeof HeaderComponent> = args => (
 
 export const Header = Template.bind({})
 Header.args = {
-  title: "Header Page",
+  title: "Page Title",
+  headerLinks,
 }
 
-export const HeaderWithPageNavigation = Template.bind({})
-HeaderWithPageNavigation.args = {
-  title: "Header Page",
-  pageNavigation: [
-    {
-      id: "page-one",
-      title: "Page One",
-      href: "#",
-    },
-    {
-      id: "page-two",
-      title: "Page Two",
-      href: "#",
-    },
-    {
-      id: "page-three",
-      title: "Page Three",
-      href: "#",
-    },
-    {
-      id: "page-four",
-      title: "Page Four",
-      href: "#",
-    },
-  ],
+export const HeaderWithPageLinks = Template.bind({})
+HeaderWithPageLinks.args = {
+  title: "Page Title",
+  headerLinks,
+  pageLinks,
 }

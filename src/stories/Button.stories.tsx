@@ -29,3 +29,11 @@ ButtonTransparent.args = {
   sm: false,
   transparent: true,
 }
+
+export const BorderlessButton = Template.bind({})
+BorderlessButton.args = {
+  onClick: () => console.log("I have been clicked"),
+  sm: false,
+  transparent: true,
+  noBorder: true,
+}
