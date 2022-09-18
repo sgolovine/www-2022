@@ -21,7 +21,8 @@
     "lint-posts": "prettier --check public/posts/**/*.md public/snippets/**/*.md",
     "lint-posts:fix": "prettier --write public/posts/**/*.md public/snippets/**/*.md",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "lint-staged": "lint-staged"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",
@@ -75,6 +76,7 @@
     "eslint-plugin-storybook": "^0.6.4",
     "http-server": "^14.1.1",
     "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "prompts": "^2.4.2",
