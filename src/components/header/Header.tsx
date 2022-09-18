@@ -144,9 +144,9 @@ const Header: React.FC<HeaderProps> = ({ title, pageNavigation }) => {
           </div>
         )}
       </Headroom>
-      {menuOpen && (
+      {/* {menuOpen && (
         <MobileMenu routes={headerRoutes} onClose={() => setMenuOpen(false)} />
-      )}
+      )} */}
     </>
   )
 }

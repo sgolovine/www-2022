@@ -3,16 +3,19 @@ import { makeStyles } from "./IconButton.classes"
 
 interface IconButtonProps {
   icon: AllIcons
-  additionalIconClasses?: string
+  onClick?: () => void
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ icon }) => {
+const IconButton: React.FC<IconButtonProps> = ({ icon, onClick }) => {
   const classes = makeStyles()
 
   const IconComponent = getIcon(icon)
 
   return (
-    <button className={classes.buttonClasses}>
+    <button
+      onClick={() => onClick && onClick()}
+      className={classes.buttonClasses}
+    >
       <IconComponent className={classes.iconClasses} />
     </button>
   )

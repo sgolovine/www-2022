@@ -1,3 +1,5 @@
+import { AllIcons } from "~/components/icons"
+
 export enum Routes {
   Home = "/",
   Work = "/work",
@@ -16,10 +18,10 @@ export interface AppRoute {
   link: Routes
   // Should the route be shown in the header
   showOnHeader: boolean
-  // Should the route be shown in the mobile menu header
-  showOnMobileMenu: boolean
   // Should the route be shown on the homepage
   showOnHomepage: boolean
+  // Optional Icon
+  icon?: AllIcons
 }
 
 export interface HeaderRoute extends AppRoute {

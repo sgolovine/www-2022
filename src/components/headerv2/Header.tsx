@@ -5,9 +5,10 @@ import { ThemeSwitch } from "../themeSwitch"
 import { makeStyles } from "./Header.classes"
 
 interface Props {
-  title: string
+  title?: string
   headerLinks: HeaderRoute[]
   pageLinks?: HeaderRoute[]
+  onMenuClick?: () => void
 }
 
 const buttonBaseProps: Partial<ButtonProps> = {
@@ -22,7 +23,12 @@ const pageNavButtonBaseProps: Partial<ButtonProps> = {
   noBorder: true,
 }
 
-const Header: React.FC<Props> = ({ headerLinks, pageLinks }) => {
+const Header: React.FC<Props> = ({
+  headerLinks,
+  pageLinks,
+  title,
+  onMenuClick,
+}) => {
   const {
     containerClasses,
     linksContainer,
@@ -38,7 +44,7 @@ const Header: React.FC<Props> = ({ headerLinks, pageLinks }) => {
     <>
       <div className={containerClasses}>
         <div className={mobileTitleContainer}>
-          <p className={mobileTitleText}>Title</p>
+          <p className={mobileTitleText}>{title ?? ""}</p>
         </div>
         <div className={linksContainer}>
           {headerLinks.map(link => {
@@ -58,7 +64,7 @@ const Header: React.FC<Props> = ({ headerLinks, pageLinks }) => {
           <ThemeSwitch />
         </div>
         <div className={mobileMenuContainer}>
-          <IconButton icon="bars3" />
+          <IconButton onClick={onMenuClick} icon="bars3" />
         </div>
       </div>
       <div className={pageNavigationContainer}>

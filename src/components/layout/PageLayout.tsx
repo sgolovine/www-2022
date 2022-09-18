@@ -1,13 +1,18 @@
 import { ReactNode } from "react"
-import { Header, HeaderProps } from "../header"
+import { HeaderRoute } from "~/model/Routes"
+import { HeaderProps } from "../header"
+import { HeaderWrapper } from "../headerv2"
 import BaseLayout from "./BaseLayout"
 
-const PageLayout: React.FC<{
-  header?: HeaderProps
+interface LayoutProps {
   children: ReactNode
-}> = ({ header, children }) => (
+  header?: HeaderProps
+  pageLinks?: HeaderRoute[]
+}
+
+const PageLayout: React.FC<LayoutProps> = ({ children, pageLinks }) => (
   <BaseLayout hideThemeToggle>
-    <Header {...header} />
+    <HeaderWrapper pageLinks={pageLinks} />
     <div className="p-4">{children}</div>
   </BaseLayout>
 )
