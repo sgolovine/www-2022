@@ -56,29 +56,27 @@ const MobileMenu: React.FC<Props> = ({ routes, visible, onClose }) => {
       leaveFrom={transitionClasses.leaveFrom}
       leaveTo={transitionClasses.leaveTo}
     >
-      <div className="z-50 fixed h-screen w-screen bg-gray-100 dark:bg-slate-800 w-32 p-2">
-        <div className="h-full z-50">
-          <div className="flex flex-row items-center justify-between p-4">
-            <p className="text-2xl font-bold dark:text-gray-50">Menu</p>
-            <IconButton icon="close" onClick={onClose} />
-          </div>
-          <div className="pt-4 flex flex-col gap-5 p-4">
-            {routes.map(route => (
-              <div
-                key={route.id}
-                onClick={() => handleClick(route)}
-                className={linkClasses}
-              >
-                <a className="text-2xl font-bold dark:text-white">
-                  {route.title}
-                </a>
-              </div>
-            ))}
-          </div>
-          <span className="absolute bottom-4 left-4">
-            <ThemeSwitch />
-          </span>
+      <div className="z-50 fixed h-full w-full bg-gray-100 dark:bg-slate-800 w-32 p-2">
+        <div className="flex flex-row items-center justify-between p-4">
+          <p className="text-2xl font-bold dark:text-gray-50">Menu</p>
+          <IconButton icon="close" onClick={onClose} />
         </div>
+        <div className="pt-4 flex flex-col gap-5 p-4">
+          {routes.map(route => (
+            <div
+              key={route.id}
+              onClick={() => handleClick(route)}
+              className={linkClasses}
+            >
+              <a className="text-2xl font-bold dark:text-white">
+                {route.title}
+              </a>
+            </div>
+          ))}
+        </div>
+        <span className="absolute bottom-4 left-4">
+          <ThemeSwitch />
+        </span>
       </div>
     </Transition>
   )
