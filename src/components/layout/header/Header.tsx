@@ -1,7 +1,7 @@
 import { HeaderRoute } from "~/model/Routes"
-import { Button, ButtonProps } from "../common/button"
-import { IconButton } from "../common/iconButton"
-import { ThemeSwitch } from "../themeSwitch"
+import { Button, ButtonProps } from "~/components/common/button"
+import { IconButton } from "~/components/common/iconButton"
+import ThemeSwitch from "../themeSwitch/ThemeSwitch"
 import { makeStyles } from "./Header.classes"
 
 interface Props {

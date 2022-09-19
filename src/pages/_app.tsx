@@ -1,12 +1,13 @@
-import React, { ReactElement, ReactNode } from "react"
+import React from "react"
+
 import { AppProps } from "next/app"
 import { AppPage } from "~/model/PageProps"
+import { Menu } from "~/components/layout"
 
 import "../styles/tailwind.css"
 import "../styles/global.css"
 import "../styles/post-image.css"
 import "../styles/prism-nord-theme.css"
-import { MobileMenuWrapper } from "~/components/mobileMenu/MobileMenuWrapper"
 
 type AppPropsWithLayout = AppProps & {
   Component: AppPage
@@ -23,7 +24,7 @@ export default function App({
 
   return (
     <>
-      <MobileMenuWrapper />
+      <Menu />
       {Component}
     </>
   )

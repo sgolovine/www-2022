@@ -1,9 +1,9 @@
 import clsx from "clsx"
 import { Transition } from "@headlessui/react"
-import { ThemeSwitch } from "../themeSwitch"
+import ThemeSwitch from "../themeSwitch/ThemeSwitch"
 import { AppRoute, HeaderRoute } from "~/model/Routes"
 import { Fragment } from "react"
-import { IconButton } from "../common/iconButton"
+import { IconButton } from "../../common/iconButton"
 
 interface Props {
   routes: AppRoute[]

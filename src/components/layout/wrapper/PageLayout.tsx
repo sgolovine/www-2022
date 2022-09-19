@@ -1,6 +1,6 @@
 import { ReactNode } from "react"
 import { HeaderRoute } from "~/model/Routes"
-import { HeaderWrapper } from "../header"
+import HeaderWrapper from "../header/HeaderWrapper"
 import BaseLayout from "./BaseLayout"
 
 interface LayoutProps {

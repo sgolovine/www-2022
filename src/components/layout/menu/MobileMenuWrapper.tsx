@@ -5,7 +5,7 @@ import { useMemo } from "react"
 import appRoutes from "~/config/navigation/appRoutes"
 import { HeaderRoute } from "~/model/Routes"
 
-export const MobileMenuWrapper: React.FC = () => {
+const MobileMenuWrapper: React.FC = () => {
   const { menuOpen, closeMenu } = useLayoutStore()
   const { push } = useRouter()
 
@@ -24,3 +24,5 @@ export const MobileMenuWrapper: React.FC = () => {
 
   return <MobileMenu routes={routes} visible={menuOpen} onClose={closeMenu} />
 }
+
+export default MobileMenuWrapper

@@ -1,6 +1,6 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
-import { Header as HeaderComponent } from "../components/header"
+import HeaderComponent from "~/components/layout/header/Header"
 import { HeaderRoute, Routes } from "~/model/Routes"
 
 const headerLinks: HeaderRoute[] = [
