@@ -8,6 +8,6 @@
     "lib": ["ES2016"],
     "noEmit": false
   },
-  "include": ["functions", "logger"],
+  "include": ["functions"],
   "exclude": ["node_modules"]
 }
