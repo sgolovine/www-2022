@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "./.functions-dist",
+    "target": "ES2016",
+    "module": "ESNext",
+    "moduleResolution": "classic",
+    "lib": ["ES2016"],
+    "noEmit": false
+  },
+  "include": ["functions", "logger"],
+  "exclude": ["node_modules"]
+}
