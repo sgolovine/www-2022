@@ -12,4 +12,9 @@ const Template: ComponentStory<typeof FooterComponent> = args => (
 )
 
 export const Footer = Template.bind({})
-Footer.args = {}
+Footer.args = {
+  // these values are optional
+  // version: 0.0.0
+  // commitFull: full-commit
+  // commitShort: short-commit
+}
