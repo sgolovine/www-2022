@@ -19,8 +19,7 @@ echo "LATEST_COMMIT = $LATEST_COMMIT"
 cat << EOF > ./src/__version__.json
 {
   "version": "$PKG_VERSION",
-  "commit": "$LATEST_COMMIT",
-  "commit_short": "${LATEST_COMMIT:0:7}"
+  "commit": "$LATEST_COMMIT"
 }
 EOF
 
