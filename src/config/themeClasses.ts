@@ -2,7 +2,6 @@ import clsx from "clsx"
 
 export const themeClasses = {
   container: clsx("max-w-xl", "mx-auto"),
-  bigHeader: clsx("text-2xl", "md:text-3xl", "lg:text-4xl", "font-black"),
   headerColor: clsx("text-gray-800", "dark:text-white"),
   textColor: clsx("text-gray-700", "dark:text-white"),
   detailTextColor: clsx("text-gray-500", "dark:text-gray-600"),
