@@ -1,7 +1,5 @@
-import clsx from "clsx"
 import { PageContainer } from "~/components/common/PageContainer"
 import { PageHeader } from "~/components/common/PageHeader"
-import { themeClasses } from "~/config/themeClasses"
 import BlogItem from "../components/BlogItem"
 import BlogListLayout from "../components/BlogListLayout"
 import { AllPostsPageProps } from "../types/AllPostsPageProps"

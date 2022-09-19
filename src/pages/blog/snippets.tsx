@@ -1,7 +1,5 @@
 import { PageLayout } from "~/components/layout"
-import { pageNavigationConfig } from "~/features/blog/config/pageNavigation"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import labels from "~/labels.json"
 import { SnippetsLandingPage, SnippetsLandingPageProps } from "~/features/blog"
 import { getAllSnippets } from "~/services/getAllSnippets.node"
 

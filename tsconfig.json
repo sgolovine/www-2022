@@ -1,4 +1,5 @@
 {
+  "extends": "./tsconfig.base.json",
   "ts-node": {
     "compilerOptions": {
       "module": "NodeNext"
@@ -10,16 +11,8 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "lib": ["DOM", "ES5", "ES6"],
-    "strict": true,
-    "allowJs": false,
-    "skipLibCheck": true,
-    "allowSyntheticDefaultImports": true,
     "noEmit": true,
-    "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "incremental": true,
     "baseUrl": ".",
     "paths": {
       "~/*": ["./src/*"],
@@ -27,5 +20,5 @@
     }
   },
   "include": ["src/**/*", "src/**/[.*].tsx", "scripts", "logger"],
-  "exclude": ["node_modules", ".cache", "public", ".next", "dist"]
+  "exclude": ["node_modules", ".cache", "public", ".next", "dist", "functions"]
 }
