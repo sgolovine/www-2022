@@ -3,7 +3,7 @@ import matter from "gray-matter"
 import path from "path"
 import glob from "glob"
 import AppLogger from "../logger"
-import { BlogPost, ContentMap, PostMap, Snippet } from "~/model/Post"
+import { BlogPost, ContentMap, Snippet } from "~/model/Post"
 
 // For post previews we take the first X number of characters
 // Of the post. This variable defines how many characters we take.

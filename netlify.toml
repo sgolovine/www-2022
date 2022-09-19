@@ -1,7 +1,8 @@
 [build]
   base = "/"
   publish = "/dist"
-  command = "npm run generate:version && npm run generate:postmap && npm run build"
+  functions = "/.functions-dist/functions"
+  command = "npm run generate:version && npm run generate:postmap && npm run build:functions && npm run build"
 
 [context.production]
   environment = { NETLIFY_NEXT_PLUGIN_SKIP = "true", AWS_LAMBDA_JS_RUNTIME = "nodejs16.x" }

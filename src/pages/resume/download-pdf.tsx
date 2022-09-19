@@ -1,7 +1,6 @@
 import { PageLayout } from "~/components/layout"
-import labels from "~/labels.json"
 import { AppPage } from "~/model/PageProps"
-import { DownloadPdfPage, pageNavigationConfig } from "~/features/resume"
+import { DownloadPdfPage } from "~/features/resume"
 
 const Page: AppPage = () => {
   return <DownloadPdfPage />

@@ -1,4 +1,3 @@
-import clsx from "clsx"
 import { makeStyles } from "./Button.classes"
 
 interface ButtonProps {

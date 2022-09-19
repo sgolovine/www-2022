@@ -1,5 +1,3 @@
-import clsx from "clsx"
-import { themeClasses } from "~/config/themeClasses"
 import BlogItem from "../components/BlogItem"
 import BlogListLayout from "../components/BlogListLayout"
 import { AllPostsPageProps } from "../types/AllPostsPageProps"
