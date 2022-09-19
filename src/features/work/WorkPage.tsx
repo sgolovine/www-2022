@@ -1,11 +1,15 @@
 import WorkSection from "./component/WorkSection"
 import labels from "~/labels.json"
 import { WorkItem } from "./component/WorkItem"
-import { themeClasses } from "~/config/themeClasses"
+import { PageContainer } from "~/components/common/PageContainer"
+import { PageHeader } from "~/components/common/PageHeader"
+import pageTitles from "~/config/navigation/pageTitles"
+import { Routes } from "~/model/Routes"
 
 const WorkPage = () => {
   return (
-    <div className={themeClasses.container}>
+    <PageContainer>
+      <PageHeader>{pageTitles[Routes.Work]}</PageHeader>
       <WorkSection
         header={labels.workPage.professionalProjects.header}
         description={labels.workPage.professionalProjects.description}
@@ -22,7 +26,7 @@ const WorkPage = () => {
           githubLink="https://github.com/sgolovine/sunny.gg"
         />
       </WorkSection>
-    </div>
+    </PageContainer>
   )
 }
 

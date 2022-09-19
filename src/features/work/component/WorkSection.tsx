@@ -10,7 +10,7 @@ interface Props {
 
 const WorkSection: React.FC<Props> = ({ header, children, description }) => (
   <div className="pb-4">
-    <h2 className={clsx(themeClasses.headerColor, themeClasses.bigHeader)}>
+    <h2 className={clsx(themeClasses.headerColor, "text-xl", "font-black")}>
       {header}
     </h2>
     {description && (
