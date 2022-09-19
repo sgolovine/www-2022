@@ -1,0 +1,77 @@
+{
+  "posts": {
+    "cwd": "/Users/sgolovine/Code/sunny.gg/public/posts",
+    "data": [
+      {
+        "relativePath": "test-post-2/post.md",
+        "postMetadata": {
+          "title": "Test Post 2",
+          "date": "08/22/2022",
+          "description": "This is a short description of the following post",
+          "category": "general",
+          "tags": "react,angular,vue",
+          "published": true,
+          "slug": "test-post-2",
+          "type": "post"
+        },
+        "postPreview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas "
+      },
+      {
+        "relativePath": "test-post-3/post.md",
+        "postMetadata": {
+          "title": "Test Post With Image",
+          "date": "08/22/2022",
+          "description": "Here we have a test post that contains an image.",
+          "category": "general",
+          "tags": "react,angular,vue",
+          "published": true,
+          "slug": "test-post-3",
+          "type": "post"
+        },
+        "postPreview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas "
+      },
+      {
+        "relativePath": "test-post/post.md",
+        "postMetadata": {
+          "title": "Test Post with Header Image",
+          "date": "09/06/2022",
+          "description": "This is a short description of the following post",
+          "category": "tech",
+          "tags": "react,javascript,webpack",
+          "headerImage": "post-image-two.jpeg",
+          "published": true,
+          "slug": "test-post-1",
+          "type": "post"
+        },
+        "postPreview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas "
+      }
+    ]
+  },
+  "snippets": {
+    "cwd": "/Users/sgolovine/Code/sunny.gg/public/snippets",
+    "data": [
+      {
+        "relativePath": "snippet-one/snippet.md",
+        "postMetadata": {
+          "title": "Test Snippet One",
+          "description": "This is a brief description of the snippet.",
+          "tags": "javascript,react",
+          "published": false,
+          "slug": "snippet-one",
+          "type": "snippet"
+        }
+      },
+      {
+        "relativePath": "snippet-two/snippet.md",
+        "postMetadata": {
+          "title": "Test Snippet Two",
+          "description": "This is a brief description of the snippet.",
+          "tags": "javascript,react",
+          "published": true,
+          "slug": "snippet-two",
+          "type": "snippet"
+        }
+      }
+    ]
+  }
+}
