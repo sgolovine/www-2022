@@ -10,18 +10,7 @@ const Page: AppPage<ResumePageProps> = props => {
   return <ResumePage {...props} />
 }
 
-Page.getLayout = page => (
-  <PageLayout
-    header={{
-      title: labels.headerRoutes.resume,
-      pageNavigation: featureFlags.enableResumeDownloadLinks
-        ? pageNavigationConfig
-        : undefined,
-    }}
-  >
-    {page}
-  </PageLayout>
-)
+Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
 export const getStaticProps = async (): StaticProps<ResumePageProps> => {
   const resumeJSON = await getResume()

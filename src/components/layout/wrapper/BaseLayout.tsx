@@ -1,5 +1,5 @@
 import type { ReactNode } from "react"
-import { ThemeSwitch } from "../themeSwitch"
+import ThemeSwitch from "../themeSwitch/ThemeSwitch"
 
 const BaseLayout: React.FC<{
   children: ReactNode

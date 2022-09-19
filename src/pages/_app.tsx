@@ -1,6 +1,8 @@
-import React, { ReactElement, ReactNode } from "react"
+import React from "react"
+
 import { AppProps } from "next/app"
 import { AppPage } from "~/model/PageProps"
+import { Menu } from "~/components/layout"
 
 import "../styles/tailwind.css"
 import "../styles/global.css"
@@ -11,9 +13,19 @@ type AppPropsWithLayout = AppProps & {
   Component: AppPage
 }
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({
+  Component: PageComponent,
+  pageProps,
+}: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout ?? (page => page)
+  const getLayout = PageComponent.getLayout ?? (page => page)
 
-  return getLayout(<Component {...pageProps} />)
+  const Component = getLayout(<PageComponent {...pageProps} />)
+
+  return (
+    <>
+      <Menu />
+      {Component}
+    </>
+  )
 }

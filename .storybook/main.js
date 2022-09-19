@@ -13,10 +13,15 @@ module.exports = {
       },
     },
     "storybook-tailwind-dark-mode",
+    // "storybook-addon-next-router",
   ],
   framework: "@storybook/react",
   core: {
     builder: "@storybook/builder-webpack5",
+  },
+  reactOptions: {
+    fastRefresh: true,
+    strictMode: true,
   },
   babel: async options => ({
     ...options,

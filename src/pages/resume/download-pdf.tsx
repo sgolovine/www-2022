@@ -8,16 +8,7 @@ const Page: AppPage = () => {
 }
 
 Page.getLayout = page => {
-  return (
-    <PageLayout
-      header={{
-        title: labels.resume.downloadPDF,
-        pageNavigation: pageNavigationConfig,
-      }}
-    >
-      {page}
-    </PageLayout>
-  )
+  return <PageLayout>{page}</PageLayout>
 }
 
 export default Page

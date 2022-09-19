@@ -1,5 +1,5 @@
 import { useDarkTheme } from "~/hooks/useDarkTheme"
-import { getIcon } from "../icons"
+import { getIcon } from "~/components/icons"
 
 const SunIcon = getIcon("sun")
 const MoonIcon = getIcon("moon")
