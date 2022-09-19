@@ -4,8 +4,6 @@
   "description": "My new website.",
   "main": "index.js",
   "scripts": {
-    "predev": "npm run generate-version",
-    "prebuild": "npm run generate-version",
     "prepare": "husky install",
     "dev": "next dev --port 8080",
     "build": "next build && next export -o dist && next-image-export-optimizer",
@@ -15,14 +13,15 @@
     "lint": "next lint",
     "tsc": "tsc",
     "serve": "http-server dist --port 9090",
-    "build-posts": "ts-node ./scripts/buildPostMap.ts",
     "create-post": "ts-node ./scripts/createPost.ts",
-    "generate-version": "./scripts/generate-version.sh",
     "lint-posts": "prettier --check public/posts/**/*.md public/snippets/**/*.md",
     "lint-posts:fix": "prettier --write public/posts/**/*.md public/snippets/**/*.md",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "generate:version": "./scripts/generate-version.sh",
+    "generate:postmap": "ts-node ./scripts/buildPostMap.ts",
+    "postinstall": "npm run generate:version && npm run generate:postmap"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",
