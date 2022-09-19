@@ -56,7 +56,7 @@ const MobileMenu: React.FC<Props> = ({ routes, visible, onClose }) => {
       leaveFrom={transitionClasses.leaveFrom}
       leaveTo={transitionClasses.leaveTo}
     >
-      <div className="z-50 fixed h-full w-full bg-gray-100 dark:bg-slate-800 w-32 p-2">
+      <div className="z-50 fixed h-full w-full bg-gray-100 dark:bg-slate-800 p-2">
         <div className="flex flex-row items-center justify-between p-4">
           <p className="text-2xl font-bold dark:text-gray-50">Menu</p>
           <IconButton icon="close" onClick={onClose} />
