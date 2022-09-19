@@ -3,3 +3,6 @@ dist
 .next
 .DS_Store
 tsconfig.tsbuildinfo
+.env
+.env.*
+!.env.example

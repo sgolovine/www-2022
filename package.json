@@ -28,6 +28,7 @@
   "license": "0BSD",
   "dependencies": {
     "@headlessui/react": "^1.7.2",
+    "@sendgrid/mail": "^7.7.0",
     "@types/mapbox__rehype-prism": "^0.8.0",
     "clsx": "^1.2.1",
     "daisyui": "^2.24.0",
