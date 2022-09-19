@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import FooterWrapper from "../footer/Footer.wrapper"
 import ThemeSwitch from "../themeSwitch/ThemeSwitch"
 
 const BaseLayout: React.FC<{
@@ -6,13 +7,16 @@ const BaseLayout: React.FC<{
   hideThemeToggle?: boolean
 }> = ({ children, hideThemeToggle }) => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       {!hideThemeToggle && (
         <span className="absolute top-4 right-4">
           <ThemeSwitch />
         </span>
       )}
-      <div>{children}</div>
+      <div className="grow">{children}</div>
+      <div className="py-4">
+        <FooterWrapper />
+      </div>
     </div>
   )
 }
