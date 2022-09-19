@@ -6,14 +6,25 @@ import "../styles/tailwind.css"
 import "../styles/global.css"
 import "../styles/post-image.css"
 import "../styles/prism-nord-theme.css"
+import { MobileMenuWrapper } from "~/components/mobileMenu/MobileMenuWrapper"
 
 type AppPropsWithLayout = AppProps & {
   Component: AppPage
 }
 
-export default function App({ Component, pageProps }: AppPropsWithLayout) {
+export default function App({
+  Component: PageComponent,
+  pageProps,
+}: AppPropsWithLayout) {
   // Use the layout defined at the page level, if available
-  const getLayout = Component.getLayout ?? (page => page)
+  const getLayout = PageComponent.getLayout ?? (page => page)
 
-  return getLayout(<Component {...pageProps} />)
+  const Component = getLayout(<PageComponent {...pageProps} />)
+
+  return (
+    <>
+      <MobileMenuWrapper />
+      {Component}
+    </>
+  )
 }

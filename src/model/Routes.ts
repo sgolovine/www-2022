@@ -16,7 +16,10 @@ export interface AppRoute {
   id: string
   title: string
   link: Routes
-  // Should the route be shown in the header
+  // If set to false, will not show up anywhere.
+  // Defaults to true.
+  routeEnabled?: boolean
+  // If set to false, is not shown in the header
   showOnHeader: boolean
   // Should the route be shown on the homepage
   showOnHomepage: boolean

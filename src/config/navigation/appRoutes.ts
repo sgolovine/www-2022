@@ -1,5 +1,6 @@
 import pageTitles from "./pageTitles"
 import { AppRoute, Routes } from "~/model/Routes"
+import { featureFlags } from "../featureFlags"
 
 const appRoutes: AppRoute[] = [
   {
@@ -29,6 +30,7 @@ const appRoutes: AppRoute[] = [
     id: "resume",
     title: pageTitles[Routes.Resume],
     link: Routes.Resume,
+    routeEnabled: featureFlags.enableResume,
     showOnHeader: true,
     showOnHomepage: true,
     icon: "documentText",
@@ -49,6 +51,13 @@ const appRoutes: AppRoute[] = [
     showOnHomepage: true,
     icon: "envelope",
   },
-]
+].filter(route => {
+  if (
+    typeof route.routeEnabled === "undefined" ||
+    (typeof route.routeEnabled === "boolean" && route.routeEnabled)
+  ) {
+    return route
+  }
+}) as AppRoute[]
 
 export default appRoutes

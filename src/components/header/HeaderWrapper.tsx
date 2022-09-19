@@ -3,40 +3,27 @@
 import useHeader from "./useHeader"
 import Header from "./Header"
 import { HeaderRoute } from "~/model/Routes"
-import clsx from "clsx"
-import { useState } from "react"
-import { MobileMenu } from "../mobileMenu"
+import useLayoutStore from "~/stores/layoutStore"
 
 interface Props {
   pageLinks?: HeaderRoute[]
 }
 
 const HeaderWrapper: React.FC<Props> = ({ pageLinks }) => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false)
   const { headerRoutes, pageTitle, pageRoutes } = useHeader({
     pageLinks,
   })
 
-  const menuWrapperClasses = clsx({
-    hidden: !menuOpen,
-    contents: menuOpen,
-  })
+  const { menuOpen, openMenu, closeMenu } = useLayoutStore()
 
   return (
-    <>
-      <Header
-        menuOpen={menuOpen}
-        headerLinks={headerRoutes}
-        title={pageTitle}
-        pageLinks={pageRoutes}
-        onMenuClick={() => setMenuOpen(prev => !prev)}
-      />
-      <MobileMenu
-        onClose={() => setMenuOpen(false)}
-        visible={menuOpen}
-        routes={headerRoutes}
-      />
-    </>
+    <Header
+      menuOpen={menuOpen}
+      headerLinks={headerRoutes}
+      title={pageTitle}
+      pageLinks={pageRoutes}
+      onMenuClick={menuOpen ? closeMenu : openMenu}
+    />
   )
 }
 
