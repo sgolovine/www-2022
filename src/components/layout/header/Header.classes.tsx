@@ -57,8 +57,17 @@ export function makeStyles({ showPageNav }: { showPageNav: boolean }) {
     "justify-center"
   )
 
+  const contentContainer = clsx(
+    "flex",
+    "flex-row",
+    "w-full",
+    "max-w-screen-2xl",
+    "mx-auto"
+  )
+
   return {
     containerClasses,
+    contentContainer,
     linksContainer,
     themeSwitchContainer,
     mobileMenuContainer,
