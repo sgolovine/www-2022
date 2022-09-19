@@ -1,9 +1,11 @@
 import clsx from "clsx"
-import { getIcon } from "~/components/icons"
+import { AllIcons, getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
-import { Link } from "../model/Link"
 
-const SocialButton: React.FC<Link> = ({ href, icon }) => {
+const SocialButton: React.FC<{ href: string; icon: AllIcons }> = ({
+  href,
+  icon,
+}) => {
   const Icon = getIcon(icon)
 
   return (

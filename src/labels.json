@@ -1,4 +1,11 @@
 {
+  "socialMedia": {
+    "email": "Email",
+    "github": "Github",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "whatsApp": "WhatsApp"
+  },
   "pageTitles": {
     "blog": "Blog",
     "snippets": "Snippets",
