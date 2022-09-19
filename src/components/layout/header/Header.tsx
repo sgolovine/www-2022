@@ -3,6 +3,7 @@ import { Button, ButtonProps } from "~/components/common/button"
 import { IconButton } from "~/components/common/iconButton"
 import ThemeSwitch from "../themeSwitch/ThemeSwitch"
 import { makeStyles } from "./Header.classes"
+import clsx from "clsx"
 
 interface Props {
   menuOpen: boolean
@@ -34,6 +35,7 @@ const Header: React.FC<Props> = ({
   const showPageLinks = (pageLinks && pageLinks.length > 0) ?? false
   const {
     containerClasses,
+    contentContainer,
     linksContainer,
     themeSwitchContainer,
     mobileMenuContainer,
@@ -46,31 +48,33 @@ const Header: React.FC<Props> = ({
   return (
     <>
       <div className={containerClasses}>
-        <div className={mobileTitleContainer}>
-          <p className={mobileTitleText}>{title ?? ""}</p>
-        </div>
-        <div className={linksContainer}>
-          {headerLinks.map(link => {
-            return (
-              <Button
-                {...buttonBaseProps}
-                isActive={link.isActive}
-                key={link.id}
-                onClick={() => link.onClick && link.onClick(link.link)}
-              >
-                {link.title}
-              </Button>
-            )
-          })}
-        </div>
-        <div className={themeSwitchContainer}>
-          <ThemeSwitch />
-        </div>
-        <div className={mobileMenuContainer}>
-          <IconButton
-            onClick={onMenuClick}
-            icon={menuOpen ? "close" : "bars3"}
-          />
+        <div className={clsx(contentContainer, "justify-between")}>
+          <div className={mobileTitleContainer}>
+            <p className={mobileTitleText}>{title ?? ""}</p>
+          </div>
+          <div className={linksContainer}>
+            {headerLinks.map(link => {
+              return (
+                <Button
+                  {...buttonBaseProps}
+                  isActive={link.isActive}
+                  key={link.id}
+                  onClick={() => link.onClick && link.onClick(link.link)}
+                >
+                  {link.title}
+                </Button>
+              )
+            })}
+          </div>
+          <div className={themeSwitchContainer}>
+            <ThemeSwitch />
+          </div>
+          <div className={mobileMenuContainer}>
+            <IconButton
+              onClick={onMenuClick}
+              icon={menuOpen ? "close" : "bars3"}
+            />
+          </div>
         </div>
       </div>
       <div className={pageNavigationContainer}>
