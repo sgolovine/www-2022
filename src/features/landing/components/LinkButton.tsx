@@ -5,12 +5,15 @@ import { themeClasses } from "~/config/themeClasses"
 
 interface LinkButtonProps {
   title: string
-  icon: AllIcons
+  icon?: AllIcons
   href: string
 }
 
 const LinkButton: React.FC<LinkButtonProps> = ({ title, icon, href = "#" }) => {
-  const IconComponent = getIcon(icon)
+  // The `close` is a placeholder and should never occur
+  // If the icon is not defined then this component
+  // Will never be rendered.
+  const IconComponent = getIcon(icon ?? "close")
 
   const containerClasses = clsx(
     themeClasses.transition,
@@ -33,9 +36,11 @@ const LinkButton: React.FC<LinkButtonProps> = ({ title, icon, href = "#" }) => {
   return (
     <Link href={href}>
       <div className={containerClasses}>
-        <span className="text-gray-700 dark:text-gray-50">
-          <IconComponent className="h-6 w-6" />
-        </span>
+        {!!icon && (
+          <span className="text-gray-700 dark:text-gray-50">
+            <IconComponent className="h-6 w-6" />
+          </span>
+        )}
         <p className={textClasses}>{title}</p>
       </div>
     </Link>
