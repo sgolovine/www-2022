@@ -2,5 +2,5 @@
   "*.(ts|tsx)": ["prettier --write", "eslint --fix"],
   "*.json": ["prettier --write"],
   "*.md": ["prettier --write"],
-  "public/(posts|snippets)/**/*.md": ["build-posts"]
+  "public/(posts|snippets)/**/*.md": ["npm run build-posts"]
 }
