@@ -31,6 +31,19 @@
         "postPreview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas "
       },
       {
+        "relativePath": "test-post-4/post.md",
+        "postMetadata": {
+          "title": "Test Post 4",
+          "date": "09/06/2022",
+          "description": "Description",
+          "category": "travel",
+          "published": true,
+          "slug": "test-post-4",
+          "type": "post"
+        },
+        "postPreview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas "
+      },
+      {
         "relativePath": "test-post/post.md",
         "postMetadata": {
           "title": "Test Post with Header Image",
