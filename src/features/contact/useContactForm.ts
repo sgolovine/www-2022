@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import AppLogger from "@logger"
 import * as EmailValidator from "email-validator"
 
@@ -10,7 +10,7 @@ type FormKeys = "name" | "email" | "subject" | "message"
 
 type FormState = Record<FormKeys, string>
 
-type FormErrors = Record<FormKeys, boolean>
+type FormErrors = Record<FormKeys, boolean | null>
 
 const initialState: FormState = {
   name: "",
@@ -20,10 +20,10 @@ const initialState: FormState = {
 }
 
 const initialFormErrorState: FormErrors = {
-  name: false,
-  email: false,
-  message: false,
-  subject: false,
+  name: null,
+  email: null,
+  message: null,
+  subject: null,
 }
 
 function validateText(input: string): boolean {
@@ -44,25 +44,66 @@ export const useContactForm = () => {
     initialFormErrorState
   )
 
+  useEffect(() => {
+    if (formErrors.name) {
+      setFormErrors(prevState => ({
+        ...prevState,
+        name: false,
+      }))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.name])
+
+  useEffect(() => {
+    if (formErrors.email) {
+      setFormErrors(prevState => ({
+        ...prevState,
+        email: false,
+      }))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.email])
+
+  useEffect(() => {
+    if (formErrors.subject) {
+      setFormErrors(prevState => ({
+        ...prevState,
+        subject: false,
+      }))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.subject])
+
+  useEffect(() => {
+    if (formErrors.message) {
+      setFormErrors(prevState => ({
+        ...prevState,
+        name: false,
+      }))
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [form.message])
+
   const handleSubmit = () => {
     const isNameValid = validateText(form.name)
     const isSubjectValid = validateText(form.subject)
     const isEmailValid = validateEmail(form.email)
     const isMessageValid = validateText(form.message)
-    if (isNameValid && isEmailValid && isMessageValid) {
+    if (isNameValid && isEmailValid && isMessageValid && isSubjectValid) {
     } else {
       logger.log("found form validation errors", formErrors)
       setFormErrors({
-        name: isNameValid,
-        email: isEmailValid,
-        message: isMessageValid,
-        subject: isSubjectValid,
+        name: !isNameValid,
+        email: !isEmailValid,
+        message: !isMessageValid,
+        subject: !isSubjectValid,
       })
     }
   }
 
   const handleClear = () => {
     setForm(initialState)
+    setFormErrors(initialFormErrorState)
   }
 
   const setField = (field: FormKeys, value: string) => {
@@ -78,5 +119,6 @@ export const useContactForm = () => {
     setField,
     state: form,
     errors: formErrors,
+    setFormErrors,
   }
 }
