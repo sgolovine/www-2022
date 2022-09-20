@@ -75,7 +75,8 @@
     },
     "errors": {
       "name": "Name is required",
-      "email": "Email is required",
+      "emailMissing": "Email is required",
+      "emailInvalid": "Invalid Email",
       "subject": "Subject is required",
       "message": "Message is required"
     },

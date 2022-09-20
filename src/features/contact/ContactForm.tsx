@@ -38,7 +38,7 @@ export const ContactForm: React.FC<Props> = ({}) => {
           value={contactForm.state.name}
           onChange={e => contactForm.setField("name", e.target.value)}
         />
-        {contactForm.errors.name && (
+        {contactForm.errors.namePresent && (
           <p className={errorClasses}>{labels.contactPage.errors.name}</p>
         )}
       </span>
@@ -54,8 +54,15 @@ export const ContactForm: React.FC<Props> = ({}) => {
           value={contactForm.state.email}
           onChange={e => contactForm.setField("email", e.target.value)}
         />
-        {contactForm.errors.email && (
-          <p className={errorClasses}>{labels.contactPage.errors.email}</p>
+        {contactForm.errors.emailValid && !contactForm.errors.emailPresent && (
+          <p className={errorClasses}>
+            {labels.contactPage.errors.emailInvalid}
+          </p>
+        )}
+        {contactForm.errors.emailPresent && (
+          <p className={errorClasses}>
+            {labels.contactPage.errors.emailMissing}
+          </p>
         )}
       </span>
 
@@ -71,7 +78,7 @@ export const ContactForm: React.FC<Props> = ({}) => {
           value={contactForm.state.subject}
           onChange={e => contactForm.setField("subject", e.target.value)}
         />
-        {contactForm.errors.subject && (
+        {contactForm.errors.subjectPresent && (
           <p className={errorClasses}>{labels.contactPage.errors.subject}</p>
         )}
       </span>
@@ -87,7 +94,7 @@ export const ContactForm: React.FC<Props> = ({}) => {
           value={contactForm.state.message}
           onChange={e => contactForm.setField("message", e.target.value)}
         />
-        {contactForm.errors.message && (
+        {contactForm.errors.messagePresent && (
           <p className={errorClasses}>{labels.contactPage.errors.message}</p>
         )}
       </span>
