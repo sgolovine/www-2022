@@ -5,6 +5,9 @@ import { TestComponent } from "~/components/common/TestComponent"
 export default {
   title: "TestComponent",
   component: TestComponent,
+  // parameters: {
+  //   layout: "fullscreen",
+  // },
 } as ComponentMeta<typeof TestComponent>
 
 const Template: ComponentStory<typeof TestComponent> = args => (
