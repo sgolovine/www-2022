@@ -1,83 +1,109 @@
 import clsx from "clsx"
 import { themeClasses } from "~/config/themeClasses"
 import { useContactForm } from "./useContactForm"
+import makeStyles from "./ContactForm.classes"
+import labels from "~/labels.json"
 
 interface Props {}
 
-const formSectionClasses = clsx("flex", "flex-col", "pb-4")
-const formLabelClasses = clsx("text-sm", "font-bold", themeClasses.textColor)
-const formInputClasses = clsx(
-  themeClasses.textColor,
-  "border",
-  "dark:border-slate-700",
-  "text-lg",
-  "py-1",
-  "px-2",
-  "bg-gray-100",
-  "dark:bg-slate-800"
-)
-
-const formButtonClasses = clsx(
-  themeClasses.buttonColor,
-  "py-2",
-  "px-6",
-  "border",
-  "dark:border-slate-700",
-  "rounded-lg"
-)
+enum FieldIds {
+  name = "name",
+  email = "email",
+  subject = "subject",
+  message = "message",
+}
 
 export const ContactForm: React.FC<Props> = ({}) => {
   const contactForm = useContactForm()
 
+  const {
+    formSectionClasses,
+    formLabelClasses,
+    formInputClasses,
+    formButtonClasses,
+    errorClasses,
+  } = makeStyles()
+
   return (
     <>
       <span className={formSectionClasses}>
-        <label className={formLabelClasses} htmlFor="name">
-          Your Name
+        <label className={formLabelClasses} htmlFor={FieldIds.name}>
+          {labels.contactPage.labels.name}
         </label>
         <input
           className={formInputClasses}
-          id="name"
+          id={FieldIds.name}
           type="text"
           required
           value={contactForm.state.name}
           onChange={e => contactForm.setField("name", e.target.value)}
         />
+        {contactForm.errors.name && (
+          <p className={errorClasses}>{labels.contactPage.errors.name}</p>
+        )}
       </span>
       <span className={formSectionClasses}>
-        <label className={formLabelClasses} htmlFor="email">
-          Your Email
+        <label className={formLabelClasses} htmlFor={FieldIds.email}>
+          {labels.contactPage.labels.email}
         </label>
         <input
-          id="email"
+          id={FieldIds.email}
           type="email"
           required
           className={formInputClasses}
           value={contactForm.state.email}
           onChange={e => contactForm.setField("email", e.target.value)}
         />
+        {contactForm.errors.email && (
+          <p className={errorClasses}>{labels.contactPage.errors.email}</p>
+        )}
       </span>
+
       <span className={formSectionClasses}>
-        <label className={formLabelClasses} htmlFor="message">
-          Message
+        <label className={formLabelClasses} htmlFor={FieldIds.subject}>
+          {labels.contactPage.labels.subject}
+        </label>
+        <input
+          id={FieldIds.subject}
+          type="text"
+          required
+          className={formInputClasses}
+          value={contactForm.state.subject}
+          onChange={e => contactForm.setField("subject", e.target.value)}
+        />
+        {contactForm.errors.subject && (
+          <p className={errorClasses}>{labels.contactPage.errors.subject}</p>
+        )}
+      </span>
+
+      <span className={formSectionClasses}>
+        <label className={formLabelClasses} htmlFor={FieldIds.message}>
+          {labels.contactPage.labels.message}
         </label>
         <textarea
-          id="message"
+          id={FieldIds.message}
           required
           className={clsx(formInputClasses, "h-32", "resize-none")}
           value={contactForm.state.message}
           onChange={e => contactForm.setField("message", e.target.value)}
         />
+        {contactForm.errors.message && (
+          <p className={errorClasses}>{labels.contactPage.errors.message}</p>
+        )}
       </span>
       <span className="flex flex-row gap-4">
         <button className={formButtonClasses} onClick={contactForm.handleClear}>
-          <p className={themeClasses.textColor}>Clear</p>
+          <p className={themeClasses.textColor}>
+            {labels.contactPage.buttons.clear}
+          </p>
         </button>
         <button
           className={formButtonClasses}
           onClick={contactForm.handleSubmit}
         >
-          <p className={themeClasses.textColor}>Submit</p>
+          <p className={themeClasses.textColor}>
+            {labels.contactPage.buttons.submit}
+          </p>
         </button>
       </span>
     </>

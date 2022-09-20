@@ -6,7 +6,7 @@ const logger = new AppLogger({
   prefix: "useContactForm",
 })
 
-type FormKeys = "name" | "email" | "message"
+type FormKeys = "name" | "email" | "subject" | "message"
 
 type FormState = Record<FormKeys, string>
 
@@ -16,12 +16,14 @@ const initialState: FormState = {
   name: "",
   email: "",
   message: "",
+  subject: "",
 }
 
 const initialFormErrorState: FormErrors = {
   name: false,
   email: false,
   message: false,
+  subject: false,
 }
 
 function validateText(input: string): boolean {
@@ -44,6 +46,7 @@ export const useContactForm = () => {
 
   const handleSubmit = () => {
     const isNameValid = validateText(form.name)
+    const isSubjectValid = validateText(form.subject)
     const isEmailValid = validateEmail(form.email)
     const isMessageValid = validateText(form.message)
     if (isNameValid && isEmailValid && isMessageValid) {
@@ -53,6 +56,7 @@ export const useContactForm = () => {
         name: isNameValid,
         email: isEmailValid,
         message: isMessageValid,
+        subject: isSubjectValid,
       })
     }
   }
