@@ -1,23 +1,16 @@
 import { useEffect, useState } from "react"
 import AppLogger from "@logger"
 import * as EmailValidator from "email-validator"
+import {
+  FormErrors,
+  FormKeys,
+  FormState,
+  SubmitParams,
+} from "./types/ContactForm"
 
 const logger = new AppLogger({
   prefix: "useContactForm",
 })
-
-type FormKeys = "name" | "email" | "subject" | "message"
-
-type FormState = Record<FormKeys, string>
-
-type FormErrors = Record<
-  | "namePresent"
-  | "emailPresent"
-  | "emailValid"
-  | "subjectPresent"
-  | "messagePresent",
-  boolean
->
 
 const initialState: FormState = {
   name: "",
@@ -46,7 +39,11 @@ function validateEmail(input: string): boolean {
   return EmailValidator.validate(input)
 }
 
-export const useContactForm = () => {
+export const useContactForm = ({
+  cb,
+}: {
+  cb: (args: SubmitParams) => void
+}) => {
   const [form, setForm] = useState<FormState>(initialState)
   const [formErrors, setFormErrors] = useState<FormErrors>(
     initialFormErrorState
@@ -102,6 +99,15 @@ export const useContactForm = () => {
     const isEmailValid = validateEmail(form.email)
     const isMessageValid = validateText(form.message)
     if (isNameValid && isEmailValid && isMessageValid && isSubjectValid) {
+      logger.log("executing form callback")
+      logger.log("form:", form)
+      // Callback Function
+      cb({
+        name: form.name,
+        email: form.email,
+        subject: form.subject,
+        message: form.message,
+      })
     } else {
       logger.log("found form validation errors", formErrors)
       setFormErrors({

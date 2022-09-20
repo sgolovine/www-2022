@@ -3,8 +3,11 @@ import { themeClasses } from "~/config/themeClasses"
 import { useContactForm } from "./useContactForm"
 import makeStyles from "./ContactForm.classes"
 import labels from "~/labels.json"
+import { SubmitParams } from "./types/ContactForm"
 
-interface Props {}
+interface Props {
+  onSubmit: (args: SubmitParams) => void
+}
 
 enum FieldIds {
   name = "name",
@@ -13,8 +16,8 @@ enum FieldIds {
   message = "message",
 }
 
-export const ContactForm: React.FC<Props> = ({}) => {
-  const contactForm = useContactForm()
+export const ContactForm: React.FC<Props> = ({ onSubmit }) => {
+  const contactForm = useContactForm({ cb: onSubmit })
 
   const {
     formSectionClasses,

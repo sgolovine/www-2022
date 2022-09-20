@@ -24,7 +24,7 @@ export const Loader: React.FC<Props> = ({ visible, onCancel }) => {
 
   const containerClasses = clsx(
     flexCenter,
-    "absolute",
+    "fixed",
     "bg-black/20",
     "dark:bg-white/20",
     "top-0",

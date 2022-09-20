@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 
 import { AppProps } from "next/app"
 import { AppPage } from "~/model/PageProps"
 import { Menu } from "~/components/layout"
+import { QueryClient, QueryClientProvider, Hydrate } from "react-query"
 
 import "../styles/tailwind.css"
 import "../styles/global.css"
@@ -13,19 +14,24 @@ type AppPropsWithLayout = AppProps & {
   Component: AppPage
 }
 
-export default function App({
-  Component: PageComponent,
-  pageProps,
-}: AppPropsWithLayout) {
-  // Use the layout defined at the page level, if available
-  const getLayout = PageComponent.getLayout ?? (page => page)
+const App = ({ Component: PageComponent, pageProps }: AppPropsWithLayout) => {
+  const [queryClient] = useState(() => new QueryClient())
 
-  const Component = getLayout(<PageComponent {...pageProps} />)
+  // Use the layout defined at the page level, if available
+  const Component = PageComponent.getLayout
+    ? PageComponent.getLayout(<PageComponent {...pageProps} />)
+    : PageComponent
 
   return (
-    <>
-      <Menu />
-      {Component}
-    </>
+    <QueryClientProvider client={queryClient}>
+      <Hydrate state={pageProps.dehydratedState}>
+        <>
+          <Menu />
+          {Component}
+        </>
+      </Hydrate>
+    </QueryClientProvider>
   )
 }
+
+export default App
