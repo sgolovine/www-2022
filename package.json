@@ -22,6 +22,7 @@
     "lint-staged": "lint-staged",
     "generate:version": "./scripts/generate-version.sh",
     "generate:postmap": "ts-node ./scripts/buildPostMap.ts",
+    "optimize-images": "next-image-export-optimizer",
     "postinstall": "npm run generate:version && npm run generate:postmap"
   },
   "author": "Sunny Golovine",
