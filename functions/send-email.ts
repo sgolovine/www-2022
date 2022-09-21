@@ -1,5 +1,5 @@
 import { Handler } from "@netlify/functions"
-import { setApiKey, send } from "@sendgrid/mail"
+import * as sendgrid from "@sendgrid/mail"
 
 const handler: Handler = async event => {
   if (!event.body) {
@@ -61,7 +61,7 @@ const handler: Handler = async event => {
 
   // Set the api key and catch any errors that might occur.
   try {
-    setApiKey(process.env.SENDGRID_API_KEY)
+    sendgrid.setApiKey(process.env.SENDGRID_API_KEY)
   } catch (e) {
     console.error(e)
     return {
@@ -98,7 +98,7 @@ const handler: Handler = async event => {
       `,
   }
 
-  const resp = await send(composedMessage)
+  const resp = await sendgrid.send(composedMessage)
   const isSuccessfulResponse =
     resp[0].statusCode >= 200 || resp[0].statusCode <= 299
 
