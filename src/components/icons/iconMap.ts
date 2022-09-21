@@ -18,6 +18,7 @@ import { PaperClip } from "./hero/PaperClip"
 import { PencilSquare } from "./hero/PencilSquare"
 import { PlusCircle } from "./hero/PlusCircle"
 import Sun from "./hero/Sun"
+import { Refresh } from "./material/Refresh"
 import { TextDecrease } from "./material/TextDecrease"
 import { TextIncrease } from "./material/TextIncrease"
 
@@ -43,6 +44,7 @@ const allIcons = {
   globe: GlobeAlt,
   plusCircle: PlusCircle,
   minusCircle: MinusCircle,
+  refresh: Refresh,
 }
 
 export type AllIcons = keyof typeof allIcons

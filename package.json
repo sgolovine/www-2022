@@ -31,6 +31,7 @@
     "@headlessui/react": "^1.7.2",
     "@sendgrid/mail": "^7.7.0",
     "@types/mapbox__rehype-prism": "^0.8.0",
+    "axios": "^0.27.2",
     "clsx": "^1.2.1",
     "daisyui": "^2.24.0",
     "dayjs": "^1.11.5",
@@ -45,6 +46,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-headroom": "^3.2.0",
+    "react-query": "^3.39.2",
     "zustand": "^4.1.1"
   },
   "devDependencies": {
@@ -63,6 +65,7 @@
     "@storybook/react": "^6.5.12",
     "@storybook/testing-library": "^0.0.13",
     "@tailwindcss/typography": "^0.5.7",
+    "@types/axios": "^0.14.0",
     "@types/glob": "^8.0.0",
     "@types/lodash.uniq": "^4.5.7",
     "@types/node": "^18.7.14",
