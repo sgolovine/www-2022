@@ -29,7 +29,15 @@ export interface PostMap<PT> {
   data: PostMapData<PT>[]
 }
 
+export interface BlogPostMap extends PostMap<BlogPost> {
+  categories: {
+    label: string
+    value: string
+  }[]
+  tags: string[]
+}
+
 export interface ContentMap {
-  posts: PostMap<BlogPost>
+  posts: BlogPostMap
   snippets: PostMap<Snippet>
 }

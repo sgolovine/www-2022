@@ -1,5 +1,5 @@
-import { PostMap, BlogPost } from "~/model/Post"
+import { BlogPostMap } from "~/model/Post"
 
 export interface AllPostsPageProps {
-  posts: PostMap<BlogPost>
+  posts: BlogPostMap
 }

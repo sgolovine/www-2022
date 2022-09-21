@@ -5,7 +5,7 @@ import {
   pageNavigationConfig,
 } from "~/features/blog"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { getAllPosts } from "~/services/getAllPosts.node"
+import { getMap } from "~/services/getMap.node"
 
 const Page: AppPage<AllPostsPageProps> = ({ posts }) => {
   return <AllPostsPage posts={posts} />
@@ -16,10 +16,10 @@ Page.getLayout = page => (
 )
 
 export async function getStaticProps(): StaticProps<AllPostsPageProps> {
-  const allPosts = await getAllPosts()
+  const postMap = await getMap()
   return {
     props: {
-      posts: allPosts,
+      posts: postMap.posts,
     },
   }
 }
