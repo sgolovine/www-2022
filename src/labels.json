@@ -65,5 +65,26 @@
     "copyright": "Copyright",
     "author": "Sunny Golovine",
     "version": "Version"
+  },
+  "contactPage": {
+    "labels": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "errors": {
+      "name": "Name is required",
+      "emailMissing": "Email is required",
+      "emailInvalid": "Invalid Email",
+      "subject": "Subject is required",
+      "message": "Message is required"
+    },
+    "buttons": {
+      "clear": "Clear",
+      "submit": "Submit"
+    },
+    "sendError": "An error occurred sending your message",
+    "sendSuccess": "Successfully sent message. Check your inbox for a copy of the message."
   }
 }
