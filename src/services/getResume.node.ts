@@ -5,7 +5,7 @@ import { Resume } from "~/features/resume/types/Resume"
 export async function getResume(): Promise<Resume> {
   const resumePath = path.resolve(
     process.cwd(),
-    "public",
+    "content",
     "resume",
     "resume.json"
   )
