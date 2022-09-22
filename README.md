@@ -34,6 +34,10 @@ This website is built with NextJS and uses TailwindCSS for styling the UI. Conte
 
 - Env: The env is set manually through the Netlify UI but a copy is stored in `~/.env.example`. See [env](#env) for more info.
 
+- Feature Flags: This website uses feature flags to hide work that is not ready to be published. Feature flags are located in `~/config/featureFlags.ts`.
+
+- Strings: All strings on the website are kept in `~/labels.json`. This is to facilitate easier internationalization in the future.
+
 ## Env
 
 The following env variables are required by the app.
