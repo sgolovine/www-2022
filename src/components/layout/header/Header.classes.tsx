@@ -65,6 +65,14 @@ export function makeStyles({ showPageNav }: { showPageNav: boolean }) {
     "mx-auto"
   )
 
+  const headerRightContainer = clsx(
+    "flex",
+    "flex-row",
+    "md:flex-row-reverse",
+    "items-center",
+    "gap-5"
+  )
+
   return {
     containerClasses,
     contentContainer,
@@ -75,5 +83,6 @@ export function makeStyles({ showPageNav }: { showPageNav: boolean }) {
     mobileTitleText,
     pageNavigationContainer,
     pageNav,
+    headerRightContainer,
   }
 }
