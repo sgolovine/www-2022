@@ -14,7 +14,7 @@ export enum Routes {
 export interface AppRoute {
   id: string
   title: string
-  link: Routes
+  link: string | Routes
   // If set to false, will not show up anywhere.
   // Defaults to true.
   routeEnabled?: boolean
@@ -28,5 +28,5 @@ export interface AppRoute {
 
 export interface HeaderRoute extends AppRoute {
   isActive?: boolean
-  onClick?: (route: Routes) => void // this might not be required
+  onClick?: (route: string) => void // this might not be required
 }

@@ -4,6 +4,7 @@ import path from "path"
 import glob from "glob"
 import AppLogger from "../logger"
 import { BlogPost, ContentMap, Snippet } from "~/model/Post"
+import uniq from "lodash.uniq"
 
 // For post previews we take the first X number of characters
 // Of the post. This variable defines how many characters we take.
@@ -64,10 +65,33 @@ function fetchPosts<PostType>(
     const allPosts = fetchPosts<BlogPost>(postFiles, postDir, false)
     const allSnippets = fetchPosts<Snippet>(snippetFiles, snippetsDir, true)
 
+    const postCategories = uniq(
+      allPosts
+        .map(post => post.postMetadata.category)
+        .filter(category => typeof category !== "undefined")
+    ).map(category => ({
+      value: category as string,
+      label:
+        (category as string)[0].toUpperCase() +
+        (category as string).substring(1),
+    }))
+
+    const postTags = uniq(
+      allPosts.reduce((acc, item) => {
+        if (item.postMetadata.tags) {
+          const splitTags = item.postMetadata.tags.split(",")
+          return [...acc, ...splitTags]
+        }
+        return acc
+      }, [] as string[])
+    )
+
     const map: ContentMap = {
       posts: {
         cwd: postDir,
         data: allPosts,
+        categories: postCategories ?? [],
+        tags: postTags ?? [],
       },
       snippets: {
         cwd: snippetsDir,

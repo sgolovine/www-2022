@@ -1,25 +1,36 @@
+import { useRouter } from "next/router"
+import { useMemo } from "react"
 import { PageLayout } from "~/components/layout"
-import {
-  AllPostsPage,
-  AllPostsPageProps,
-  pageNavigationConfig,
-} from "~/features/blog"
+import { AllPostsPage, AllPostsPageProps } from "~/features/blog"
+import { createPageNavigationConfig } from "~/features/blog/helpers/createPageNavigationConfig"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { getAllPosts } from "~/services/getAllPosts.node"
+import { getMap } from "~/services/getMap.node"
 
 const Page: AppPage<AllPostsPageProps> = ({ posts }) => {
-  return <AllPostsPage posts={posts} />
+  const router = useRouter()
+
+  const pageNavigation = useMemo(
+    () =>
+      createPageNavigationConfig({
+        categories: posts.categories,
+        cb: router.push,
+        indexPage: true,
+      }),
+    [posts.categories, router.push]
+  )
+
+  return (
+    <PageLayout pageLinks={pageNavigation}>
+      <AllPostsPage posts={posts} />
+    </PageLayout>
+  )
 }
 
-Page.getLayout = page => (
-  <PageLayout pageLinks={pageNavigationConfig}>{page}</PageLayout>
-)
-
 export async function getStaticProps(): StaticProps<AllPostsPageProps> {
-  const allPosts = await getAllPosts()
+  const postMap = await getMap()
   return {
     props: {
-      posts: allPosts,
+      posts: postMap.posts,
     },
   }
 }

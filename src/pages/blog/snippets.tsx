@@ -1,7 +1,7 @@
 import { PageLayout } from "~/components/layout"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { SnippetsLandingPage, SnippetsLandingPageProps } from "~/features/blog"
-import { getAllSnippets } from "~/services/getAllSnippets.node"
+import { getMap } from "~/services/getMap.node"
 
 const Page: AppPage<SnippetsLandingPageProps> = props => {
   return <SnippetsLandingPage {...props} />
@@ -10,10 +10,10 @@ const Page: AppPage<SnippetsLandingPageProps> = props => {
 Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
 export async function getStaticProps(): StaticProps<SnippetsLandingPageProps> {
-  const allSnippets = await getAllSnippets()
+  const postMap = await getMap()
   return {
     props: {
-      snippets: allSnippets,
+      snippets: postMap.snippets,
     },
   }
 }

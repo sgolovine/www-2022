@@ -18,9 +18,11 @@ const App = ({ Component: PageComponent, pageProps }: AppPropsWithLayout) => {
   const [queryClient] = useState(() => new QueryClient())
 
   // Use the layout defined at the page level, if available
-  const Component = PageComponent.getLayout
-    ? PageComponent.getLayout(<PageComponent {...pageProps} />)
-    : PageComponent
+  const Component = PageComponent.getLayout ? (
+    PageComponent.getLayout(<PageComponent {...pageProps} />)
+  ) : (
+    <PageComponent {...pageProps} />
+  )
 
   return (
     <QueryClientProvider client={queryClient}>

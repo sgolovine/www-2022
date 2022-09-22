@@ -1,13 +1,14 @@
-import { getAllPosts } from "./getAllPosts.node"
+import { getMap } from "./getMap.node"
 
 export async function getStaticCategoryPaths() {
-  const allPosts = await getAllPosts()
+  const allPosts = await getMap()
 
   return {
-    paths: allPosts?.data.map(post => ({
+    paths: allPosts.posts.categories.map(category => ({
       params: {
-        category: post.postMetadata.category,
+        category: category.value,
       },
     })),
+    fallback: false,
   }
 }

@@ -79,15 +79,17 @@ const Header: React.FC<Props> = ({
       </div>
       <div className={pageNavigationContainer}>
         <div className={pageNav}>
-          {(pageLinks ?? []).map(link => {
+          {(pageLinks ?? []).map(pageLink => {
             return (
               <Button
                 {...pageNavButtonBaseProps}
-                key={link.id}
-                isActive={link.isActive}
-                onClick={() => link.onClick && link.onClick(link.link)}
+                key={pageLink.id}
+                isActive={pageLink.isActive}
+                onClick={() =>
+                  pageLink.onClick && pageLink.onClick(pageLink.link)
+                }
               >
-                {link.title}
+                {pageLink.title}
               </Button>
             )
           })}

@@ -29,7 +29,14 @@ export interface PostMap<PT> {
   data: PostMapData<PT>[]
 }
 
+export type Category = Record<"label" | "value", string>
+
+export interface BlogPostMap extends PostMap<BlogPost> {
+  categories: Category[]
+  tags: string[]
+}
+
 export interface ContentMap {
-  posts: PostMap<BlogPost>
+  posts: BlogPostMap
   snippets: PostMap<Snippet>
 }

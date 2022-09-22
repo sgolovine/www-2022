@@ -58,6 +58,27 @@
         },
         "postPreview": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vel risus commodo viverra maecenas "
       }
+    ],
+    "categories": [
+      {
+        "value": "general",
+        "label": "General"
+      },
+      {
+        "value": "travel",
+        "label": "Travel"
+      },
+      {
+        "value": "tech",
+        "label": "Tech"
+      }
+    ],
+    "tags": [
+      "react",
+      "angular",
+      "vue",
+      "javascript",
+      "webpack"
     ]
   },
   "snippets": {
