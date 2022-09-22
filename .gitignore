@@ -6,3 +6,4 @@ tsconfig.tsbuildinfo
 .env
 .env.*
 !.env.example
+src/__postmap__.json
