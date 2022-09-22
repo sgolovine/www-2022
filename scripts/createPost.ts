@@ -1,7 +1,7 @@
 import prompts from "prompts"
 import AppLogger from "../logger"
 import dayjs from "dayjs"
-import { existsSync, mkdirSync, writeFileSync } from "fs"
+import { existsSync, writeFileSync } from "fs"
 
 import path from "path"
 
@@ -11,8 +11,8 @@ const logger = new AppLogger({
 
 const FM_DELIM = "---"
 const NEWLINE = "\n"
-const POSTS_DIRECTORY = path.resolve(__dirname, "../public/posts")
-const SNIPPETS_DIRECTORY = path.resolve(__dirname, "../public/snippets")
+const POSTS_DIRECTORY = path.resolve(__dirname, "../content/posts")
+const SNIPPETS_DIRECTORY = path.resolve(__dirname, "../content/snippets")
 
 const questions: prompts.PromptObject[] = [
   {
@@ -27,8 +27,8 @@ const questions: prompts.PromptObject[] = [
   },
   {
     type: "text",
-    name: "folderName",
-    message: "Post Folder Name",
+    name: "fileName",
+    message: "Post File Name",
   },
   {
     type: "select",
@@ -107,36 +107,34 @@ async function main() {
 
     // Check and make sure that we have all the data.
     // If not throw and catch below.
-    if (!responses.folderName) {
-      throw "Folder name not found."
+    if (!responses.fileName) {
+      throw "File name not found."
     }
 
     if (
       responses.type === "blog" &&
-      existsSync(path.resolve(POSTS_DIRECTORY, responses.folderName))
+      existsSync(path.resolve(POSTS_DIRECTORY, responses.fileName))
     ) {
       throw "Could not create post. Folder name already exists. Select another folder name."
     }
 
     if (
       isSnippet &&
-      existsSync(path.resolve(SNIPPETS_DIRECTORY, responses.folderName))
+      existsSync(path.resolve(SNIPPETS_DIRECTORY, `${responses.fileName}.md`))
     ) {
-      throw "Could not create post. Folder name already exists. Select another folder name."
+      throw "Could not create post. File name already exists. Select another file name."
     }
 
     if (isSnippet) {
-      mkdirSync(path.resolve(SNIPPETS_DIRECTORY, responses.folderName))
       writeFileSync(
-        path.resolve(SNIPPETS_DIRECTORY, responses.folderName, "snippet.md"),
+        path.resolve(SNIPPETS_DIRECTORY, `${responses.fileName}.md`),
         postString
       )
       logger.info("Successfully created snippet")
       process.exit(0)
     } else {
-      mkdirSync(path.resolve(POSTS_DIRECTORY, responses.folderName))
       writeFileSync(
-        path.resolve(POSTS_DIRECTORY, responses.folderName, "post.md"),
+        path.resolve(POSTS_DIRECTORY, `${responses.fileName}.md`),
         postString
       )
       logger.info("Successfully created post")
