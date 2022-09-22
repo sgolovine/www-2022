@@ -15,16 +15,14 @@
     "tsc": "tsc",
     "serve": "http-server dist --port 9090",
     "create-post": "ts-node ./scripts/createPost.ts",
-    "lint-posts": "prettier --check public/posts/**/*.md public/snippets/**/*.md",
-    "lint-posts:fix": "prettier --write public/posts/**/*.md public/snippets/**/*.md",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint-staged": "lint-staged",
     "generate:version": "./scripts/generate-version.sh",
     "generate:postmap:dev": "ts-node ./scripts/buildPostMap.ts --dev",
     "generate:postmap:prod": "ts-node ./scripts/buildPostMap.ts --prod",
     "optimize-images": "next-image-export-optimizer",
-    "postinstall": "npm run generate:version && npm run generate:postmap"
+    "postinstall": "npm run generate:version",
+    "lint-staged": "lint-staged"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",

@@ -18,13 +18,15 @@ This codebase holds my personal website. This readme describes the architecture 
 
 2. Install Dependencies: `npm install`
 
-3. Run The Project: `npm run dev`
+3. Build a postmap: `npm run generate:postmap:dev` or `npm run generate:postmap:prod`
+
+4. Run The Project: `npm run dev`
 
 ## Architecture.
 
 This website is built with NextJS and uses TailwindCSS for styling the UI. Content is loaded from `/public` and queried by each page as they are needed.
 
-- Blog Posts: Loaded from `/public/posts` and uses [Next MDX Remote](https://github.com/hashicorp/next-mdx-remote) to load the content at build time. Each post contains a `slug` field that tells the site what path to render it to. So if a post has the slug `my-test-post`, the path would be: `/blog/post/my-test-post`. Running the command `npm run generate:postmap` will generate a postmap that contains absolute paths and slugs for each post. This allows index pages to load this file rather than querying all posts to get this map in realtime. This script runs on `postinstall` and also runs in CI whenever we deploy the site. Postmaps are stored in `~/src/__postmap__.json`
+- Blog Posts: Loaded from `/public/posts` and uses [Next MDX Remote](https://github.com/hashicorp/next-mdx-remote) to load the content at build time. Each post contains a `slug` field that tells the site what path to render it to. So if a post has the slug `my-test-post`, the path would be: `/blog/post/my-test-post`. Running the command `npm run generate:postmap:(dev|prod)` will generate a postmap that contains absolute paths and slugs for each post. This allows index pages to load this file rather than querying all posts to get this map in realtime. This script runs on `postinstall` and also runs in CI whenever we deploy the site. Postmaps are stored in `~/src/__postmap__.json`. When running `generate:postmap:dev`, posts from `public/mock_posts/posts` will be used rather than the ones in `public/posts`. This is to facilitate faster development as you do not have to load all blog posts to run the site. If you want to run the site with all posts loaded, run `generate:postmap:prod` instead.
 
 - Snippets: Snippets are loaded exactly like blog posts. The key difference is pages are built to: `/snippets/:snippet`
 
@@ -50,3 +52,20 @@ UI = ENV Variables used by the UI
 | ------------------ | ----------------------- | --------- |
 | `SENDGRID_API_KEY` | API Key for Sendgrid    | Functions |
 | `REPLY_TO`         | Where to send the email | Functions |
+
+## Post Frontmatter
+
+Frontmatter is metadata at the top of each post that defines things such as the title, slug, description, etc. Below is a table of all these options:
+
+| Field         | Description              | Required |
+| ------------- | ------------------------ | -------- |
+| `title`       | Title of the post        | Yes      |
+| `date`        | Date of the post         | Yes      |
+| `published`   | Whether to show the post | Yes      |
+| `slug`        | Post Slug                | Yes      |
+| `description` | Description of the post  | No       |
+| `category`    | Post Category            | No       |
+| `tags`        | Post Tags                | No       |
+| `headerImage` | Link to the header image | No       |
+
+The `headerImage` field should reference an image in `public/images/posts` and should be a relative path from that path. So if you have an image at: `public/images/posts/my-awesome-image.png`. You would just specify `my-awesome-image.png` in Frontmatter.
