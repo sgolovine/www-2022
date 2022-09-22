@@ -14,6 +14,7 @@ const appRoutes: AppRoute[] = [
     id: "work",
     title: pageTitles[Routes.Work],
     link: Routes.Work,
+    routeEnabled: featureFlags.enableWorkPage,
     showOnHeader: true,
     showOnHomepage: true,
     icon: "officeBuilding",
