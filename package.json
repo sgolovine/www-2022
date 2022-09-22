@@ -21,7 +21,8 @@
     "build-storybook": "build-storybook",
     "lint-staged": "lint-staged",
     "generate:version": "./scripts/generate-version.sh",
-    "generate:postmap": "ts-node ./scripts/buildPostMap.ts",
+    "generate:postmap:dev": "ts-node ./scripts/buildPostMap.ts --dev",
+    "generate:postmap:prod": "ts-node ./scripts/buildPostMap.ts --prod",
     "optimize-images": "next-image-export-optimizer",
     "postinstall": "npm run generate:version && npm run generate:postmap"
   },

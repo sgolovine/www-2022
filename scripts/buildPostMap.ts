@@ -14,8 +14,21 @@ const logger = new AppLogger({
   prefix: "POST MAPPER",
 })
 
-const postDir = path.resolve(process.cwd(), "public", "posts")
-const snippetsDir = path.resolve(process.cwd(), "public", "snippets")
+const devPostDir = path.resolve(
+  process.cwd(),
+  "public",
+  "mock_content",
+  "posts"
+)
+const devSnippetsDir = path.resolve(
+  process.cwd(),
+  "public",
+  "mock_content",
+  "snippets"
+)
+
+const prodPostsDir = path.resolve(process.cwd(), "public", "posts")
+const prodSnippetsDir = path.resolve(process.cwd(), "public", "snippets")
 const outPath = path.resolve(process.cwd(), "src", "__postmap__.json")
 
 async function globAsync(pattern: string, cwd: string): Promise<string[]> {
@@ -56,13 +69,20 @@ function fetchPosts<PostType>(
 }
 
 ;(async function main() {
-  logger.info("building post map")
+  const isDev = process.argv[2].replace("--", "") === "dev"
+
+  logger.info(`building post map in mode`)
+  logger.info(`Development Mode: ${isDev}`)
+
+  const postsDir = isDev ? devPostDir : prodPostsDir
+  const snippetsDir = isDev ? devSnippetsDir : prodSnippetsDir
+
   try {
     // glob posts and snippets from directory
-    const postFiles = await globAsync("**/*.md", postDir)
+    const postFiles = await globAsync("**/*.md", postsDir)
     const snippetFiles = await globAsync("**/*.md", snippetsDir)
 
-    const allPosts = fetchPosts<BlogPost>(postFiles, postDir, false)
+    const allPosts = fetchPosts<BlogPost>(postFiles, postsDir, false)
     const allSnippets = fetchPosts<Snippet>(snippetFiles, snippetsDir, true)
 
     const postCategories = uniq(
@@ -88,7 +108,7 @@ function fetchPosts<PostType>(
 
     const map: ContentMap = {
       posts: {
-        cwd: postDir,
+        cwd: postsDir,
         data: allPosts,
         categories: postCategories ?? [],
         tags: postTags ?? [],
