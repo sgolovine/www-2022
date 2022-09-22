@@ -14,21 +14,11 @@ const logger = new AppLogger({
   prefix: "POST MAPPER",
 })
 
-const devPostDir = path.resolve(
-  process.cwd(),
-  "public",
-  "mock_content",
-  "posts"
-)
-const devSnippetsDir = path.resolve(
-  process.cwd(),
-  "public",
-  "mock_content",
-  "snippets"
-)
+const devPostDir = path.resolve(process.cwd(), "content", "posts-dev")
+const devSnippetsDir = path.resolve(process.cwd(), "content", "snippets-dev")
 
-const prodPostsDir = path.resolve(process.cwd(), "public", "posts")
-const prodSnippetsDir = path.resolve(process.cwd(), "public", "snippets")
+const prodPostsDir = path.resolve(process.cwd(), "content", "posts")
+const prodSnippetsDir = path.resolve(process.cwd(), "content", "snippets")
 const outPath = path.resolve(process.cwd(), "src", "__postmap__.json")
 
 async function globAsync(pattern: string, cwd: string): Promise<string[]> {
