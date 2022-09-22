@@ -4,6 +4,7 @@ import { IconButton } from "~/components/common/iconButton"
 import ThemeSwitch from "../themeSwitch/ThemeSwitch"
 import { makeStyles } from "./Header.classes"
 import clsx from "clsx"
+import { ExternalLinks } from "~/config/externalLinks"
 
 interface Props {
   menuOpen: boolean
@@ -43,7 +44,14 @@ const Header: React.FC<Props> = ({
     mobileTitleText,
     pageNavigationContainer,
     pageNav,
+    headerRightContainer,
   } = makeStyles({ showPageNav: showPageLinks })
+
+  const handleGithubIconClick = () => {
+    if (typeof window !== undefined) {
+      window.location.href = ExternalLinks.GithubRepo
+    }
+  }
 
   return (
     <>
@@ -66,14 +74,17 @@ const Header: React.FC<Props> = ({
               )
             })}
           </div>
-          <div className={themeSwitchContainer}>
-            <ThemeSwitch />
-          </div>
-          <div className={mobileMenuContainer}>
-            <IconButton
-              onClick={onMenuClick}
-              icon={menuOpen ? "close" : "bars3"}
-            />
+          <div className={headerRightContainer}>
+            <IconButton onClick={handleGithubIconClick} icon="github" />
+            <div className={themeSwitchContainer}>
+              <ThemeSwitch />
+            </div>
+            <div className={mobileMenuContainer}>
+              <IconButton
+                onClick={onMenuClick}
+                icon={menuOpen ? "close" : "bars3"}
+              />
+            </div>
           </div>
         </div>
       </div>
