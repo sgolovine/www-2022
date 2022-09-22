@@ -12,3 +12,7 @@ export type AppPage<Props = {}> = NextPage<Props> & {
 export type StaticProps<Props = {}> = Promise<{
   props: Partial<Props>
 }>
+
+export type PageParams<Params = {}> = {
+  params: Params
+}

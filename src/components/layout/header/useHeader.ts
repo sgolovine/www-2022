@@ -4,19 +4,47 @@ import appRoutes from "~/config/navigation/appRoutes"
 import pageTitles from "~/config/navigation/pageTitles"
 import { HeaderRoute, AppRoute, Routes } from "~/model/Routes"
 
-const useHeader = ({ pageLinks }: { pageLinks?: HeaderRoute[] }) => {
+const useHeader = ({
+  pageLinks,
+  overrideCurrentRoute,
+}: {
+  pageLinks?: HeaderRoute[]
+  overrideCurrentRoute?: Routes
+}) => {
   const router = useRouter()
   const currentRoute = router.pathname as Routes
   const pageTitle = pageTitles[currentRoute] ?? ""
 
   const headerRoutes = useMemo(() => {
-    const handleRouteClick = (route: Routes) => {
+    const handleRouteClick = (route: string) => {
       router.push(route)
     }
     const filteredRoutes = appRoutes.filter(route => route.showOnHeader)
 
     const withCurrentActiveRoute: HeaderRoute[] = filteredRoutes.reduce(
       (acc: HeaderRoute[], item: AppRoute) => {
+        if (overrideCurrentRoute && overrideCurrentRoute === item.link) {
+          return [
+            ...acc,
+            {
+              ...item,
+              isActive: true,
+              onClick: handleRouteClick,
+            },
+          ]
+
+          // When we have an `overrideCurrentRoute`
+          // set all other routes to false
+        } else if (overrideCurrentRoute) {
+          return [
+            ...acc,
+            {
+              ...item,
+              isActive: item.link === currentRoute,
+              onClick: handleRouteClick,
+            },
+          ]
+        }
         return [
           ...acc,
           {
@@ -28,6 +56,7 @@ const useHeader = ({ pageLinks }: { pageLinks?: HeaderRoute[] }) => {
       },
       [] as HeaderRoute[]
     )
+
     return withCurrentActiveRoute
     // We depend on the router by depending on `currentRoute`
     // We do not need to depend on other parts of the router such
@@ -36,8 +65,7 @@ const useHeader = ({ pageLinks }: { pageLinks?: HeaderRoute[] }) => {
   }, [currentRoute])
 
   const pageRoutes = useMemo(() => {
-    const handleRouteClick = (route: Routes) => {
-      console.log("clicking on route", route)
+    const handleRouteClick = (route: string) => {
       router.push(route)
     }
     const withCurrentActiveRoute: HeaderRoute[] = (pageLinks ?? []).reduce(
@@ -46,7 +74,6 @@ const useHeader = ({ pageLinks }: { pageLinks?: HeaderRoute[] }) => {
           ...acc,
           {
             ...item,
-            isActive: item.link === currentRoute,
             onClick: handleRouteClick,
           },
         ]

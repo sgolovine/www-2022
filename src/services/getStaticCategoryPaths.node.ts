@@ -9,5 +9,6 @@ export async function getStaticCategoryPaths() {
         category: category.value,
       },
     })),
+    fallback: false,
   }
 }

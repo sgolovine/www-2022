@@ -7,6 +7,3 @@ export { default as SnippetsLandingPage } from "./pages/SnippetsLandingPage"
 export type { AllPostsPageProps } from "./types/AllPostsPageProps"
 export type { PostTemplatePageProps } from "./types/PostTemplatePageProps"
 export type { SnippetsLandingPageProps } from "./types/SnippetsLandingPageProps"
-
-// Config
-export * from "./config/pageNavigation"
