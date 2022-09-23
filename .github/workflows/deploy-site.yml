@@ -1,0 +1,58 @@
+name: Deploy Site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: "Deploy Site to Netlify"
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Use NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16.14.0"
+
+      - name: Install Netlify CLI (globally)
+        run: npm install -g netlify-cli@11.8.3
+
+      - name: Checkout Content
+        uses: actions/checkout@v3
+        with:
+          repository: ${{ env.CONTENT_REPO }}
+          ref: ${{ env.CONTENT_BRANCH }}
+          token: ${{ env.CONTENT_TOKEN }}
+          path: "content"
+          clean: "false"
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Generate Files
+        run: |
+          npm run generate:version
+          npm run generate:postmap:prod
+
+      - name: Build
+        run: npm run build
+
+      - name: Set Netlify ENV
+        run: |
+          netlify env:set SENDGRID_API_KEY $SENDGRID_API_KEY
+          netlify env:set REPLY_TO $REPLY_TO
+
+      - name: Deploy to Netlify
+        run: |
+          netlify deploy                    \
+            --prod                          \
+            --debug                         \
+            --site $NETLIFY_SITE_ID         \
+            --auth $NETLIFY_AUTH_TOKEN      \
+            --dir "dist"                    \
+            --functions "functions"         \
