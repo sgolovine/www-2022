@@ -12,7 +12,7 @@ const CategoryLandingPage: React.FC<CategoryLandingPageProps> = ({
     <PageContainer>
       <PageHeader>{currentCategory.label}</PageHeader>
       <BlogListLayout>
-        {postsByCurrentCategory.data.map(post => {
+        {postsByCurrentCategory.map(post => {
           return (
             <BlogItem
               key={post.relativePath}
