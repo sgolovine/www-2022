@@ -47,15 +47,15 @@ jobs:
 
       - name: Set Netlify ENV
         run: |
-          npx netlify env:set SENDGRID_API_KEY $SENDGRID_API_KEY
-          npx netlify env:set REPLY_TO $REPLY_TO
+          npx netlify-cli env:set SENDGRID_API_KEY $SENDGRID_API_KEY
+          npx netlify-cli env:set REPLY_TO $REPLY_TO
 
       - name: Deploy to Netlify
         run: |
-          npx netlify deploy                \
-            --prod                          \
-            --debug                         \
-            --site $SITE_ID                 \
-            --auth $AUTH_TOKEN              \
-            --dir "dist"                    \
-            --functions "functions"         \
+          npx netlify-cli deploy                \
+            --prod                              \
+            --debug                             \
+            --site $SITE_ID                     \
+            --auth $AUTH_TOKEN                  \
+            --dir "dist"                        \
+            --functions "functions"             \
