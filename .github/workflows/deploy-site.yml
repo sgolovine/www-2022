@@ -19,9 +19,6 @@ jobs:
         with:
           node-version: "16.14.0"
 
-      - name: Install Netlify CLI (globally)
-        run: npm install -g netlify-cli@11.8.3
-
       - name: Checkout Content
         uses: actions/checkout@v3
         with:
@@ -44,12 +41,12 @@ jobs:
 
       - name: Set Netlify ENV
         run: |
-          netlify env:set SENDGRID_API_KEY $SENDGRID_API_KEY
-          netlify env:set REPLY_TO $REPLY_TO
+          npx netlify env:set SENDGRID_API_KEY $SENDGRID_API_KEY
+          npx netlify env:set REPLY_TO $REPLY_TO
 
       - name: Deploy to Netlify
         run: |
-          netlify deploy                    \
+          npx netlify deploy                    \
             --prod                          \
             --debug                         \
             --site $NETLIFY_SITE_ID         \
