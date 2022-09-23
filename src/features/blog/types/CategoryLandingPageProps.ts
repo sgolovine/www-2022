@@ -1,9 +1,9 @@
 import { PageParams } from "~/model/PageProps"
-import { BlogPost, Category, PostMap } from "~/model/Post"
+import { BlogPost, Category, PostMapData } from "~/model/Post"
 
 // Type for the internal page in `features/blog/pages/CategoryLandingPage.tsx`
 export interface CategoryLandingPageProps {
-  postsByCurrentCategory: PostMap<BlogPost>
+  postsByCurrentCategory: PostMapData<BlogPost>[]
   currentCategory: Category
 }
 
