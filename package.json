@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
+    "clone-content": "git clone git@github.com:sgolovine/sunny.gg-content.git ./content",
     "dev": "next dev --port 8080",
     "build": "next build && next export -o dist && next-image-export-optimizer",
     "build:dry": "next build && next export -o .next/dry",
@@ -84,6 +85,7 @@
     "http-server": "^14.1.1",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "netlify-cli": "^11.8.3",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "prompts": "^2.4.2",

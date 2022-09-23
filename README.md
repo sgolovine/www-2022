@@ -18,9 +18,11 @@ This codebase holds my personal website. This readme describes the architecture 
 
 2. Install Dependencies: `npm install`
 
-3. Build a postmap: `npm run generate:postmap:dev` or `npm run generate:postmap:prod`
+3. Clone the content: `git clone <YOUR_CONTENT_REPO>` (See the [content](#content) section for more info)
 
-4. Run The Project: `npm run dev`
+4. Build a postmap: `npm run generate:postmap:dev` or `npm run generate:postmap:prod`
+
+5. Run The Project: `npm run dev`
 
 ## Architecture.
 
@@ -48,10 +50,19 @@ Functions = ENV variables used by Netlify Functions
 
 UI = ENV Variables used by the UI
 
-| Name               | Description             | Location  |
-| ------------------ | ----------------------- | --------- |
-| `SENDGRID_API_KEY` | API Key for Sendgrid    | Functions |
-| `REPLY_TO`         | Where to send the email | Functions |
+| Name                 | Description                             | Location  |
+| -------------------- | --------------------------------------- | --------- |
+| `SENDGRID_API_KEY`   | API Key for Sendgrid                    | Functions |
+| `REPLY_TO`           | Where to send the email                 | Functions |
+| `CONTENT_REPO`       | Content Repo URL                        | Actions   |
+| `CONTENT_BRANCH`     | Content Repo Branch                     | Actions   |
+| `CONTENT_TOKEN`      | Github PAT for cloning content          | Actions   |
+| `NETLIFY_SITE_ID`    | ID of the netlify site                  | Actions   |
+| `NETLIFY_AUTH_TOKEN` | Auth token to upload content to Netlify | Actions   |
+
+ENV variables for `Functions` must be set in the NetlifyUI.
+
+ENV variables for `Actions` must be set in Github.
 
 ## Post Frontmatter
 
@@ -69,3 +80,9 @@ Frontmatter is metadata at the top of each post that defines things such as the 
 | `headerImage` | Link to the header image | No       |
 
 The `headerImage` field should reference an image in `public/images/posts` and should be a relative path from that path. So if you have an image at: `public/images/posts/my-awesome-image.png`. You would just specify `my-awesome-image.png` in Frontmatter.
+
+## Content
+
+While the code to this website is public. The content powering the website is not. This section goes over how to create your own content repository and link it with this project.
+
+_TBD_
