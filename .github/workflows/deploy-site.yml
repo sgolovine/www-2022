@@ -41,10 +41,10 @@ jobs:
         if: steps.cache-dependencies.outputs.cache-hit != 'true'
         run: npm ci
 
-      - name: Set Netlify ENV
-        run: |
-          npx netlify-cli env:set SENDGRID_API_KEY ${{ secrets.SENDGRID_API_KEY }}
-          npx netlify-cli env:set REPLY_TO ${{ secrets.REPLY_TO }}
+      # - name: Set Netlify ENV
+      #   run: |
+      #     npx netlify-cli env:set SENDGRID_API_KEY ${{ secrets.SENDGRID_API_KEY }}
+      #     npx netlify-cli env:set REPLY_TO ${{ secrets.REPLY_TO }}
 
       - name: Generate Files
         run: |
