@@ -22,9 +22,9 @@ jobs:
       - name: Checkout Content
         uses: actions/checkout@v3
         with:
-          repository: "${{ env.CONTENT_REPO }}"
-          ref: "${{ env.CONTENT_BRANCH }}"
-          token: "${{ env.CONTENT_TOKEN }}"
+          repository: "${{ secrets.CONTENT_REPO }}"
+          ref: "${{ secrets.CONTENT_BRANCH }}"
+          token: "${{ secrets.CONTENT_TOKEN }}"
           path: "content"
           clean: "false"
 
@@ -43,13 +43,19 @@ jobs:
         run: |
           npx netlify env:set SENDGRID_API_KEY $SENDGRID_API_KEY
           npx netlify env:set REPLY_TO $REPLY_TO
+        env:
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          REPLY_TO: ${{ secrets.REPLY_TO }}
 
       - name: Deploy to Netlify
         run: |
-          npx netlify deploy                    \
+          npx netlify deploy                \
             --prod                          \
             --debug                         \
-            --site $NETLIFY_SITE_ID         \
-            --auth $NETLIFY_AUTH_TOKEN      \
+            --site $SITE_ID                 \
+            --auth $AUTH_TOKEN              \
             --dir "dist"                    \
             --functions "functions"         \
+        env:
+          SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
