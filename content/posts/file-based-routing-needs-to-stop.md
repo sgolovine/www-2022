@@ -1,12 +1,11 @@
 ---
-title: File Based Routing Needs to Stop
+title: File Based Routing Needs to Stop (Being The Only Option)
 slug: file-based-routing-needs-to-stop
 date: 09/22/2022
 description: Frameworks like Gatsby and NextJS use file-based routing for "simplicity", but they need to offer a programatic routing method.
 category: tech
-# tags:
-# headerImage:
-published: false
+headerImage: nextjs.png
+published: true
 ---
 
 If I was the author of [Gatsby](https://www.gatsbyjs.com/) or [NextJS](https://nextjs.org/), one change that I would make is to let users define routing with a configuration file rather than through a file based approach.
@@ -28,7 +27,7 @@ The alternative here is rather simple, allow routing based on a configuration fi
 
 ```javascript
 
-export const pages = [
+const pages = [
 	{
 		route: '/'
 		component: Home,
@@ -46,6 +45,8 @@ export const pages = [
 	 getStaticPaths: blogTempalteGetStaticPaths,
 	}
 ]
+
+export default Pages
 
 ```
 
