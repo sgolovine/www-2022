@@ -1,3 +1,4 @@
+import { sortPostsByDate } from "~/features/blog/helpers/sortPostsByDate"
 import { getMap } from "./getMap.node"
 
 export async function getRecentPosts(
@@ -10,9 +11,7 @@ export async function getRecentPosts(
     ? mapFile.posts.data.filter(item => item.postMetadata.slug !== excludeSlug)
     : mapFile.posts.data
 
-  const sortedByDate = parsedForExclude.sort((a, b) => {
-    return -new Date(a.postMetadata.date) - -new Date(b.postMetadata.date)
-  })
+  const sortedByDate = sortPostsByDate(parsedForExclude)
 
   return sortedByDate.slice(0, numberOfPosts ?? 5)
 }

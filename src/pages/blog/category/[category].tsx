@@ -3,6 +3,7 @@ import { useMemo } from "react"
 import { PageLayout } from "~/components/layout"
 import { createPageNavigationConfig } from "~/features/blog/helpers/createPageNavigationConfig"
 import { filterPostsByCategory } from "~/features/blog/helpers/getPostByCategory"
+import { sortPostsByDate } from "~/features/blog/helpers/sortPostsByDate"
 import CategoryLandingPage from "~/features/blog/pages/CategoryLandingPage"
 import {
   CategoryLandingRouteParams,
@@ -44,7 +45,9 @@ export async function getStaticProps({
   params: { category },
 }: CategoryLandingRouteParams): StaticProps<CategoryLandingRouteProps> {
   const contentMap = await getMap()
-  const postsByCategory = filterPostsByCategory(category, contentMap)
+  const postsByCategory = sortPostsByDate(
+    filterPostsByCategory(category, contentMap).data
+  )
   return {
     props: {
       postCategories: contentMap.posts.categories,
