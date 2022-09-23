@@ -1,22 +1,13 @@
-# This script deploys the website to Netlify.
-# Steps:
-# 1. Clone Code
-# 2. Clone Content
-# 3. Install NPM Dependencies
-# 4. Generate Version and Postmap
-# 5. Build Site
-# 6. Deploy to Netlify.
+# This workflow is identical to `deploy-site.yml`
+# The only exception is that this workflow can be executed manually
 
-name: Deploy Site
+name: Deploy Site (Manual)
 
-on:
-  push:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
-  deploy:
-    name: "Deploy Site to Netlify"
+  deploy-manual:
+    name: "Deploy Site to Netlify (Manual)"
     runs-on: ubuntu-latest
 
     steps:
