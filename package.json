@@ -20,7 +20,8 @@
     "generate:postmap": "ts-node ./scripts/buildPostMap.ts --prod",
     "optimize-images": "next-image-export-optimizer",
     "postinstall": "npm run generate:version",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "clean": "./scripts/clean.sh"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",
