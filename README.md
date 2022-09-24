@@ -2,11 +2,11 @@
 
 [Link to Website](https://sunny.gg) | [Alternative Link](https://sunnygolovine.com)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/2fc2a46c-2040-43d7-a58e-62b74b6ec549/deploy-status)](https://app.netlify.com/sites/sunnygg/deploys)
-[![Lint Posts](https://github.com/sgolovine/sunny.gg/actions/workflows/lint-posts.yml/badge.svg)](https://github.com/sgolovine/sunny.gg/actions/workflows/lint-posts.yml)
-[![PR Lint](https://github.com/sgolovine/sunny.gg/actions/workflows/lint-site.yml/badge.svg)](https://github.com/sgolovine/sunny.gg/actions/workflows/lint-site.yml)
-[![Push Dry Build](https://github.com/sgolovine/sunny.gg/actions/workflows/push-dry-build.yml/badge.svg)](https://github.com/sgolovine/sunny.gg/actions/workflows/push-dry-build.yml)
 [![Push Lint](https://github.com/sgolovine/sunny.gg/actions/workflows/push-lint.yml/badge.svg)](https://github.com/sgolovine/sunny.gg/actions/workflows/push-lint.yml)
+|
+[![Deploy Site](https://github.com/sgolovine/sunny.gg/actions/workflows/deploy-site.yml/badge.svg)](https://github.com/sgolovine/sunny.gg/actions/workflows/deploy-site.yml)
+|
+[![Deploy Site (Manual)](https://github.com/sgolovine/sunny.gg/actions/workflows/deploy-site-manually.yml/badge.svg)](https://github.com/sgolovine/sunny.gg/actions/workflows/deploy-site-manually.yml)
 
 This codebase holds my personal website. This readme describes the architecture of this website as well as guide on installing, running and building the website locally.
 
