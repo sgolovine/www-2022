@@ -18,9 +18,9 @@ This codebase holds my personal website. This readme describes the architecture 
 
 2. Install Dependencies: `npm install`
 
-3. Clone the content: `git clone <YOUR_CONTENT_REPO>` (See the [content](#content) section for more info)
+3. Clone the content: `npm run clone-content-public`
 
-4. Build a postmap: `npm run generate:postmap:dev` or `npm run generate:postmap:prod`
+4. Build a postmap: `npm run generate:postmap`
 
 5. Run The Project: `npm run dev`
 
@@ -28,9 +28,7 @@ This codebase holds my personal website. This readme describes the architecture 
 
 This website is built with NextJS and uses TailwindCSS for styling the UI. Content is loaded from `/public` and queried by each page as they are needed.
 
-- Blog Posts: Loaded from `/public/posts` and uses [Next MDX Remote](https://github.com/hashicorp/next-mdx-remote) to load the content at build time. Each post contains a `slug` field that tells the site what path to render it to. So if a post has the slug `my-test-post`, the path would be: `/blog/post/my-test-post`. Running the command `npm run generate:postmap:(dev|prod)` will generate a postmap that contains absolute paths and slugs for each post. This allows index pages to load this file rather than querying all posts to get this map in realtime. This script runs on `postinstall` and also runs in CI whenever we deploy the site. Postmaps are stored in `~/src/__postmap__.json`. When running `generate:postmap:dev`, posts from `public/mock_posts/posts` will be used rather than the ones in `public/posts`. This is to facilitate faster development as you do not have to load all blog posts to run the site. If you want to run the site with all posts loaded, run `generate:postmap:prod` instead.
-
-- Snippets: Snippets are loaded exactly like blog posts. The key difference is pages are built to: `/snippets/:snippet`
+- Content: This site keeps it's content in a different repository. When the project is setup, one of the steps is to clone the content from its remote location to `./content`. Inside content we have: project, resume, posts and snippets.
 
 - Images: This site does not use default NextJS image optimization. Rather it uses [next-image-export-optimizer](https://www.npmjs.com/package/next-image-export-optimizer) which runs during the export step. After adding new images to the site you should run: `npm run optimize-images` after adding new images to the site in order to generate new image sizes and hashes.
 
@@ -85,4 +83,4 @@ The `headerImage` field should reference an image in `public/images/posts` and s
 
 While the code to this website is public. The content powering the website is not. This section goes over how to create your own content repository and link it with this project.
 
-_TBD_
+To create your own content repository, see the "public content" repo for this site [here](https://github.com/sgolovine/sunny.gg-contentpublic). You will want to clone this repo and then replace the data with your own. Finally, replace the clone url for `clone-content` and replace it with your own repository.
