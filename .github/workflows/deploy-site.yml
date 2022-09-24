@@ -10,8 +10,10 @@
 name: Deploy Site
 
 on:
+  workflow_dispatch:
   repository_dispatch:
-    types: ["content-updated"]
+    types:
+      - webhook
   push:
     branches:
       - main
