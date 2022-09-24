@@ -14,11 +14,8 @@ const logger = new AppLogger({
   prefix: "POST MAPPER",
 })
 
-const devPostDir = path.resolve(process.cwd(), "content", "posts-dev")
-const devSnippetsDir = path.resolve(process.cwd(), "content", "snippets-dev")
-
-const prodPostsDir = path.resolve(process.cwd(), "content", "posts")
-const prodSnippetsDir = path.resolve(process.cwd(), "content", "snippets")
+const postsDir = path.resolve(process.cwd(), "content", "posts")
+const snippetsDir = path.resolve(process.cwd(), "content", "snippets")
 const outPath = path.resolve(process.cwd(), "src", "__postmap__.json")
 
 async function globAsync(pattern: string, cwd: string): Promise<string[]> {
@@ -59,13 +56,7 @@ function fetchPosts<PostType>(
 }
 
 ;(async function main() {
-  const isDev = process.argv[2].replace("--", "") === "dev"
-
   logger.info(`building post map in mode`)
-  logger.info(`Development Mode: ${isDev}`)
-
-  const postsDir = isDev ? devPostDir : prodPostsDir
-  const snippetsDir = isDev ? devSnippetsDir : prodSnippetsDir
 
   try {
     // glob posts and snippets from directory
