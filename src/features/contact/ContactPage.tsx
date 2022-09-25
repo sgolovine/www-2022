@@ -3,7 +3,7 @@ import { useMutation } from "react-query"
 import { PageHeader } from "~/components/common/PageHeader"
 import pageTitles from "~/config/navigation/pageTitles"
 import { themeClasses } from "~/config/themeClasses"
-import { Routes } from "~/model/Routes"
+import { StaticRoutes } from "~/model/Routes"
 import { sendMessage } from "~/services/sendMessage"
 import { Loader } from "~/stories/Loader.stories"
 import { ContactForm } from "./ContactForm"
@@ -65,7 +65,7 @@ const ContactPage: React.FC<ContactPageProps> = ({}) => {
             <p>Successfully Sent Message.</p>
           </div>
         )}
-        <PageHeader>{pageTitles[Routes.Contact]}</PageHeader>
+        <PageHeader>{pageTitles[StaticRoutes.Contact]}</PageHeader>
         <p className={introClasses}>
           Fill out the form below to send me a message. Alternatively you can
           send me an email directly at: hey@sunny.gg

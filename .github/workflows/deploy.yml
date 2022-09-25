@@ -29,15 +29,6 @@ jobs:
         with:
           node-version: "16.14.0"
 
-      - name: Checkout Content
-        uses: actions/checkout@v3
-        with:
-          repository: "${{ secrets.CONTENT_REPO }}"
-          ref: "${{ secrets.CONTENT_BRANCH }}"
-          token: "${{ secrets.CONTENT_TOKEN }}"
-          path: "content"
-          clean: "false"
-
       - name: Cache Dependencies
         id: cache-dependencies
         uses: actions/cache@v3
@@ -54,7 +45,7 @@ jobs:
       - name: Generate Files
         run: |
           npm run generate:version
-          npm run generate:postmap:prod
+          npm run generate:postmap
 
       - name: Build
         run: npm run build

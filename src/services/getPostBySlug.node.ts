@@ -5,6 +5,7 @@ import { serialize } from "next-mdx-remote/serialize"
 import { SerializeOptions } from "next-mdx-remote/dist/types"
 import rehypePrism from "@mapbox/rehype-prism"
 import { getMap } from "./getMap.node"
+import { postsDir, snippetsDir } from "./constants"
 
 const logger = new AppLogger({
   prefix: "Get Post By Slug",
@@ -20,13 +21,13 @@ const serializeOptions: SerializeOptions = {
 export async function getPostBySlug(slug: string) {
   const mapFile = await getMap()
   try {
-    const selectedPostMetadata = mapFile?.posts?.data.find(
+    const selectedPostMetadata = mapFile?.posts?.find(
       postItem => postItem.postMetadata.slug === slug
     )
     if (selectedPostMetadata) {
       // fetch the MD file
       const rawBlogPost = await fs.readFile(
-        path.resolve(mapFile.posts.cwd, selectedPostMetadata.relativePath),
+        path.resolve(postsDir, selectedPostMetadata.relativePath),
         "utf-8"
       )
 
@@ -46,13 +47,13 @@ export async function getPostBySlug(slug: string) {
 export async function getSnippetBySlug(slug: string) {
   const mapFile = await getMap()
   try {
-    const selectedPostMetadata = mapFile?.snippets?.data.find(
+    const selectedPostMetadata = mapFile?.snippets?.find(
       postItem => postItem.postMetadata.slug === slug
     )
     if (selectedPostMetadata) {
       // fetch the MD file
       const rawBlogPost = await fs.readFile(
-        path.resolve(mapFile.snippets.cwd, selectedPostMetadata.relativePath),
+        path.resolve(snippetsDir, selectedPostMetadata.relativePath),
         "utf-8"
       )
 

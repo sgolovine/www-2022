@@ -1,10 +1,10 @@
-import { Category } from "~/model/Post"
+import { ContentMapCategory } from "~/model/Post"
 import { HeaderRoute } from "~/model/Routes"
 import labels from "~/labels.json"
-import { Routes } from "~/model/Routes"
+import { StaticRoutes } from "~/model/Routes"
 
 interface Args {
-  categories: Category[]
+  categories: ContentMapCategory[]
   cb: (route: string) => void
   currentCategory?: string
   // Special value for the index page to override the current route
@@ -33,7 +33,7 @@ export function createPageNavigationConfig({
     {
       id: "allPosts",
       title: labels.blog.allPosts,
-      link: Routes.Blog,
+      link: StaticRoutes.Blog,
       showOnHeader: false,
       showOnHomepage: false,
       isActive: indexPage ? true : false,

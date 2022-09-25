@@ -3,7 +3,12 @@ import matter from "gray-matter"
 import path from "path"
 import glob from "glob"
 import AppLogger from "../logger"
-import { BlogPost, ContentMap, Snippet } from "~/model/Post"
+import {
+  BlogPostMetadata,
+  PostMetadataBase,
+  ContentMap,
+  ContentMapData,
+} from "~/model/Post"
 import uniq from "lodash.uniq"
 
 // For post previews we take the first X number of characters
@@ -34,7 +39,7 @@ function fetchPosts<PostType>(
   files: string[],
   cwd: string,
   isSnippet: boolean
-) {
+): ContentMapData<PostType>[] {
   logger.info(`Fetching posts in directory: ${cwd}`)
   return files.map(file => {
     const fullPath = path.resolve(cwd, file)
@@ -63,11 +68,16 @@ function fetchPosts<PostType>(
     const postFiles = await globAsync("**/*.md", postsDir)
     const snippetFiles = await globAsync("**/*.md", snippetsDir)
 
-    const allPosts = fetchPosts<BlogPost>(postFiles, postsDir, false)
-    const allSnippets = fetchPosts<Snippet>(snippetFiles, snippetsDir, true)
+    const posts = fetchPosts<BlogPostMetadata>(postFiles, postsDir, false)
+
+    const snippets = fetchPosts<PostMetadataBase>(
+      snippetFiles,
+      snippetsDir,
+      true
+    )
 
     const postCategories = uniq(
-      allPosts
+      posts
         .map(post => post.postMetadata.category)
         .filter(category => typeof category !== "undefined")
     ).map(category => ({
@@ -77,8 +87,8 @@ function fetchPosts<PostType>(
         (category as string).substring(1),
     }))
 
-    const postTags = uniq(
-      allPosts.reduce((acc, item) => {
+    const postTags: string[] = uniq(
+      posts.reduce((acc, item) => {
         if (item.postMetadata.tags) {
           const splitTags = item.postMetadata.tags.split(",")
           return [...acc, ...splitTags]
@@ -88,16 +98,10 @@ function fetchPosts<PostType>(
     )
 
     const map: ContentMap = {
-      posts: {
-        cwd: postsDir,
-        data: allPosts,
-        categories: postCategories ?? [],
-        tags: postTags ?? [],
-      },
-      snippets: {
-        cwd: snippetsDir,
-        data: allSnippets,
-      },
+      posts,
+      snippets,
+      postCategories,
+      postTags,
     }
 
     logger.info(`writing contents to ${outPath}`)

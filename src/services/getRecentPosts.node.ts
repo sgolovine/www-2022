@@ -8,8 +8,8 @@ export async function getRecentPosts(
   const mapFile = await getMap()
 
   const parsedForExclude = excludeSlug
-    ? mapFile.posts.data.filter(item => item.postMetadata.slug !== excludeSlug)
-    : mapFile.posts.data
+    ? mapFile.posts.filter(item => item.postMetadata.slug !== excludeSlug)
+    : mapFile.posts
 
   const sortedByDate = sortPostsByDate(parsedForExclude)
 

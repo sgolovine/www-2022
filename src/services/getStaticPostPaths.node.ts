@@ -5,12 +5,12 @@ type Args = Partial<{
 }>
 
 export async function getStaticPostPaths(args?: Args) {
-  const postMap = await getMap()
+  const contentMap = await getMap()
 
-  let posts = args?.snippet ? postMap.snippets : postMap.posts
+  let posts = args?.snippet ? contentMap.snippets : contentMap.posts
 
   return {
-    paths: posts.data.map(post => ({
+    paths: posts.map(post => ({
       params: {
         slug: post.postMetadata.slug,
       },

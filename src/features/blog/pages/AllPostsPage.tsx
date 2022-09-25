@@ -2,14 +2,14 @@ import { PageContainer } from "~/components/common/PageContainer"
 import { PageHeader } from "~/components/common/PageHeader"
 import BlogItem from "../components/BlogItem"
 import BlogListLayout from "../components/BlogListLayout"
-import { AllPostsPageProps } from "../types/AllPostsPageProps"
+import { AllPostsProps } from "../types/AllPostsPageProps"
 
-const AllPostsPage: React.FC<AllPostsPageProps> = ({ posts }) => {
+const AllPostsPage: React.FC<AllPostsProps> = ({ posts }) => {
   return (
     <PageContainer>
       <PageHeader>Posts</PageHeader>
       <BlogListLayout>
-        {posts.data.map(post => {
+        {posts.map(post => {
           return (
             <BlogItem
               key={post.relativePath}

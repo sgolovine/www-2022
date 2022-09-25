@@ -7,17 +7,17 @@ import { sortPostsByDate } from "~/features/blog/helpers/sortPostsByDate"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { getMap } from "~/services/getMap.node"
 
-const Page: AppPage<AllPostsPageProps> = ({ posts }) => {
+const Page: AppPage<AllPostsPageProps> = ({ posts, categories }) => {
   const router = useRouter()
 
   const pageNavigation = useMemo(
     () =>
       createPageNavigationConfig({
-        categories: posts.categories,
+        categories: categories,
         cb: router.push,
         indexPage: true,
       }),
-    [posts.categories, router.push]
+    [categories, router.push]
   )
 
   return (
@@ -28,14 +28,12 @@ const Page: AppPage<AllPostsPageProps> = ({ posts }) => {
 }
 
 export async function getStaticProps(): StaticProps<AllPostsPageProps> {
-  const postMap = await getMap()
-  const postsSortedByDate = sortPostsByDate(postMap.posts.data)
+  const contentMap = await getMap()
+  const postsSortedByDate = sortPostsByDate(contentMap.posts)
   return {
     props: {
-      posts: {
-        ...postMap.posts,
-        data: postsSortedByDate,
-      },
+      posts: postsSortedByDate,
+      categories: contentMap.postCategories,
     },
   }
 }

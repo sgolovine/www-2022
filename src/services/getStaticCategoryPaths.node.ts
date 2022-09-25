@@ -1,10 +1,10 @@
 import { getMap } from "./getMap.node"
 
 export async function getStaticCategoryPaths() {
-  const allPosts = await getMap()
+  const contentMap = await getMap()
 
   return {
-    paths: allPosts.posts.categories.map(category => ({
+    paths: contentMap.postCategories.map(category => ({
       params: {
         category: category.value,
       },

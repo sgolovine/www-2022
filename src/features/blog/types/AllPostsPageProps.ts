@@ -1,5 +1,9 @@
-import { BlogPostMap } from "~/model/Post"
+import { ContentMapCategory, PostMap } from "~/model/Post"
 
-export interface AllPostsPageProps {
-  posts: BlogPostMap
+export interface AllPostsProps {
+  posts: PostMap
+}
+
+export interface AllPostsPageProps extends AllPostsProps {
+  categories: ContentMapCategory[]
 }

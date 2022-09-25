@@ -26,7 +26,17 @@
     "paths": {
       "~/*": ["./src/*"],
       "@logger": ["./logger/index.ts"]
-    }
+    },
+    "strict": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*", "src/**/[.*].tsx", "scripts", "logger", "functions"],
   "exclude": [

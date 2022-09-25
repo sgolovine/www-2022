@@ -1,16 +1,12 @@
 import clsx from "clsx"
-import { getIcon } from "~/components/icons"
 import { themeClasses } from "~/config/themeClasses"
 import { MarkdownRenderer } from "../components/MarkdownRenderer"
 import PostImage from "../components/PostImage"
-import { formatDate } from "../helpers/formatDate"
 import { useFontSize } from "../hooks/useFontSize"
 import { PostTemplatePageProps } from "../types/PostTemplatePageProps"
 import labels from "~/labels.json"
 import BlogItem from "../components/BlogItem"
-
-const TextIncreaseIcon = getIcon("textIncrease")
-const TextDecreaseIcon = getIcon("textDecrease")
+import { TemplateHeader } from "../components/TemplateHeader"
 
 const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
   meta,
@@ -22,65 +18,15 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
 
   return (
     <div className="max-w-2xl mx-auto">
-      <div className="flex flex-row items-start justify-center pb-4">
-        <p
-          className={clsx(
-            themeClasses.textColor,
-            "text-sm",
-            "font-bold",
-            "uppercase"
-          )}
-        >
-          {meta.category ?? labels.blog.post}
-        </p>
-      </div>
-      <p
-        className={clsx(
-          themeClasses.headerColor,
-          "text-xl",
-          "font-bold",
-          "text-center",
-          "py-2"
-        )}
-      >
-        {meta.title}
-      </p>
-
-      {meta.description && (
-        <div>
-          <p className={clsx(themeClasses.textColor, "text-center")}>
-            {meta.description}
-          </p>
-        </div>
-      )}
-      <div className="flex flex-row items-center justify-between pt-4">
-        <div className="flex flex-col">
-          <p className={clsx(themeClasses.textColor, "text-sm", "font-bold")}>
-            {labels.blog.author}
-          </p>
-          <p className={clsx(themeClasses.textColor, "text-sm", "font-bold")}>
-            {formatDate(meta.date)}
-          </p>
-        </div>
-        <div className="flex flex-row items-end gap-3">
-          <button
-            className={clsx(themeClasses.buttonColor, "p-1", "rounded-md")}
-            onClick={handleFontSizeDecrease}
-          >
-            <TextDecreaseIcon
-              className={clsx("h-5 w-5", themeClasses.iconColor)}
-            />
-          </button>
-          <button
-            className={clsx(themeClasses.buttonColor, "p-1", "rounded-md")}
-            onClick={handleFontSizeIncrease}
-          >
-            <TextIncreaseIcon
-              className={clsx("h-5 w-5", themeClasses.iconColor)}
-            />
-          </button>
-        </div>
-      </div>
+      <TemplateHeader
+        type="post"
+        title={meta.title}
+        onFontSizeDecrease={handleFontSizeDecrease}
+        onFontSizeIncrease={handleFontSizeIncrease}
+        description={meta.description}
+        category={meta.category}
+        date={meta.date}
+      />
       {meta.headerImage ? (
         <div className="py-4">
           <PostImage

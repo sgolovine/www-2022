@@ -10,7 +10,7 @@ import {
   CategoryLandingRouteProps,
 } from "~/features/blog/types/CategoryLandingPageProps"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { Routes } from "~/model/Routes"
+import { StaticRoutes } from "~/model/Routes"
 import { getMap } from "~/services/getMap.node"
 import { getStaticCategoryPaths } from "~/services/getStaticCategoryPaths.node"
 
@@ -32,7 +32,10 @@ const Page: AppPage<CategoryLandingRouteProps> = ({
   )
 
   return (
-    <PageLayout overrideCurrentRoute={Routes.Blog} pageLinks={pageNavigation}>
+    <PageLayout
+      overrideCurrentRoute={StaticRoutes.Blog}
+      pageLinks={pageNavigation}
+    >
       <CategoryLandingPage
         currentCategory={currentCategory}
         postsByCurrentCategory={postsByCurrentCategory}
@@ -46,13 +49,13 @@ export async function getStaticProps({
 }: CategoryLandingRouteParams): StaticProps<CategoryLandingRouteProps> {
   const contentMap = await getMap()
   const postsByCategory = sortPostsByDate(
-    filterPostsByCategory(category, contentMap).data
+    filterPostsByCategory(category, contentMap)
   )
   return {
     props: {
-      postCategories: contentMap.posts.categories,
+      postCategories: contentMap.postCategories,
       postsByCurrentCategory: postsByCategory,
-      currentCategory: contentMap.posts.categories.find(
+      currentCategory: contentMap.postCategories.find(
         item => item.value === category
       ),
     },

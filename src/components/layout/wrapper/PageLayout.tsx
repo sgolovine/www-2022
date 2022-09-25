@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { HeaderRoute, Routes } from "~/model/Routes"
+import { HeaderRoute, StaticRoutes } from "~/model/Routes"
 import HeaderWrapper from "../header/HeaderWrapper"
 import BaseLayout from "./BaseLayout"
 
@@ -8,7 +8,7 @@ interface LayoutProps {
   pageLinks?: HeaderRoute[]
   // This allows slug pages to manually set which
   // Link in teh header is active.
-  overrideCurrentRoute?: Routes
+  overrideCurrentRoute?: StaticRoutes
 }
 
 const PageLayout: React.FC<LayoutProps> = ({

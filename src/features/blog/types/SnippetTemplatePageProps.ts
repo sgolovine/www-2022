@@ -1,6 +1,6 @@
-import { Snippet } from "~/model/Post"
+import { PostMetadataBase } from "~/model/Post"
 
 export interface SnippetTemplatePageProps {
-  meta: Snippet
+  meta: PostMetadataBase
   mdx: string
 }

@@ -1,4 +1,6 @@
-interface PostBase {
+// Metadata that is common to both
+// Blog posts and snippets
+export interface PostMetadataBase {
   type: "post" | "snippet"
   title: string
   description?: string
@@ -7,36 +9,30 @@ interface PostBase {
   slug: string
 }
 
-export interface BlogPost extends PostBase {
+export interface BlogPostMetadata extends PostMetadataBase {
   date: string
   category?: string
   tags?: string
   headerImage?: string
 }
 
-export interface Snippet extends PostBase {}
+export interface ContentMapCategory {
+  label: string
+  value: string
+}
 
-export type PostMapData<PT> = {
+export type ContentMapData<PT> = {
   relativePath: string
   postMetadata: PT
   postPreview?: string
 }
 
-// Here, PostType will be either of type
-// BlogPost or of type Snippet
-export interface PostMap<PT> {
-  cwd: string
-  data: PostMapData<PT>[]
-}
-
-export type Category = Record<"label" | "value", string>
-
-export interface BlogPostMap extends PostMap<BlogPost> {
-  categories: Category[]
-  tags: string[]
-}
+export type PostMap = ContentMapData<BlogPostMetadata>[]
+export type SnippetMap = ContentMapData<PostMetadataBase>[]
 
 export interface ContentMap {
-  posts: BlogPostMap
-  snippets: PostMap<Snippet>
+  posts: PostMap
+  snippets: SnippetMap
+  postCategories: ContentMapCategory[]
+  postTags: string[]
 }
