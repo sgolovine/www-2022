@@ -28,12 +28,12 @@ const Page: AppPage<AllPostsPageProps> = ({ posts, categories }) => {
 }
 
 export async function getStaticProps(): StaticProps<AllPostsPageProps> {
-  const postMap = await getMap()
-  const postsSortedByDate = sortPostsByDate(postMap.posts)
+  const contentMap = await getMap()
+  const postsSortedByDate = sortPostsByDate(contentMap.posts)
   return {
     props: {
       posts: postsSortedByDate,
-      categories: postMap.postCategories,
+      categories: contentMap.postCategories,
     },
   }
 }
