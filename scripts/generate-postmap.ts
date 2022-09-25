@@ -62,10 +62,7 @@ function fetchPosts<PostType>(
 }
 
 ;(async function main() {
-  const isDev = process.argv[2].replace("--", "") === "dev"
-
   logger.info(`building post map in mode`)
-  logger.info(`Development Mode: ${isDev}`)
 
   try {
     // glob posts and snippets from directory

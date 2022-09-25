@@ -1,5 +1,4 @@
 {
-  "extends": "./tsconfig.base.json",
   "ts-node": {
     "compilerOptions": {
       "module": "NodeNext"
@@ -17,7 +16,17 @@
     "paths": {
       "~/*": ["./src/*"],
       "@logger": ["./logger/index.ts"]
-    }
+    },
+    "strict": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true
   },
   "include": ["src/**/*", "src/**/[.*].tsx", "scripts", "logger"],
   "exclude": ["node_modules", ".cache", "public", ".next", "dist", "functions"]

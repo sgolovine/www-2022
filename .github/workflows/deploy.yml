@@ -1,13 +1,23 @@
-# This workflow is identical to `deploy-site.yml`
-# The only exception is that this workflow can be executed manually
+# This script deploys the website to Netlify.
+# Steps:
+# 1. Clone Code
+# 2. Clone Content
+# 3. Install NPM Dependencies
+# 4. Generate Version and Postmap
+# 5. Build Site
+# 6. Deploy to Netlify.
 
-name: Deploy Site (Manual)
+name: Deploy Site
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  deploy-manual:
-    name: "Deploy Site to Netlify (Manual)"
+  deploy:
+    name: "Deploy Site to Netlify"
     runs-on: ubuntu-latest
 
     steps:
@@ -18,15 +28,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16.14.0"
-
-      - name: Checkout Content
-        uses: actions/checkout@v3
-        with:
-          repository: "${{ secrets.CONTENT_REPO }}"
-          ref: "${{ secrets.CONTENT_BRANCH }}"
-          token: "${{ secrets.CONTENT_TOKEN }}"
-          path: "content"
-          clean: "false"
 
       - name: Cache Dependencies
         id: cache-dependencies
@@ -44,7 +45,7 @@ jobs:
       - name: Generate Files
         run: |
           npm run generate:version
-          npm run generate:postmap:prod
+          npm run generate:postmap
 
       - name: Build
         run: npm run build
