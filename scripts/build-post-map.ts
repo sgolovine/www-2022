@@ -3,7 +3,12 @@ import matter from "gray-matter"
 import path from "path"
 import glob from "glob"
 import AppLogger from "../logger"
-import { BlogPost, ContentMap, Snippet } from "~/model/Post"
+import {
+  BlogPostMetadata,
+  PostMetadataBase,
+  ContentMap,
+  ContentMapData,
+} from "~/model/Post"
 import uniq from "lodash.uniq"
 
 // For post previews we take the first X number of characters
@@ -14,11 +19,9 @@ const logger = new AppLogger({
   prefix: "POST MAPPER",
 })
 
-const devPostDir = path.resolve(process.cwd(), "content", "posts-dev")
-const devSnippetsDir = path.resolve(process.cwd(), "content", "snippets-dev")
+const postsDir = path.resolve(process.cwd(), "content", "posts")
+const snippetsDir = path.resolve(process.cwd(), "content", "snippets")
 
-const prodPostsDir = path.resolve(process.cwd(), "content", "posts")
-const prodSnippetsDir = path.resolve(process.cwd(), "content", "snippets")
 const outPath = path.resolve(process.cwd(), "src", "__postmap__.json")
 
 async function globAsync(pattern: string, cwd: string): Promise<string[]> {
@@ -37,7 +40,7 @@ function fetchPosts<PostType>(
   files: string[],
   cwd: string,
   isSnippet: boolean
-) {
+): ContentMapData<PostType>[] {
   logger.info(`Fetching posts in directory: ${cwd}`)
   return files.map(file => {
     const fullPath = path.resolve(cwd, file)
@@ -64,19 +67,21 @@ function fetchPosts<PostType>(
   logger.info(`building post map in mode`)
   logger.info(`Development Mode: ${isDev}`)
 
-  const postsDir = isDev ? devPostDir : prodPostsDir
-  const snippetsDir = isDev ? devSnippetsDir : prodSnippetsDir
-
   try {
     // glob posts and snippets from directory
     const postFiles = await globAsync("**/*.md", postsDir)
     const snippetFiles = await globAsync("**/*.md", snippetsDir)
 
-    const allPosts = fetchPosts<BlogPost>(postFiles, postsDir, false)
-    const allSnippets = fetchPosts<Snippet>(snippetFiles, snippetsDir, true)
+    const posts = fetchPosts<BlogPostMetadata>(postFiles, postsDir, false)
+
+    const snippets = fetchPosts<PostMetadataBase>(
+      snippetFiles,
+      snippetsDir,
+      true
+    )
 
     const postCategories = uniq(
-      allPosts
+      posts
         .map(post => post.postMetadata.category)
         .filter(category => typeof category !== "undefined")
     ).map(category => ({
@@ -86,8 +91,8 @@ function fetchPosts<PostType>(
         (category as string).substring(1),
     }))
 
-    const postTags = uniq(
-      allPosts.reduce((acc, item) => {
+    const postTags: string[] = uniq(
+      posts.reduce((acc, item) => {
         if (item.postMetadata.tags) {
           const splitTags = item.postMetadata.tags.split(",")
           return [...acc, ...splitTags]
@@ -97,16 +102,10 @@ function fetchPosts<PostType>(
     )
 
     const map: ContentMap = {
-      posts: {
-        cwd: postsDir,
-        data: allPosts,
-        categories: postCategories ?? [],
-        tags: postTags ?? [],
-      },
-      snippets: {
-        cwd: snippetsDir,
-        data: allSnippets,
-      },
+      posts,
+      snippets,
+      postCategories,
+      postTags,
     }
 
     logger.info(`writing contents to ${outPath}`)

@@ -46,13 +46,13 @@ export async function getStaticProps({
 }: CategoryLandingRouteParams): StaticProps<CategoryLandingRouteProps> {
   const contentMap = await getMap()
   const postsByCategory = sortPostsByDate(
-    filterPostsByCategory(category, contentMap).data
+    filterPostsByCategory(category, contentMap)
   )
   return {
     props: {
-      postCategories: contentMap.posts.categories,
+      postCategories: contentMap.postCategories,
       postsByCurrentCategory: postsByCategory,
-      currentCategory: contentMap.posts.categories.find(
+      currentCategory: contentMap.postCategories.find(
         item => item.value === category
       ),
     },

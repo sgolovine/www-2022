@@ -1,5 +1,5 @@
-import { PostMap, Snippet } from "~/model/Post"
+import { SnippetMap } from "~/model/Post"
 
 export interface SnippetsLandingPageProps {
-  snippets: PostMap<Snippet>
+  snippets: SnippetMap
 }

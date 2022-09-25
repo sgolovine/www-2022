@@ -13,7 +13,7 @@ const SnippetsLandingPage: React.FC<SnippetsLandingPageProps> = ({
     <PageContainer>
       <PageHeader>{pageTitles[Routes.BlogSnippets]}</PageHeader>
       <BlogListLayout>
-        {snippets.data.map(post => {
+        {snippets.map(post => {
           return (
             <SnippetItem
               key={post.relativePath}

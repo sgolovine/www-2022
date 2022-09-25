@@ -14,6 +14,7 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "lint": "next lint",
     "tsc": "tsc",
+    "tsc-watch": "tsc --watch",
     "serve": "http-server dist --port 9090",
     "create-post": "ts-node ./scripts/createPost.ts",
     "storybook": "start-storybook -p 6006",

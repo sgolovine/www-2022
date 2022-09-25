@@ -1,17 +1,14 @@
-import { BlogPost, ContentMap, PostMap } from "~/model/Post"
+import { ContentMap, PostMap } from "~/model/Post"
 
 export const filterPostsByCategory = (
   category: string,
   contentMap: ContentMap
-): PostMap<BlogPost> => {
+): PostMap => {
   if (contentMap.posts) {
-    const filteredPosts = contentMap.posts.data.filter(post => {
+    const filteredPosts = contentMap.posts.filter(post => {
       return post.postMetadata.category === category
     })
-    return {
-      cwd: contentMap.posts.cwd,
-      data: filteredPosts,
-    }
+    return filteredPosts
   }
-  return [] as unknown as PostMap<BlogPost>
+  return [] as unknown as PostMap
 }

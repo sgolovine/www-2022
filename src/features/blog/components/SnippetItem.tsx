@@ -1,10 +1,10 @@
 import clsx from "clsx"
 import { useRouter } from "next/router"
 import { themeClasses } from "~/config/themeClasses"
-import { Snippet } from "~/model/Post"
+import { PostMetadataBase } from "~/model/Post"
 
 interface Props {
-  meta: Snippet
+  meta: PostMetadataBase
   preview?: string
 }
 

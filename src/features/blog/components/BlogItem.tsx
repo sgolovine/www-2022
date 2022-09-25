@@ -2,10 +2,10 @@ import clsx from "clsx"
 import dayjs from "dayjs"
 import { useRouter } from "next/router"
 import { themeClasses } from "~/config/themeClasses"
-import { BlogPost } from "~/model/Post"
+import { BlogPostMetadata } from "~/model/Post"
 
 interface Props {
-  meta: BlogPost
+  meta: BlogPostMetadata
   preview?: string
   hideAdditionalData?: boolean
 }
