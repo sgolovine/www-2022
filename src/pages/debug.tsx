@@ -2,7 +2,7 @@ import { StaticProps } from "~/model/PageProps"
 import { getVersion } from "~/services/getVersion.node"
 
 import { AppPage } from "~/model/PageProps"
-import { Routes } from "~/model/Routes"
+import { StaticRoutes } from "~/model/Routes"
 import Link from "next/link"
 import clsx from "clsx"
 
@@ -20,7 +20,7 @@ const Page: AppPage<PageProps> = ({ version, commit }) => {
     <div className="p-4">
       <h1 className="text-2xl font-bold">Debug Page</h1>
       <div className="pb-4">
-        <Link href={Routes.Home}>
+        <Link href={StaticRoutes.Home}>
           <a className={linkClasses}>Go Home</a>
         </Link>
       </div>

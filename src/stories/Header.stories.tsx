@@ -1,13 +1,13 @@
 import React from "react"
 import { ComponentStory, ComponentMeta } from "@storybook/react"
 import HeaderComponent from "~/components/layout/header/Header"
-import { HeaderRoute, Routes } from "~/model/Routes"
+import { HeaderRoute, StaticRoutes } from "~/model/Routes"
 
 const headerLinks: HeaderRoute[] = [
   {
     id: "home",
     title: "Home",
-    link: Routes.Home,
+    link: StaticRoutes.Home,
     showOnHeader: true,
     showOnHomepage: true,
     isActive: true,
@@ -16,7 +16,7 @@ const headerLinks: HeaderRoute[] = [
   {
     id: "work",
     title: "Work",
-    link: Routes.Work,
+    link: StaticRoutes.Work,
     showOnHeader: true,
     showOnHomepage: true,
     isActive: false,
@@ -25,7 +25,7 @@ const headerLinks: HeaderRoute[] = [
   {
     id: "blog",
     title: "Blog",
-    link: Routes.Blog,
+    link: StaticRoutes.Blog,
     showOnHeader: true,
     showOnHomepage: true,
     isActive: false,
@@ -34,7 +34,7 @@ const headerLinks: HeaderRoute[] = [
   {
     id: "resume",
     title: "Resume",
-    link: Routes.Resume,
+    link: StaticRoutes.Resume,
     showOnHeader: true,
     showOnHomepage: true,
     isActive: false,
@@ -43,7 +43,7 @@ const headerLinks: HeaderRoute[] = [
   {
     id: "contact",
     title: "Contact",
-    link: Routes.Contact,
+    link: StaticRoutes.Contact,
     showOnHeader: true,
     showOnHomepage: true,
     isActive: false,
@@ -55,7 +55,7 @@ const pageLinks: HeaderRoute[] = [
   {
     id: "blog-posts",
     title: "Posts",
-    link: Routes.Blog,
+    link: StaticRoutes.Blog,
     showOnHeader: false,
     showOnHomepage: false,
     isActive: true,
@@ -64,7 +64,7 @@ const pageLinks: HeaderRoute[] = [
   {
     id: "blog-snippets",
     title: "Snippets",
-    link: Routes.BlogSnippets,
+    link: StaticRoutes.BlogSnippets,
     showOnHeader: false,
     showOnHomepage: false,
     isActive: false,

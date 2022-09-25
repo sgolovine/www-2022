@@ -4,12 +4,12 @@ import { WorkItem } from "./component/WorkItem"
 import { PageContainer } from "~/components/common/PageContainer"
 import { PageHeader } from "~/components/common/PageHeader"
 import pageTitles from "~/config/navigation/pageTitles"
-import { Routes } from "~/model/Routes"
+import { StaticRoutes } from "~/model/Routes"
 
 const WorkPage = () => {
   return (
     <PageContainer>
-      <PageHeader>{pageTitles[Routes.Work]}</PageHeader>
+      <PageHeader>{pageTitles[StaticRoutes.Work]}</PageHeader>
       <WorkSection
         header={labels.workPage.professionalProjects.header}
         description={labels.workPage.professionalProjects.description}

@@ -1,6 +1,6 @@
 import { AllIcons } from "~/components/icons"
 
-export enum Routes {
+export enum StaticRoutes {
   Home = "/",
   Work = "/work",
   Blog = "/blog",
@@ -14,7 +14,7 @@ export enum Routes {
 export interface AppRoute {
   id: string
   title: string
-  link: string | Routes
+  link: string | StaticRoutes
   // If set to false, will not show up anywhere.
   // Defaults to true.
   routeEnabled?: boolean

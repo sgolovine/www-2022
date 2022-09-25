@@ -1,19 +1,19 @@
-import { Routes } from "~/model/Routes"
+import { StaticRoutes } from "~/model/Routes"
 import labels from "~/labels.json"
 
 type PageTitles = {
-  [K in Routes]: string
+  [K in StaticRoutes]: string
 }
 
 const pageTitles: PageTitles = {
-  [Routes.Blog]: labels.pageTitles.blog,
-  [Routes.BlogSnippets]: labels.pageTitles.snippets,
-  [Routes.Contact]: labels.pageTitles.contactMe,
-  [Routes.Home]: labels.pageTitles.home,
-  [Routes.Resume]: labels.pageTitles.resume,
-  [Routes.ResumeDownloadDoc]: labels.pageTitles.downloadDoc,
-  [Routes.ResumeDownloadPdf]: labels.pageTitles.downloadPdf,
-  [Routes.Work]: labels.pageTitles.work,
+  [StaticRoutes.Blog]: labels.pageTitles.blog,
+  [StaticRoutes.BlogSnippets]: labels.pageTitles.snippets,
+  [StaticRoutes.Contact]: labels.pageTitles.contactMe,
+  [StaticRoutes.Home]: labels.pageTitles.home,
+  [StaticRoutes.Resume]: labels.pageTitles.resume,
+  [StaticRoutes.ResumeDownloadDoc]: labels.pageTitles.downloadDoc,
+  [StaticRoutes.ResumeDownloadPdf]: labels.pageTitles.downloadPdf,
+  [StaticRoutes.Work]: labels.pageTitles.work,
 }
 
 export default pageTitles

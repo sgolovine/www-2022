@@ -1,19 +1,19 @@
 import pageTitles from "./pageTitles"
-import { AppRoute, Routes } from "~/model/Routes"
+import { AppRoute, StaticRoutes } from "~/model/Routes"
 import { featureFlags } from "../featureFlags"
 
 const appRoutes: AppRoute[] = [
   {
     id: "home",
-    title: pageTitles[Routes.Home],
-    link: Routes.Home,
+    title: pageTitles[StaticRoutes.Home],
+    link: StaticRoutes.Home,
     showOnHeader: true,
     showOnHomepage: false,
   },
   {
     id: "work",
-    title: pageTitles[Routes.Work],
-    link: Routes.Work,
+    title: pageTitles[StaticRoutes.Work],
+    link: StaticRoutes.Work,
     routeEnabled: featureFlags.enableWorkPage,
     showOnHeader: true,
     showOnHomepage: true,
@@ -21,16 +21,16 @@ const appRoutes: AppRoute[] = [
   },
   {
     id: "blog",
-    title: pageTitles[Routes.Blog],
-    link: Routes.Blog,
+    title: pageTitles[StaticRoutes.Blog],
+    link: StaticRoutes.Blog,
     showOnHeader: true,
     showOnHomepage: true,
     icon: "pencilSquare",
   },
   {
     id: "resume",
-    title: pageTitles[Routes.Resume],
-    link: Routes.Resume,
+    title: pageTitles[StaticRoutes.Resume],
+    link: StaticRoutes.Resume,
     routeEnabled: featureFlags.enableResume,
     showOnHeader: true,
     showOnHomepage: true,
@@ -38,16 +38,16 @@ const appRoutes: AppRoute[] = [
   },
   {
     id: "snippets",
-    title: pageTitles[Routes.BlogSnippets],
-    link: Routes.BlogSnippets,
+    title: pageTitles[StaticRoutes.BlogSnippets],
+    link: StaticRoutes.BlogSnippets,
     showOnHeader: true,
     showOnHomepage: true,
     icon: "paperClip",
   },
   {
     id: "contact",
-    title: pageTitles[Routes.Contact],
-    link: Routes.Contact,
+    title: pageTitles[StaticRoutes.Contact],
+    link: StaticRoutes.Contact,
     showOnHeader: true,
     showOnHomepage: true,
     icon: "envelope",
