@@ -6,10 +6,10 @@
   "scripts": {
     "prepare": "husky install",
     "clone-content": "git clone git@github.com:sgolovine/sunny.gg-content.git ./content",
+    "clone-content-public": "git clone https://github.com/sgolovine/sunny.gg-contentpublic.git ./content",
     "dev": "next dev --port 8080",
     "build": "next build && next export -o dist && npm run generate:images",
     "build:dry": "next build && next export -o .next/dry",
-    "build:functions": "tsc -p ./tsconfig.functions.json",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,json}\"",
     "lint": "next lint",
@@ -23,7 +23,8 @@
     "generate:postmap": "ts-node ./scripts/generate-postmap.ts",
     "generate:images": "next-image-export-optimizer",
     "postinstall": "npm run generate:version",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "clean": "./scripts/clean.sh"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",

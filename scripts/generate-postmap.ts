@@ -21,7 +21,6 @@ const logger = new AppLogger({
 
 const postsDir = path.resolve(process.cwd(), "content", "posts")
 const snippetsDir = path.resolve(process.cwd(), "content", "snippets")
-
 const outPath = path.resolve(process.cwd(), "src", "__postmap__.json")
 
 async function globAsync(pattern: string, cwd: string): Promise<string[]> {

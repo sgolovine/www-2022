@@ -5,6 +5,16 @@
     }
   },
   "compilerOptions": {
+    "strict": true,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "skipLibCheck": true,
     "target": "ESNext",
     "module": "ESNext",
     "jsx": "preserve",
@@ -28,6 +38,17 @@
     "noUnusedParameters": true,
     "skipLibCheck": true
   },
-  "include": ["src/**/*", "src/**/[.*].tsx", "scripts", "logger"],
-  "exclude": ["node_modules", ".cache", "public", ".next", "dist", "functions"]
+  "include": ["src/**/*", "src/**/[.*].tsx", "scripts", "logger", "functions"],
+  "exclude": [
+    ".github",
+    ".husky",
+    ".netlify",
+    ".next",
+    ".storybook",
+    ".vscode",
+    "content",
+    "dist",
+    "node_modules",
+    "public"
+  ]
 }
