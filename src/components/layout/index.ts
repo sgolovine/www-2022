@@ -5,3 +5,5 @@ export { default as Menu } from "./menu/MobileMenuWrapper"
 
 export { default as BaseLayout } from "./wrapper/BaseLayout"
 export { default as PageLayout } from "./wrapper/PageLayout"
+
+export { default as Footer } from "./footer/Footer.wrapper"
