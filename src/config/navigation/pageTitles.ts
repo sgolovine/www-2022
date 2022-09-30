@@ -14,6 +14,7 @@ const pageTitles: PageTitles = {
   [StaticRoutes.ResumeDownloadDoc]: labels.pageTitles.downloadDoc,
   [StaticRoutes.ResumeDownloadPdf]: labels.pageTitles.downloadPdf,
   [StaticRoutes.Work]: labels.pageTitles.work,
+  [StaticRoutes.Apps]: labels.pageTitles.apps,
 }
 
 export default pageTitles

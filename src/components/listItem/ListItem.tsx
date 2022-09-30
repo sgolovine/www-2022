@@ -7,6 +7,7 @@ interface ListItemProps {
   description?: string
   preview?: string
   category?: string
+  noEllipsis?: boolean
   onClick: () => void
 }
 
@@ -20,7 +21,10 @@ const ListItem: React.FC<ListItemProps> = ({
   preview,
   category,
   onClick,
+  noEllipsis,
 }) => {
+  const ellipsis = noEllipsis ? "" : "..."
+
   const displayDate = !!date ? dayjs(date).format("MMM D") : undefined
 
   const postPreviewText = !!description
@@ -51,7 +55,10 @@ const ListItem: React.FC<ListItemProps> = ({
     <div className={containerClasses} onClick={onClick}>
       <p className={titleClasses}>{title}</p>
       {shouldShowPostPreview && (
-        <p className={previewClasses}>{postPreviewText}...</p>
+        <p className={previewClasses}>
+          {postPreviewText}
+          {ellipsis}
+        </p>
       )}
       {renderDateCategory()}
     </div>

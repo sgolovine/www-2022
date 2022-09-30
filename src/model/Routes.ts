@@ -9,6 +9,7 @@ export enum StaticRoutes {
   ResumeDownloadDoc = "/resume/download-doc",
   ResumeDownloadPdf = "/resume/download-pdf",
   Contact = "/contact",
+  Apps = "/apps",
 }
 
 export interface AppRoute {

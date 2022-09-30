@@ -14,7 +14,8 @@
     "resume": "Resume",
     "downloadDoc": "Download Doc",
     "downloadPdf": "Download PDF",
-    "work": "Work"
+    "work": "Work",
+    "apps": "Apps"
   },
   "blog": {
     "categories": "Categories",
@@ -88,6 +89,10 @@
     "sendSuccess": "Successfully sent message. Check your inbox for a copy of the message."
   },
   "apps": {
+    "navigation": {
+      "home": "Home",
+      "appsHome": "All Apps"
+    },
     "homeLabel": "Home",
     "landing": {
       "header": "Apps Platform",
@@ -95,7 +100,7 @@
     },
     "template": {
       "header": "Apps Template Page",
-      "into": "This page serves as a template for all future apps build on the Apps Platform."
+      "intro": "This page serves as a template for all future apps build on the Apps Platform."
     }
   }
 }

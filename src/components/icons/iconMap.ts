@@ -21,8 +21,10 @@ import Sun from "./hero/Sun"
 import { Refresh } from "./material/Refresh"
 import { TextDecrease } from "./material/TextDecrease"
 import { TextIncrease } from "./material/TextIncrease"
+import { Apps } from "./material/Apps"
 
 const allIcons = {
+  apps: Apps,
   arrowUpRight: ArrowUpRight,
   arrowLeft: ArrowLeft,
   github: GithubIcon,
