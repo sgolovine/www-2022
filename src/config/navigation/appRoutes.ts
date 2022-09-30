@@ -45,6 +45,15 @@ const appRoutes: AppRoute[] = [
     icon: "paperClip",
   },
   {
+    id: "apps",
+    title: pageTitles[StaticRoutes.Apps],
+    link: StaticRoutes.Apps,
+    routeEnabled: featureFlags.showAppsLink,
+    showOnHeader: true,
+    showOnHomepage: true,
+    icon: "apps",
+  },
+  {
     id: "contact",
     title: pageTitles[StaticRoutes.Contact],
     link: StaticRoutes.Contact,

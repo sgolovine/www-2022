@@ -5,8 +5,9 @@ import PostImage from "../components/PostImage"
 import { useFontSize } from "../hooks/useFontSize"
 import { PostTemplatePageProps } from "../types/PostTemplatePageProps"
 import labels from "~/labels.json"
-import BlogItem from "../components/BlogItem"
 import { TemplateHeader } from "../components/TemplateHeader"
+import { ListItem } from "~/components/listItem"
+import { useRouter } from "next/router"
 
 const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
   meta,
@@ -15,6 +16,8 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
 }) => {
   const { handleFontSizeDecrease, handleFontSizeIncrease, proseClasses } =
     useFontSize()
+
+  const router = useRouter()
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -59,10 +62,14 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
             <div className="flex flex-col gap-5 py-5">
               {recentPosts.map(post => {
                 return (
-                  <BlogItem
-                    hideAdditionalData
+                  <ListItem
                     key={post.relativePath}
-                    meta={post.postMetadata}
+                    title={post.postMetadata.title}
+                    category={post.postMetadata.category}
+                    date={post.postMetadata.date}
+                    onClick={() =>
+                      router.push(`/post/${post.postMetadata.slug}`)
+                    }
                   />
                 )
               })}
