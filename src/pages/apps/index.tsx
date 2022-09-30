@@ -5,13 +5,13 @@ import labels from "~/labels.json"
 const Page: AppPage = () => {
   return (
     <div>
-      <p>{labels.apps.template.into}</p>
+      <p>{labels.apps.landing.intro}</p>
     </div>
   )
 }
 
 Page.getLayout = page => (
-  <AppsLayout header={labels.apps.template.header}>{page}</AppsLayout>
+  <AppsLayout header={labels.apps.landing.header}>{page}</AppsLayout>
 )
 
 export default Page

@@ -86,5 +86,16 @@
     },
     "sendError": "An error occurred sending your message",
     "sendSuccess": "Successfully sent message. Check your inbox for a copy of the message."
+  },
+  "apps": {
+    "homeLabel": "Home",
+    "landing": {
+      "header": "Apps Platform",
+      "intro": "I often will build tiny apps that do not warrant their own repository and hosting. For those apps I keep them here."
+    },
+    "template": {
+      "header": "Apps Template Page",
+      "into": "This page serves as a template for all future apps build on the Apps Platform."
+    }
   }
 }

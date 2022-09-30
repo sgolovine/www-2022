@@ -2,6 +2,7 @@ import { useRouter } from "next/router"
 import { ReactNode } from "react"
 import { Button } from "../common/button"
 import { Footer } from "../layout"
+import labels from "~/labels.json"
 
 interface Props {
   header: string
@@ -20,7 +21,7 @@ const AppsLayout: React.FC<Props> = ({ header, children }) => {
       <div className="flex flex-row items-center justify-between">
         <h1 className="text-xl font-bold">{header}</h1>
         <Button sm transparent noBorder onClick={goHome}>
-          Home
+          {labels.apps.homeLabel}
         </Button>
       </div>
       <hr className="my-4" />
