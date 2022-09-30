@@ -3,5 +3,5 @@ export const featureFlags = {
   showPunkOnLandingPage: false,
   enableResume: false,
   enableWorkPage: false,
-  showAppsLink: true,
+  showAppsLink: false,
 }
