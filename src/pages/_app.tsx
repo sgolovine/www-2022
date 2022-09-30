@@ -3,7 +3,12 @@ import React, { useState } from "react"
 import { AppProps } from "next/app"
 import { AppPage } from "~/model/PageProps"
 import { Menu } from "~/components/layout"
-import { QueryClient, QueryClientProvider, Hydrate } from "react-query"
+import {
+  QueryClient,
+  QueryClientProvider,
+  Hydrate,
+  dehydrate,
+} from "react-query"
 
 import "../styles/tailwind.css"
 import "../styles/global.css"
@@ -16,6 +21,7 @@ type AppPropsWithLayout = AppProps & {
 
 const App = ({ Component: PageComponent, pageProps }: AppPropsWithLayout) => {
   const [queryClient] = useState(() => new QueryClient())
+  const dehydratedState = dehydrate(queryClient)
 
   // Use the layout defined at the page level, if available
   const Component = PageComponent.getLayout ? (
@@ -26,7 +32,7 @@ const App = ({ Component: PageComponent, pageProps }: AppPropsWithLayout) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Hydrate state={pageProps.dehydratedState}>
+      <Hydrate state={dehydratedState}>
         <>
           <Menu />
           {Component}
