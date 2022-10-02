@@ -5,8 +5,6 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "clone-content": "git clone git@github.com:sgolovine/sunny.gg-content.git ./content",
-    "clone-content-public": "git clone https://github.com/sgolovine/sunny.gg-contentpublic.git ./content",
     "dev": "next dev --port 8080",
     "build": "next build && next export -o dist && npm run generate:images",
     "build:dry": "next build && next export -o .next/dry",
