@@ -34,7 +34,6 @@
     "@types/mapbox__rehype-prism": "^0.8.0",
     "axios": "^0.27.2",
     "clsx": "^1.2.1",
-    "daisyui": "^2.31.0",
     "dayjs": "^1.11.5",
     "email-validator": "^2.0.4",
     "glob": "^8.0.3",

@@ -1,6 +1,6 @@
 import { useRouter } from "next/router"
 import { useMemo } from "react"
-import appRoutes from "~/config/navigation/appRoutes"
+import useAppRoutes from "~/config/navigation/useAppRoutes"
 import pageTitles from "~/config/navigation/pageTitles"
 import { HeaderRoute, AppRoute, StaticRoutes } from "~/model/Routes"
 
@@ -14,6 +14,7 @@ const useHeader = ({
   const router = useRouter()
   const currentRoute = router.pathname as StaticRoutes
   const pageTitle = pageTitles[currentRoute] ?? ""
+  const appRoutes = useAppRoutes()
 
   const headerRoutes = useMemo(() => {
     const handleRouteClick = (route: string) => {

@@ -14,6 +14,7 @@ import "../styles/tailwind.css"
 import "../styles/global.css"
 import "../styles/post-image.css"
 import "../styles/prism-nord-theme.css"
+import { FeaturesContextProvider } from "~/context/FeaturesContext"
 
 type AppPropsWithLayout = AppProps & {
   Component: AppPage
@@ -33,10 +34,10 @@ const App = ({ Component: PageComponent, pageProps }: AppPropsWithLayout) => {
   return (
     <QueryClientProvider client={queryClient}>
       <Hydrate state={dehydratedState}>
-        <>
+        <FeaturesContextProvider>
           <Menu />
           {Component}
-        </>
+        </FeaturesContextProvider>
       </Hydrate>
     </QueryClientProvider>
   )

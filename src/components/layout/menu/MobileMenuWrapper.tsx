@@ -2,12 +2,13 @@ import MobileMenu from "./MobileMenu"
 import { useRouter } from "next/router"
 import useLayoutStore from "~/stores/layoutStore"
 import { useMemo } from "react"
-import appRoutes from "~/config/navigation/appRoutes"
+import useAppRoutes from "~/config/navigation/useAppRoutes"
 import { HeaderRoute } from "~/model/Routes"
 
 const MobileMenuWrapper: React.FC = () => {
   const { menuOpen, closeMenu } = useLayoutStore()
   const { push } = useRouter()
+  const appRoutes = useAppRoutes()
 
   const routes: HeaderRoute[] = useMemo(() => {
     return appRoutes
