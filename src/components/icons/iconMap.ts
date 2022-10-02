@@ -22,6 +22,7 @@ import { Refresh } from "./material/Refresh"
 import { TextDecrease } from "./material/TextDecrease"
 import { TextIncrease } from "./material/TextIncrease"
 import { Apps } from "./material/Apps"
+import { Terminal } from "./material/Terminal"
 
 const allIcons = {
   apps: Apps,
@@ -47,6 +48,7 @@ const allIcons = {
   plusCircle: PlusCircle,
   minusCircle: MinusCircle,
   refresh: Refresh,
+  terminal: Terminal,
 }
 
 export type AllIcons = keyof typeof allIcons

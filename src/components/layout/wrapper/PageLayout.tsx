@@ -16,7 +16,7 @@ const PageLayout: React.FC<LayoutProps> = ({
   pageLinks,
   overrideCurrentRoute,
 }) => (
-  <BaseLayout hideThemeToggle>
+  <BaseLayout>
     <HeaderWrapper
       overrideCurrentRoute={overrideCurrentRoute}
       pageLinks={pageLinks}

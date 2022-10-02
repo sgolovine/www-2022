@@ -5,6 +5,7 @@ import ThemeSwitch from "../themeSwitch/ThemeSwitch"
 import { makeStyles } from "./Header.classes"
 import clsx from "clsx"
 import { ExternalLinks } from "~/config/externalLinks"
+import { DevMenu } from "~/components/devMenu"
 
 interface Props {
   menuOpen: boolean
@@ -75,6 +76,7 @@ const Header: React.FC<Props> = ({
             })}
           </div>
           <div className={headerRightContainer}>
+            <DevMenu />
             <IconButton onClick={handleGithubIconClick} icon="github" />
             <div className={themeSwitchContainer}>
               <ThemeSwitch />

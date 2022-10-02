@@ -3,7 +3,12 @@ module.exports = {
   darkMode: "class",
   content: ["./src/**/*.{ts,tsx,html}"],
   theme: {
-    extend: {},
+    extend: {
+      spacing: {
+        128: "32rem",
+        192: "48rem",
+      },
+    },
   },
   variants: {
     extends: {},
