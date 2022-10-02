@@ -1,4 +1,5 @@
-import { defaultFeatures as featureFlags } from "~/config/defaultFeatures"
+import { Switch } from "@headlessui/react"
+import { useFeatures } from "~/context/FeaturesContext"
 
 const envs = [
   {
@@ -8,21 +9,39 @@ const envs = [
 ]
 
 const Menu = () => {
+  const features = useFeatures()
   const renderFeatureFlags = () => {
     return (
       <>
-        {Object.keys(featureFlags).map(flag => {
-          const valueLabel = featureFlags[flag as keyof typeof featureFlags]
-            ? "ON"
-            : "OFF"
+        {Object.keys(features.features).map(flag => {
+          const enabled =
+            features.features[flag as keyof typeof features.features]
 
+          console.log(flag, enabled)
           return (
             <span
               key={flag}
               className="flex flex-row items-center justify-between py-3"
             >
               <p className="font-medium text-sm">{flag}</p>
-              <p className="font-mono text-sm">{valueLabel}</p>
+              <Switch
+                checked={enabled}
+                onChange={() =>
+                  features.setFeatureFlag(
+                    flag as keyof typeof features.features,
+                    !enabled
+                  )
+                }
+                className={`${
+                  enabled ? "bg-blue-600" : "bg-gray-200"
+                } relative inline-flex h-6 w-11 items-center rounded-full`}
+              >
+                <span
+                  className={`${
+                    enabled ? "translate-x-6" : "translate-x-1"
+                  } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+                />
+              </Switch>
             </span>
           )
         })}

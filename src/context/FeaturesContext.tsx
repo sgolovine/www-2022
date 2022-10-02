@@ -1,8 +1,8 @@
 import { createContext, ReactNode, useContext } from "react"
-import { defaultFeatures } from "~/config/defaultFeatures"
+import { defaultFeatures, FEATURES_VERSION } from "~/config/defaultFeatures"
 import useLocalStorage from "~/hooks/useLocalStorage"
 
-const StorageKey = "features_v1"
+const StorageKey = `features_v${FEATURES_VERSION}`
 
 type Flag = keyof typeof defaultFeatures
 type Features = Record<Flag, boolean>

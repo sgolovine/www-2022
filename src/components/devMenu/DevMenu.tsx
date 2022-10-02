@@ -1,5 +1,5 @@
 import { Transition } from "@headlessui/react"
-import { Fragment, useEffect, useState } from "react"
+import { Fragment, useState } from "react"
 import { useFeatures } from "~/context/FeaturesContext"
 import { IconButton } from "../common/iconButton"
 import Menu from "./Menu"
@@ -20,9 +20,6 @@ const DevMenu: React.FC<Props> = ({ homepage }) => {
     isFeatureEnabled("alwaysShowDevMenu") ||
     process.env.NODE_ENV === "development"
 
-  useEffect(() => {
-    console.log("visible", visible)
-  }, [visible])
   return (
     <>
       {SHOW_MENU ? (
