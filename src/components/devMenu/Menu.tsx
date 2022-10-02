@@ -1,5 +1,5 @@
-import { Switch } from "@headlessui/react"
 import { useFeatures } from "~/context/FeaturesContext"
+import { Switch } from "../common/Switch"
 
 const envs = [
   {
@@ -25,23 +25,14 @@ const Menu = () => {
             >
               <p className="font-medium text-sm">{flag}</p>
               <Switch
-                checked={enabled}
+                enabled={enabled}
                 onChange={() =>
                   features.setFeatureFlag(
                     flag as keyof typeof features.features,
                     !enabled
                   )
                 }
-                className={`${
-                  enabled ? "bg-blue-600" : "bg-gray-200"
-                } relative inline-flex h-6 w-11 items-center rounded-full`}
-              >
-                <span
-                  className={`${
-                    enabled ? "translate-x-6" : "translate-x-1"
-                  } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-                />
-              </Switch>
+              />
             </span>
           )
         })}

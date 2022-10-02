@@ -1,5 +1,6 @@
 import { useDarkTheme } from "~/hooks/useDarkTheme"
 import { getIcon } from "~/components/icons"
+import { Switch } from "~/components/common/Switch"
 
 const SunIcon = getIcon("sun")
 const MoonIcon = getIcon("moon")
@@ -15,12 +16,7 @@ const ThemeSwitch = () => {
           <SunIcon className="h-6 w-6 fill-gray-800" />
         )}
       </span>
-      <input
-        type="checkbox"
-        className="toggle"
-        checked={isDark}
-        onChange={toggleDarkTheme}
-      />
+      <Switch enabled={isDark} onChange={toggleDarkTheme} />
     </div>
   )
 }
