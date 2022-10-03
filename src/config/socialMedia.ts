@@ -33,7 +33,7 @@ const socialMediaConfig: SocialMediaConfig = {
   },
   [SocialMediaKeys.Linkedin]: {
     label: labels.socialMedia.linkedin,
-    href: "#",
+    href: "https://linkedin.com/in/SunnyGolovine",
     icon: "linkedin",
     enabled: true,
   },
@@ -45,7 +45,7 @@ const socialMediaConfig: SocialMediaConfig = {
   },
   [SocialMediaKeys.WhatsApp]: {
     label: labels.socialMedia.whatsApp,
-    href: "#",
+    href: "https://wa.me/qr/R7DNLZIG6BIEC1",
     icon: "whatsApp",
     enabled: true,
   },
