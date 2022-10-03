@@ -9,6 +9,7 @@ import { TemplateHeader } from "../components/TemplateHeader"
 import { ListItem } from "~/components/listItem"
 import { useRouter } from "next/router"
 import { PostSeo } from "../components/PostSEO"
+import { Divider } from "../components/Divider"
 
 const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
   meta,
@@ -39,16 +40,16 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
               src={meta.headerImage}
               alt={labels.blog.template.defaultHeaderAlt}
             />
-            <hr className="my-8" />
+            <Divider />
           </div>
         ) : (
-          <hr className="my-8" />
+          <Divider />
         )}
         {/* Main Content */}
         <MarkdownRenderer classes={proseClasses} mdx={mdx} />
         {recentPosts && recentPosts.length > 0 && (
           <>
-            <hr className="my-8" />
+            <Divider />
             <div>
               <h2
                 className={clsx(

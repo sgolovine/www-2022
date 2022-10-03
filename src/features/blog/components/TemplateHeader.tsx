@@ -47,7 +47,8 @@ export const TemplateHeader: React.FC<Props> = ({
       <p
         className={clsx(
           themeClasses.headerColor,
-          "text-3xl",
+          "text-2xl",
+          "sm:text-3xl",
           "font-bold",
           "text-left",
           "py-2"

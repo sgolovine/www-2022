@@ -2,6 +2,7 @@ import { MarkdownRenderer } from "../components/MarkdownRenderer"
 import { useFontSize } from "../hooks/useFontSize"
 import { SnippetTemplatePageProps } from "../types/SnippetTemplatePageProps"
 import { TemplateHeader } from "../components/TemplateHeader"
+import { Divider } from "../components/Divider"
 
 const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
   meta,
@@ -19,7 +20,7 @@ const SnippetTemplatePage: React.FC<SnippetTemplatePageProps> = ({
         onFontSizeIncrease={handleFontSizeIncrease}
         onFontSizeDecrease={handleFontSizeDecrease}
       />
-      <hr className="my-4" />
+      <Divider />
       {/* Main Content */}
       <MarkdownRenderer classes={proseClasses} mdx={mdx} />
     </div>
