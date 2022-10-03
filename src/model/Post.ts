@@ -12,8 +12,11 @@ export interface PostMetadataBase {
 export interface BlogPostMetadata extends PostMetadataBase {
   date: string
   category?: string
-  tags?: string
   headerImage?: string
+  socialImages: Record<
+    "path" | "relativePath" | "height" | "width" | "type",
+    string
+  >[]
 }
 
 export interface ContentMapCategory {
