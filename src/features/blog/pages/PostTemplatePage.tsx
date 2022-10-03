@@ -34,20 +34,21 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
           date={meta.date}
         />
         {meta.headerImage ? (
-          <div className="py-4">
+          <div className="pt-4">
             <PostImage
               src={meta.headerImage}
               alt={labels.blog.template.defaultHeaderAlt}
             />
+            <hr className="my-8" />
           </div>
         ) : (
-          <hr className="my-4" />
+          <hr className="my-8" />
         )}
         {/* Main Content */}
         <MarkdownRenderer classes={proseClasses} mdx={mdx} />
         {recentPosts && recentPosts.length > 0 && (
           <>
-            <hr className="my-4" />
+            <hr className="my-8" />
             <div>
               <h2
                 className={clsx(
@@ -59,7 +60,7 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
               >
                 {labels.blog.template.otherPostsHeader}
               </h2>
-              <p className={clsx(themeClasses.textColor, "text-center")}>
+              <p className={clsx(themeClasses.detailTextColor, "text-center")}>
                 {labels.blog.template.otherPostsDescription}
               </p>
               <div className="flex flex-col gap-5 py-5">

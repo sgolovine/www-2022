@@ -47,7 +47,7 @@ export const TemplateHeader: React.FC<Props> = ({
       <p
         className={clsx(
           themeClasses.headerColor,
-          "text-xl",
+          "text-3xl",
           "font-bold",
           "text-left",
           "py-2"
@@ -58,18 +58,26 @@ export const TemplateHeader: React.FC<Props> = ({
 
       {description && (
         <div>
-          <p className={clsx(themeClasses.textColor, "text-left", "italic")}>
+          <p
+            className={clsx(
+              themeClasses.detailTextColor,
+              "text-left",
+              "italic"
+            )}
+          >
             {description}
           </p>
         </div>
       )}
       <div className="flex flex-row items-center justify-between pt-4">
         <div className="flex flex-col">
-          <p className={clsx(themeClasses.textColor, "text-sm", "font-bold")}>
+          <p className={clsx(themeClasses.textColor, "text-xs", "font-medium")}>
             {labels.blog.author}
           </p>
           {date && (
-            <p className={clsx(themeClasses.textColor, "text-sm", "font-bold")}>
+            <p
+              className={clsx(themeClasses.textColor, "text-xs", "font-light")}
+            >
               {formatDate(date)}
             </p>
           )}
