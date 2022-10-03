@@ -56,8 +56,8 @@ function fetchPosts<PostType>(
     let socialImages: {
       path: string
       relativePath: string
-      height: string
-      width: string
+      height: number
+      width: number
       type: string
     }[] = []
 
@@ -90,8 +90,8 @@ function fetchPosts<PostType>(
         return {
           path: imgFilepath,
           relativePath,
-          height: dimensions.height?.toString() ?? "",
-          width: dimensions.width?.toString() ?? "",
+          height: dimensions.height ?? 0,
+          width: dimensions.width ?? 0,
           type: dimensions.type ?? "",
         }
       })
