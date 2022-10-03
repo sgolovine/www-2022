@@ -10,6 +10,11 @@ import {
   ContentMapData,
 } from "~/model/Post"
 import uniq from "lodash.uniq"
+import sizeOf from "image-size"
+
+// If set to true, will print the map rather than writing it
+// To the disk
+const RUN_DRY = false
 
 // For post previews we take the first X number of characters
 // Of the post. This variable defines how many characters we take.
@@ -18,6 +23,8 @@ const PREVIEW_LENGTH = 160
 const logger = new AppLogger({
   prefix: "POST MAPPER",
 })
+
+const headerImageSizes = [480, 640, 750, 828, 1080, 1200, 2048, 3840]
 
 const postsDir = path.resolve(process.cwd(), "content", "posts")
 const snippetsDir = path.resolve(process.cwd(), "content", "snippets")
@@ -46,6 +53,50 @@ function fetchPosts<PostType>(
     const postFile = fs.readFileSync(fullPath, "utf-8")
     const postMatter = matter(postFile)
 
+    let socialImages: {
+      path: string
+      relativePath: string
+      height: number
+      width: number
+      type: string
+    }[] = []
+
+    const headerImage = (postMatter as any)?.data?.headerImage
+
+    if (headerImage) {
+      const filenameWithoutExtension = headerImage
+        .replace(".jpeg", "")
+        .replace(".jpg", "")
+        .replace(".png", "")
+
+      socialImages = headerImageSizes.map(size => {
+        const imgFilepath = path.resolve(
+          process.cwd(),
+          "public",
+          "images",
+          "posts",
+          "nextImageExportOptimizer",
+          `${filenameWithoutExtension}-opt-${size}.WEBP`
+        )
+        const relativePath = path.join(
+          "images",
+          "posts",
+          "nextImageExportOptimizer",
+          `${filenameWithoutExtension}-opt-${size}.WEBP`
+        )
+
+        const dimensions = sizeOf(imgFilepath)
+
+        return {
+          path: imgFilepath,
+          relativePath,
+          height: dimensions.height ?? 0,
+          width: dimensions.width ?? 0,
+          type: dimensions.type ?? "",
+        }
+      })
+    }
+
     const getPostPreview = (content: string) =>
       content.substring(0, PREVIEW_LENGTH).replace("\n", "")
 
@@ -54,6 +105,7 @@ function fetchPosts<PostType>(
       postMetadata: {
         ...postMatter.data,
         type: isSnippet ? "snippet" : "post",
+        socialImages: isSnippet ? undefined : socialImages,
       } as PostType,
       postPreview: isSnippet ? undefined : getPostPreview(postMatter.content),
     }
@@ -106,7 +158,18 @@ function fetchPosts<PostType>(
 
     logger.info(`writing contents to ${outPath}`)
     try {
-      fs.writeFileSync(outPath, JSON.stringify(map, null, 2))
+      if (RUN_DRY) {
+        console.log(
+          "-".repeat(10) +
+            "\n" +
+            JSON.stringify(map, null, 2) +
+            "\n" +
+            "-".repeat(10)
+        )
+        process.exit(0)
+      } else {
+        fs.writeFileSync(outPath, JSON.stringify(map, null, 2))
+      }
     } catch (e) {
       logger.error(`error writing file`, e)
       throw e

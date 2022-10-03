@@ -92,6 +92,8 @@ Post maps contain several top level keys:
 
 - Post Tags (`postTags`): Array of all post tags.
 
+- Social Images (`socialImages`): If a post contains a header image, we query and add teh relative path of the image as well as the height and width of the image. This is so NextSEO can assign the proper values to openGraph and JsonLD data in each post.
+
 Each post and snippet in the map contains the relative path to the file from the `content/posts` folder as well as post metadata and a preview of the post (first 160 characters). Snippets are different from posts in that their metadata does not contain a date or a category.
 
 ## Feature Flags
