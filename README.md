@@ -97,3 +97,7 @@ Each post and snippet in the map contains the relative path to the file from the
 ## Feature Flags
 
 This site utilizes feature flags to hide upcoming work. To get a sneak preview of upcoming features, run the site locally (see [setting up locally](#setting-up-locally) for more info) and enable the feature through the development menu (its the terminal icon in the header). You can see default feature flags [here](https://github.com/sgolovine/sunny.gg/blob/main/src/config/defaultFeatures.ts)
+
+## Storybook
+
+This site uses Storybook to prototype certain components. As of now, not all components are in Storybook but the majority are. To run storybook, run: `npm run storybook`.
