@@ -1,5 +1,15 @@
 {
-  ":name": "Sunny Golovine",
-  ":description": "Website for Sunny Golovine",
-  ":locales": ["en_US"]
+  ":name": "FrontAid CMS Example with Next.js",
+  "title": { ":type": "line" },
+  "index": {
+    "title": { ":type": "line" },
+    "content": { ":type": "text", ":richtext": true }
+  },
+  "pages": {
+    ":items": {
+      "title": { ":type": "line" },
+      "path": { ":type": "line" },
+      "content": { ":type": "text", ":richtext": true }
+    }
+  }
 }
