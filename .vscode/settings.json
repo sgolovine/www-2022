@@ -7,12 +7,4 @@
     "Postmaps",
     "SENDGRID"
   ],
-  "json.schemas": [
-  {
-    "fileMatch": [
-      "*.model.json"
-    ],
-    "url": "https://raw.githubusercontent.com/frontaid/schema/master/frontaid-schema.json"
-  }
-]
 }
