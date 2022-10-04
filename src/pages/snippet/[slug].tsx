@@ -1,5 +1,6 @@
 import { PageLayout } from "~/components/layout"
 import SnippetTemplatePage from "~/features/blog/pages/SnippetTemplatePage"
+import { SnippetSEO } from "~/features/blog/seo/SnippetSEO"
 import { SnippetTemplatePageProps } from "~/features/blog/types/SnippetTemplatePageProps"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { getSnippetBySlug } from "~/services/getPostBySlug.node"
@@ -11,8 +12,11 @@ interface Params {
   }
 }
 
-const Page: AppPage<SnippetTemplatePageProps> = props => (
-  <SnippetTemplatePage {...props} />
+const Page: AppPage<SnippetTemplatePageProps> = ({ meta, mdx }) => (
+  <>
+    <SnippetSEO metadata={meta} />
+    <SnippetTemplatePage meta={meta} mdx={mdx} />
+  </>
 )
 
 Page.getLayout = page => <PageLayout>{page}</PageLayout>

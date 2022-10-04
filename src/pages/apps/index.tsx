@@ -31,6 +31,14 @@ const Page: AppPage = () => {
   )
 }
 
-Page.getLayout = page => <AppsLayout>{page}</AppsLayout>
+// SEO Component is inside AppsLayout.
+Page.getLayout = page => (
+  <AppsLayout
+    appName={labels.apps.landing.header}
+    appDescription={labels.apps.landing.intro}
+  >
+    {page}
+  </AppsLayout>
+)
 
 export default Page

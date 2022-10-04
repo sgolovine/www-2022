@@ -1,6 +1,7 @@
 import { ArticleJsonLd, NextSeo } from "next-seo"
 import { BlogPostMetadata } from "~/model/Post"
 import dayjs from "dayjs"
+import { DOMAIN } from "~/config/domain"
 
 /** SEO Component for Blog Posts */
 interface Props {
@@ -8,7 +9,7 @@ interface Props {
 }
 
 export const PostSeo: React.FC<Props> = ({ metadata }) => {
-  const canonicalUrl = `https://sunny.gg/post/${metadata.slug}`
+  const canonicalUrl = `https://${DOMAIN}/post/${metadata.slug}`
   const publishedTime = dayjs(metadata.date).toISOString()
 
   return (
@@ -23,7 +24,7 @@ export const PostSeo: React.FC<Props> = ({ metadata }) => {
           url: canonicalUrl,
           title: metadata.title,
           description: metadata.description,
-          site_name: "sunny.gg",
+          site_name: DOMAIN,
           article: {
             publishedTime,
             authors: ["Sunny Golovine"],
@@ -31,7 +32,7 @@ export const PostSeo: React.FC<Props> = ({ metadata }) => {
           },
           images: metadata.socialImages.map(image => {
             return {
-              url: `https://sunny.gg/${image.relativePath}`,
+              url: `https://${DOMAIN}/${image.relativePath}`,
               width: image.width,
               height: image.height,
               alt: "Header Image",
@@ -48,16 +49,16 @@ export const PostSeo: React.FC<Props> = ({ metadata }) => {
         url={canonicalUrl}
         title={metadata.title}
         images={metadata.socialImages.map(
-          img => `https://sunny.gg/${img.relativePath}`
+          img => `https://${DOMAIN}/${img.relativePath}`
         )}
         datePublished={publishedTime}
         authorName={[
           {
             name: "Sunny Golovine",
-            url: "https://sunny.gg",
+            url: `https://${DOMAIN}`,
           },
         ]}
-        publisherLogo="https://sunny.gg/images/profile_picture.png"
+        publisherLogo={`https://${DOMAIN}/images/profile_picture.png`}
         description={metadata.description ?? ""}
       />
     </>
