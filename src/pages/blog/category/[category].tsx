@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import { useMemo } from "react"
+import { PageSEO } from "~/components/common/PageSEO"
 import { PageLayout } from "~/components/layout"
 import { createPageNavigationConfig } from "~/features/blog/helpers/createPageNavigationConfig"
 import { filterPostsByCategory } from "~/features/blog/helpers/getPostByCategory"
@@ -13,6 +14,7 @@ import { AppPage, StaticProps } from "~/model/PageProps"
 import { StaticRoutes } from "~/model/Routes"
 import { getMap } from "~/services/getMap.node"
 import { getStaticCategoryPaths } from "~/services/getStaticCategoryPaths.node"
+import labels from "~/labels.json"
 
 const Page: AppPage<CategoryLandingRouteProps> = ({
   postCategories,
@@ -32,15 +34,21 @@ const Page: AppPage<CategoryLandingRouteProps> = ({
   )
 
   return (
-    <PageLayout
-      overrideCurrentRoute={StaticRoutes.Blog}
-      pageLinks={pageNavigation}
-    >
-      <CategoryLandingPage
-        currentCategory={currentCategory}
-        postsByCurrentCategory={postsByCurrentCategory}
+    <>
+      <PageSEO
+        title={`${labels.seo.defaultTitle} | ${labels.pageTitles.blog}  | ${currentCategory.label}`}
+        description={labels.seo.defaultDescription}
       />
-    </PageLayout>
+      <PageLayout
+        overrideCurrentRoute={StaticRoutes.Blog}
+        pageLinks={pageNavigation}
+      >
+        <CategoryLandingPage
+          currentCategory={currentCategory}
+          postsByCurrentCategory={postsByCurrentCategory}
+        />
+      </PageLayout>
+    </>
   )
 }
 

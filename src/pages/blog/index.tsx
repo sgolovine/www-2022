@@ -1,11 +1,13 @@
 import { useRouter } from "next/router"
 import { useMemo } from "react"
+import { PageSEO } from "~/components/common/PageSEO"
 import { PageLayout } from "~/components/layout"
 import { AllPostsPage, AllPostsPageProps } from "~/features/blog"
 import { createPageNavigationConfig } from "~/features/blog/helpers/createPageNavigationConfig"
 import { sortPostsByDate } from "~/features/blog/helpers/sortPostsByDate"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { getMap } from "~/services/getMap.node"
+import labels from "~/labels.json"
 
 const Page: AppPage<AllPostsPageProps> = ({ posts, categories }) => {
   const router = useRouter()
@@ -21,9 +23,15 @@ const Page: AppPage<AllPostsPageProps> = ({ posts, categories }) => {
   )
 
   return (
-    <PageLayout pageLinks={pageNavigation}>
-      <AllPostsPage posts={posts} />
-    </PageLayout>
+    <>
+      <PageSEO
+        title={`${labels.seo.defaultTitle} | ${labels.pageTitles.blog}`}
+        description={labels.seo.defaultDescription}
+      />
+      <PageLayout pageLinks={pageNavigation}>
+        <AllPostsPage posts={posts} />
+      </PageLayout>
+    </>
   )
 }
 

@@ -8,7 +8,6 @@ import labels from "~/labels.json"
 import { TemplateHeader } from "../components/TemplateHeader"
 import { ListItem } from "~/components/listItem"
 import { useRouter } from "next/router"
-import { PostSeo } from "../components/PostSEO"
 import { Divider } from "../components/Divider"
 
 const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
@@ -23,7 +22,6 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
 
   return (
     <>
-      <PostSeo metadata={meta} />
       <div className="max-w-2xl mx-auto">
         <TemplateHeader
           type="post"

@@ -1,5 +1,6 @@
 import { PageLayout } from "~/components/layout"
 import { PostTemplatePageProps, PostTemplatePage } from "~/features/blog"
+import { PostSeo } from "~/features/blog/seo/PostSEO"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { getPostBySlug } from "~/services/getPostBySlug.node"
 import { getRecentPosts } from "~/services/getRecentPosts.node"
@@ -11,8 +12,11 @@ interface Params {
   }
 }
 
-const Page: AppPage<PostTemplatePageProps> = props => (
-  <PostTemplatePage {...props} />
+const Page: AppPage<PostTemplatePageProps> = ({ meta, mdx, recentPosts }) => (
+  <>
+    <PostSeo metadata={meta} />
+    <PostTemplatePage meta={meta} mdx={mdx} recentPosts={recentPosts} />
+  </>
 )
 
 Page.getLayout = page => <PageLayout>{page}</PageLayout>

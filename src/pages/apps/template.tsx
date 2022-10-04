@@ -10,6 +10,13 @@ const Page: AppPage = () => {
   )
 }
 
-Page.getLayout = page => <AppsLayout>{page}</AppsLayout>
+Page.getLayout = page => (
+  <AppsLayout
+    appName={labels.apps.template.header}
+    appDescription={labels.apps.template.intro}
+  >
+    {page}
+  </AppsLayout>
+)
 
 export default Page
