@@ -11,7 +11,7 @@ const IconWrapper: React.FC = () => {
       <div className="grid grid-cols-3 gap-10">
         {iconKeys.map(key => {
           const IconComponent = getIcon(key as AllIcons)
-          return <IconComponent key={key} className="h-32 w-32" />
+          return <IconComponent key={key} className="h-32 w-32 text-blue-500" />
         })}
       </div>
     </div>

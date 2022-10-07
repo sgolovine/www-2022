@@ -14,7 +14,8 @@ export async function getProjects(): Promise<Project[]> {
     const projectsJSON: Project[] = JSON.parse(projects)
     if (projectsJSON) {
       logger.log("successfully fetched projects json")
-      return projectsJSON
+      const enabledProjects = projectsJSON.filter(project => !project.hide)
+      return enabledProjects
     } else {
       logger.log("projects json not found")
       return []

@@ -16,7 +16,6 @@ const useAppRoutes = () => {
       id: "work",
       title: pageTitles[StaticRoutes.Projects],
       link: StaticRoutes.Projects,
-      routeEnabled: features.isFeatureEnabled("enableWorkPage"),
       showOnHeader: true,
       showOnHomepage: true,
       icon: "officeBuilding",

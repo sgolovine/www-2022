@@ -5,4 +5,9 @@ export interface Project {
   description?: string
   startDate: string
   endDate: string
+  github?: {
+    url: string
+    label: string
+  }
+  hide?: boolean
 }
