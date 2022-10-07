@@ -2,7 +2,7 @@ import { AllIcons } from "~/components/icons"
 
 export enum StaticRoutes {
   Home = "/",
-  Work = "/work",
+  Projects = "/projects",
   Blog = "/blog",
   BlogSnippets = "/blog/snippets",
   Resume = "/resume",
