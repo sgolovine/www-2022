@@ -24,7 +24,7 @@ import { TextIncrease } from "./material/TextIncrease"
 import { Apps } from "./material/Apps"
 import { Terminal } from "./material/Terminal"
 
-const allIcons = {
+export const allIcons = {
   apps: Apps,
   arrowUpRight: ArrowUpRight,
   arrowLeft: ArrowLeft,
