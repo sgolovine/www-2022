@@ -1,5 +1,13 @@
 [
   {
+    "id": "crew-search",
+    "name": "CrewSearch",
+    "startDate": "09/01/2022",
+    "endDate": "present",
+    "description": "Google search query builder for finding candidates on LinkedIn",
+    "url": "https://crewsearch.crewsum.com"
+  },
+  {
     "id": "real-estate-investment-pal",
     "name": "Real Estate Investment Pal",
     "description": "An all in one real estate investment calculator calculating Mortgage, Amortization, Cashflow, IRR and more.",
@@ -36,7 +44,6 @@
     "id": "awesome-devtools",
     "name": "Awesome Devtools",
     "description": "A collection of developer tools from around the internet. Built with TailwindCSS and Gatsby",
-    "project-type": "side-project",
     "startDate": "05/15/2021",
     "endDate": "12/12/2021",
     "github": {
@@ -59,7 +66,6 @@
     "id": "fav-sh",
     "name": "Fav Bookmark Manager",
     "description": "Chrome and Firefox extension that lets users save a collection of bookmarks to Github Gist. Predecessor to GistMarks.",
-    "project-type": "side-project",
     "startDate": "03/08/2020",
     "endDate": "01/11/2021",
     "github": {

@@ -28,9 +28,7 @@ export const ProjectItem: React.FC<Project> = ({
   const styles = makeStyles()
 
   return (
-    // We need to add a z-index here to prevent the dev menu
-    // From rendering under it.
-    <div style={{ zIndex: -1 }} className={styles.container}>
+    <div className={styles.container}>
       <span className={styles.headerContainer}>
         <p className={styles.headerText}>{name}</p>
         <span className={styles.headerDateContainer}>
