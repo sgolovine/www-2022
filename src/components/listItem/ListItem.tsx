@@ -1,4 +1,4 @@
-import dayjs from "dayjs"
+import { formatListItemDate } from "~/features/blog/helpers/formatDate"
 import { makeStyles } from "./ListItem.classes"
 
 interface ListItemProps {
@@ -25,7 +25,7 @@ const ListItem: React.FC<ListItemProps> = ({
 }) => {
   const ellipsis = noEllipsis ? "" : "..."
 
-  const displayDate = !!date ? dayjs(date).format("MMM D") : undefined
+  const displayDate = !!date ? formatListItemDate(date) : undefined
 
   const postPreviewText = !!description
     ? description
