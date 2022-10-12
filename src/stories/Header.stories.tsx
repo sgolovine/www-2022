@@ -14,9 +14,9 @@ const headerLinks: HeaderRoute[] = [
     onClick: route => console.log("Selected route", route),
   },
   {
-    id: "work",
-    title: "Work",
-    link: StaticRoutes.Work,
+    id: "projects",
+    title: "Projects",
+    link: StaticRoutes.Projects,
     showOnHeader: true,
     showOnHomepage: true,
     isActive: false,
