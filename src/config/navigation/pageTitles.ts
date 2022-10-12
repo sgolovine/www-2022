@@ -13,7 +13,7 @@ const pageTitles: PageTitles = {
   [StaticRoutes.Resume]: labels.pageTitles.resume,
   [StaticRoutes.ResumeDownloadDoc]: labels.pageTitles.downloadDoc,
   [StaticRoutes.ResumeDownloadPdf]: labels.pageTitles.downloadPdf,
-  [StaticRoutes.Work]: labels.pageTitles.work,
+  [StaticRoutes.Projects]: labels.pageTitles.work,
   [StaticRoutes.Apps]: labels.pageTitles.apps,
 }
 
