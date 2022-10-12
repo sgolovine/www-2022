@@ -4,12 +4,16 @@ import { PageHeader } from "~/components/common/PageHeader"
 import { ListItem } from "~/components/listItem"
 import BlogListLayout from "../components/BlogListLayout"
 import { AllPostsProps } from "../types/AllPostsPageProps"
+import labels from "~/labels.json"
+import { themeClasses } from "~/config/themeClasses"
 
 const AllPostsPage: React.FC<AllPostsProps> = ({ posts }) => {
   const router = useRouter()
   return (
     <PageContainer>
-      <PageHeader>Posts</PageHeader>
+      <PageHeader>{labels.blog.allPosts}</PageHeader>
+      <p className={themeClasses.textColor}>{labels.blog.intro}</p>
+      <hr className="my-4" />
       <BlogListLayout>
         {posts.map(post => {
           return (
