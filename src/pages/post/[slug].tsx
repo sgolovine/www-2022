@@ -2,9 +2,9 @@ import { PageLayout } from "~/components/layout"
 import { PostTemplatePageProps, PostTemplatePage } from "~/features/blog"
 import { PostSeo } from "~/features/blog/seo/PostSEO"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { getPostBySlug } from "~/services/getPostBySlug.node"
-import { getRecentPosts } from "~/services/getRecentPosts.node"
-import { getStaticPostPaths } from "~/services/getStaticPostPaths.node"
+import { getPostBySlug } from "~/services/node/getPostBySlug.node"
+import { getRecentPosts } from "~/services/node/getRecentPosts.node"
+import { getStaticPostPaths } from "~/services/node/getStaticPostPaths.node"
 
 interface Params {
   params: {

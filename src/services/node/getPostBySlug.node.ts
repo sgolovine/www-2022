@@ -5,7 +5,7 @@ import { serialize } from "next-mdx-remote/serialize"
 import { SerializeOptions } from "next-mdx-remote/dist/types"
 import rehypePrism from "@mapbox/rehype-prism"
 import { getMap } from "./getMap.node"
-import { postsDir, snippetsDir } from "./constants"
+import { postsDir, snippetsDir } from "../constants"
 
 const logger = new AppLogger({
   prefix: "Get Post By Slug",

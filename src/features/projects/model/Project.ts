@@ -10,4 +10,7 @@ export interface Project {
     label: string
   }
   hide?: boolean
+  // If true, create a link that allows
+  // the user to navigate to -> /projects/[project-id]
+  hasRoute?: boolean
 }

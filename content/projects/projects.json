@@ -1,5 +1,15 @@
 [
   {
+    "id": "crewsum",
+    "name": "Crewsum",
+    "url": "https://crewsum.com",
+    "description": "Crewsum is an upcoming talent management platform that lets you track timesheet approvals, send out invoices and much more. Built in conjunction with Cloud Talent Services.",
+    "startDate": "02/01/2022",
+    "endDate": "present",
+    "hide": false,
+    "hasRoute": true
+  },
+  {
     "id": "crew-search",
     "name": "CrewSearch",
     "startDate": "09/01/2022",
@@ -14,15 +24,6 @@
     "startDate": "04/01/2021",
     "endDate": "present",
     "url": "https://reip.netlify.app/"
-  },
-  {
-    "id": "crewsum",
-    "name": "Crewsum",
-    "url": "https://crewsum.com",
-    "description": "Crewsum is an upcoming talent management platform that lets you track timesheet approvals, send out invoices and much more. Built in conjunction with Cloud Talent Services.",
-    "startDate": "02/01/2022",
-    "endDate": "present",
-    "hide": true
   },
   {
     "id": "cloud-talent",

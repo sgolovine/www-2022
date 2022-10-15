@@ -2,7 +2,7 @@ import { PageLayout } from "~/components/layout"
 import { ResumePage } from "~/features/resume"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { ResumePageProps } from "~/features/resume/types/ResumePageProps"
-import { getResume } from "~/services/getResume.node"
+import { getResume } from "~/services/node/getResume.node"
 import { PageSEO } from "~/components/common/PageSEO"
 import labels from "~/labels.json"
 

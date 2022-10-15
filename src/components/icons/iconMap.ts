@@ -24,8 +24,18 @@ import { TextIncrease } from "./material/TextIncrease"
 import { Apps } from "./material/Apps"
 import { Terminal } from "./material/Terminal"
 import { Link } from "./material/Link"
+import { Aws } from "./brand/Aws"
+import { AwsDynamoDb } from "./brand/AwsDynamoDb"
+import { AwsLambda } from "./brand/AwsLambda"
+import { ReactIcon } from "./brand/React"
+import { MaterialUI } from "./brand/MaterialUI"
 
 export const allIcons = {
+  aws: Aws,
+  awsDynamoDb: AwsDynamoDb,
+  awsLambda: AwsLambda,
+  react: ReactIcon,
+  materialUi: MaterialUI,
   apps: Apps,
   arrowUpRight: ArrowUpRight,
   arrowLeft: ArrowLeft,

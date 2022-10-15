@@ -1,0 +1,43 @@
+{
+  "title": "Crewsum",
+  "introduction": "Crewsum is a suite of tools designed to help recruiters manage their team, from submitting timesheets to sending invoices and running reports. Crewsum grew out of a gap in the market, large recruiting companies will opt for tools such as ServiceNow or Oracle OpenAir but those tools are designed with a large business in mind, often leaving small independent recruiters without a good cost effective solution. Crewsum brings the benefits of solutions like ServiceNow and OpenAir to the small business owner.",
+  "licenseType": "proprietary",
+  "startDate": "01/01/2022",
+  "endDate": "present",
+  "techStack": {
+    "Frontend": [
+      {
+        "title": "ReactJS",
+        "icon": "react",
+        "description": "Frontend Framework"
+      },
+      {
+        "title": "Material UI",
+        "icon": "materialUi",
+        "description": "UI Framework"
+      }
+    ],
+    "Backend": [
+      {
+        "title": "AWS Lambda / API Gateway",
+        "description": "Backend API",
+        "icon": "awsLambda"
+      },
+      {
+        "title": "AWS DynamoDB",
+        "description": "Database",
+        "icon": "awsDynamoDb"
+      },
+      {
+        "title": "AWS Cognito",
+        "description": "Authentication",
+        "icon": "aws"
+      },
+      {
+        "title": "Amazon SES",
+        "description": "Email Service",
+        "icon": "aws"
+      }
+    ]
+  }
+}

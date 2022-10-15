@@ -12,8 +12,8 @@ import {
 } from "~/features/blog/types/CategoryLandingPageProps"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { StaticRoutes } from "~/model/Routes"
-import { getMap } from "~/services/getMap.node"
-import { getStaticCategoryPaths } from "~/services/getStaticCategoryPaths.node"
+import { getMap } from "~/services/node/getMap.node"
+import { getStaticCategoryPaths } from "~/services/node/getStaticCategoryPaths.node"
 import labels from "~/labels.json"
 
 const Page: AppPage<CategoryLandingRouteProps> = ({
