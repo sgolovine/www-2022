@@ -38,7 +38,7 @@ const DevMenu: React.FC<Props> = ({ homepage }) => {
             />
           )}
           <Transition as={Fragment} show={visible}>
-            <div className="absolute bg-gray-50 top-14 right-5 left-5 md:left-auto md:right-auto md:w-128 h-192 rounded-lg drop-shadow-lg">
+            <div className="z-50 absolute bg-gray-50 top-14 right-5 left-5 md:left-auto md:right-auto md:w-128 h-192 rounded-lg drop-shadow-lg">
               <div className="p-4 bg-blue-500 rounded-tr-lg rounded-tl-lg">
                 <p className="text-white font-medium">Dev Menu</p>
               </div>

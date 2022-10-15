@@ -1,51 +1,76 @@
-{
-  "real-estate-investment-pal": {
+[
+  {
+    "id": "crew-search",
+    "name": "CrewSearch",
+    "startDate": "09/01/2022",
+    "endDate": "present",
+    "description": "Google search query builder for finding candidates on LinkedIn",
+    "url": "https://crewsearch.crewsum.com"
+  },
+  {
+    "id": "real-estate-investment-pal",
     "name": "Real Estate Investment Pal",
     "description": "An all in one real estate investment calculator calculating Mortgage, Amortization, Cashflow, IRR and more.",
     "startDate": "04/01/2021",
     "endDate": "present",
     "url": "https://reip.netlify.app/"
   },
-  "crewsum": {
+  {
+    "id": "crewsum",
     "name": "Crewsum",
     "url": "https://crewsum.com",
     "description": "Crewsum is an upcoming talent management platform that lets you track timesheet approvals, send out invoices and much more. Built in conjunction with Cloud Talent Services.",
     "startDate": "02/01/2022",
-    "endDate": "current"
+    "endDate": "present",
+    "hide": true
   },
-  "tip-track": {
-    "name": "TipTrack",
-    "description": "TipTrack is a tip tracker for iOS and Android that was built with React Native. TipTrack lets you enter tips into the app then create custom metrics to track every aspect about those tips.",
-    "startDate": "07/17/2019",
-    "endDate": "01/01/2021"
-  },
-  "gistmarks": {
-    "name": "Gistmarks",
-    "description": "Gistmarks lets users create and share bookmark collections using Github Gist. This project largely built on lessons learned building fav.sh",
-    "startDate": "02/01/2021",
-    "endDate": "05/01/2021"
-  },
-  "cloud-talent": {
+  {
+    "id": "cloud-talent",
     "name": "Cloud Talent",
     "url": "https://cts-v2.netlify.app/",
     "description": "A website for a client in the technical recruiting space. The site was originally built with Bootstrap and GatsbyJS; however, the website is now being rebuilt with NextJS and TailwindCSS.",
     "startDate": "04/19/2021",
     "endDate": "present"
   },
-  "awesome-devtools": {
-    "name": "Awesome Devtools",
-    "url": "https://github.com/sgolovine/awesome-devtools",
-    "description": "A collection of developer tools from around the internet. Built with TailwindCSS and Gatsby",
-    "project-type": "side-project",
-    "startDate": "05/15/2021",
-    "endDate": "12/12/2021"
+  {
+    "id": "tiptrack",
+    "name": "TipTrack",
+    "description": "TipTrack is a tip tracker for iOS and Android that was built with React Native. TipTrack lets you enter tips into the app then create custom metrics to track every aspect about those tips.",
+    "startDate": "07/17/2019",
+    "endDate": "01/01/2021",
+    "hide": true
   },
-  "fav-sh": {
+  {
+    "id": "awesome-devtools",
+    "name": "Awesome Devtools",
+    "description": "A collection of developer tools from around the internet. Built with TailwindCSS and Gatsby",
+    "startDate": "05/15/2021",
+    "endDate": "12/12/2021",
+    "github": {
+      "label": "sgolovine/awesome-devtools",
+      "url": "https://github.com/sgolovine/awesome-devtools"
+    }
+  },
+  {
+    "id": "gistmarks",
+    "name": "Gistmarks",
+    "description": "Gistmarks lets users create and share bookmark collections using Github Gist. This project largely built on lessons learned building fav.sh",
+    "startDate": "02/01/2021",
+    "endDate": "05/01/2021",
+    "github": {
+      "label": "sgolovine/gistmarks",
+      "url": "https://github.com/sgolovine/gistmarks"
+    }
+  },
+  {
+    "id": "fav-sh",
     "name": "Fav Bookmark Manager",
     "description": "Chrome and Firefox extension that lets users save a collection of bookmarks to Github Gist. Predecessor to GistMarks.",
-    "url": "https://fav.sh",
-    "project-type": "side-project",
-    "startDate": "",
-    "endDate": ""
+    "startDate": "03/08/2020",
+    "endDate": "01/11/2021",
+    "github": {
+      "label": "fav-sh",
+      "url": "https://github.com/orgs/fav-sh/repositories"
+    }
   }
-}
+]

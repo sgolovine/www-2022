@@ -15,7 +15,7 @@
     "resume": "Resume",
     "downloadDoc": "Download Doc",
     "downloadPdf": "Download PDF",
-    "work": "Work",
+    "work": "Projects",
     "apps": "Apps",
     "appsPlatform": "Apps Platform"
   },
@@ -26,10 +26,12 @@
     "allPosts": "All Posts",
     "post": "Post",
     "author": "Sunny Golovine",
+    "intro": "I write about whatever topics pique my interest, mostly tech but I will also venture into other topics. Views expressed are my own.",
     "template": {
       "defaultHeaderAlt": "Header Image",
       "otherPostsHeader": "Other Posts",
-      "otherPostsDescription": "Check out some of my other recent posts."
+      "otherPostsDescription": "Check out some of my other recent posts.",
+      "disclaimer": "Views expressed in this post are strictly my own."
     }
   },
   "resume": {
