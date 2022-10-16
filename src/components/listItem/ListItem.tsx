@@ -1,4 +1,4 @@
-import { formatListItemDate } from "~/features/blog/helpers/formatDate"
+import { formatListItemDate } from "~/helpers/formatDate"
 import { makeStyles } from "./ListItem.classes"
 
 interface ListItemProps {

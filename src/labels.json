@@ -56,6 +56,12 @@
       "contact": "Contact Me"
     }
   },
+  "projectsPage": {
+    "licenses": {
+      "openSource": "Open Source",
+      "proprietary": "Proprietary"
+    }
+  },
   "workPage": {
     "professionalProjects": {
       "header": "Professional Projects",

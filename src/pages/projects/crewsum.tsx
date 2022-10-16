@@ -10,7 +10,7 @@ const Page: AppPage<CrewsumPageProps> = props => {
 Page.getLayout = page => <PageLayout>{page}</PageLayout>
 
 export const getStaticProps = async (): StaticProps<CrewsumPageProps> => {
-  const project = await getProject<CrewsumPageProps>("crewsum.json")
+  const project = await getProject<CrewsumPageProps>("crewsum.json", "crewsum")
 
   return {
     props: {
