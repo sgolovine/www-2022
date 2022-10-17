@@ -103,3 +103,7 @@ This site utilizes feature flags to hide upcoming work. To get a sneak preview o
 ## Storybook
 
 This site uses Storybook to prototype certain components. As of now, not all components are in Storybook but the majority are. To run storybook, run: `npm run storybook`.
+
+## Sitemap
+
+This site uses [next-sitemap](https://www.npmjs.com/package/next-sitemap) to generate sitemaps. To generate a sitemap run: `npm run generate:sitemap`. The configuration for this can be found in: `next-sitemap.config.js` and outputs can be found in the `public` directory.
