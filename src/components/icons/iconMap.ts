@@ -31,6 +31,11 @@ import { ReactIcon } from "./brand/React"
 import { MaterialUI } from "./brand/MaterialUI"
 import { Serverless } from "./brand/Serverless"
 import Expand from "./hero/Expand"
+import { HeadlessUi } from "./brand/HeadlessUi"
+import { NextJs } from "./brand/NextJs"
+import { Npm } from "./brand/Npm"
+import { TailwindCss } from "./brand/TailwindCss"
+import { Netlify } from "./brand/Netlify"
 
 export const allIcons = {
   aws: Aws,
@@ -65,6 +70,11 @@ export const allIcons = {
   terminal: Terminal,
   link: Link,
   expand: Expand,
+  headlessui: HeadlessUi,
+  nextjs: NextJs,
+  npm: Npm,
+  tailwindCss: TailwindCss,
+  netlify: Netlify,
 }
 
 export type AllIcons = keyof typeof allIcons

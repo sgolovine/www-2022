@@ -115,7 +115,9 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
                             borderColor: item.color,
                           }}
                         >
-                          <ItemIcon className={styles.techStackItemIcon} />
+                          {!!ItemIcon && (
+                            <ItemIcon className={styles.techStackItemIcon} />
+                          )}
                           <span>
                             <p className={styles.techStackItemHeaderText}>
                               {item.title}
