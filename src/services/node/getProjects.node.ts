@@ -1,4 +1,4 @@
-import { projectsPath } from "./constants"
+import { projectsPath } from "../constants"
 import fs from "fs/promises"
 import AppLogger from "@logger"
 import { Project } from "~/features/projects/model/Project"

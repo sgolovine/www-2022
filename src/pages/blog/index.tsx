@@ -6,7 +6,7 @@ import { AllPostsPage, AllPostsPageProps } from "~/features/blog"
 import { createPageNavigationConfig } from "~/features/blog/helpers/createPageNavigationConfig"
 import { sortPostsByDate } from "~/features/blog/helpers/sortPostsByDate"
 import { AppPage, StaticProps } from "~/model/PageProps"
-import { getMap } from "~/services/getMap.node"
+import { getMap } from "~/services/node/getMap.node"
 import labels from "~/labels.json"
 
 const Page: AppPage<AllPostsPageProps> = ({ posts, categories }) => {

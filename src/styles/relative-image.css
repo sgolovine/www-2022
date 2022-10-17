@@ -1,0 +1,54 @@
+/** 
+* Same thing as for compatibility
+ via: https: //dev.to/felixhaeberle/responsive-fix-for-the-next-js-image-component-1351
+*/
+.blog-post-image-container {
+  width: 100%;
+}
+
+.blog-post-image-container > span {
+  position: unset !important;
+}
+
+.blog-post-image-component {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}
+
+/* Relative Image */
+/* NextJS's image component requires that you give it a set height */
+/* And width and does not allow you to set a width and have */
+/* the height interpreted (or vice versa). This little bit of */
+/* CSS solves this issue */
+/* Taken from: https: //dev.to/felixhaeberle/responsive-fix-for-the-next-js-image-component-1351 */
+
+/* Usage: */
+/* ---
+<div class="relative-img-container w-32">
+  <image class="relative-img">
+</div>
+--- */
+
+/* Always wrap images in a <div> and attach the following CSS */
+/* Class. This is also where you set height and width. */
+.relative-img-container {
+  width: 100%;
+}
+
+/* Next Image uses position with !important. */
+/* We override this so we can set our own position */
+.relative-img-container > span {
+  position: unset !important;
+}
+
+/* Make the image component take up all the space */
+/* Allowing us to set the height/width through */
+/* The parent element. (see usage above) */
+.relative-img {
+  object-fit: contain;
+  width: 100% !important;
+  position: relative !important;
+  height: unset !important;
+}

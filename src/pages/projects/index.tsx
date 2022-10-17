@@ -4,7 +4,7 @@ import { AppPage, StaticProps } from "~/model/PageProps"
 import { PageSEO } from "~/components/common/PageSEO"
 import labels from "~/labels.json"
 import { ProjectPageProps } from "~/features/projects/model/ProjectPageProps"
-import { getProjects } from "~/services/getProjects.node"
+import { getProjects } from "~/services/node/getProjects.node"
 
 const Page: AppPage<ProjectPageProps> = ({ projects }) => {
   return <ProjectPage projects={projects} />

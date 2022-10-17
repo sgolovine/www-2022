@@ -2,6 +2,7 @@ import dayjs from "dayjs"
 import makeStyles from "./ProjectItem.classes"
 import { Project } from "../../model/Project"
 import { getIcon } from "~/components/icons"
+import Link from "next/link"
 
 const LinkIcon = getIcon("link")
 
@@ -18,19 +19,27 @@ const formatDate = (dateString: string) => {
 }
 
 export const ProjectItem: React.FC<Project> = ({
+  id,
   name,
   url,
   description,
   startDate,
   endDate,
   github,
+  hasRoute,
 }) => {
   const styles = makeStyles()
 
   return (
     <div className={styles.container}>
       <span className={styles.headerContainer}>
-        <p className={styles.headerText}>{name}</p>
+        {hasRoute ? (
+          <Link href={`/projects/${id}`}>
+            <a className={styles.headerLinkText}>{name}</a>
+          </Link>
+        ) : (
+          <p className={styles.headerText}>{name}</p>
+        )}
         <span className={styles.headerDateContainer}>
           <p className={styles.headerDateText}>{formatDate(startDate)}</p>
           <p className={styles.headerDateText}>{formatDate(endDate)}</p>

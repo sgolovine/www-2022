@@ -56,6 +56,14 @@
       "contact": "Contact Me"
     }
   },
+  "projectsPage": {
+    "techStack": "Tech Stack",
+    "screenshots": "Screenshots",
+    "licenses": {
+      "openSource": "Open Source",
+      "proprietary": "Proprietary"
+    }
+  },
   "workPage": {
     "professionalProjects": {
       "header": "Professional Projects",

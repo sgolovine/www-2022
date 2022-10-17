@@ -1,7 +1,7 @@
 import { PageLayout } from "~/components/layout"
 import { AppPage, StaticProps } from "~/model/PageProps"
 import { SnippetsLandingPage, SnippetsLandingPageProps } from "~/features/blog"
-import { getMap } from "~/services/getMap.node"
+import { getMap } from "~/services/node/getMap.node"
 import { PageSEO } from "~/components/common/PageSEO"
 import labels from "~/labels.json"
 

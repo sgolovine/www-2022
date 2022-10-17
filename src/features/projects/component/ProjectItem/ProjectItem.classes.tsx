@@ -18,6 +18,13 @@ export default function makeStyles() {
       "justify-between"
     ),
     headerText: clsx(themeClasses.headerColor, "text-xl", "font-medium"),
+    headerLinkText: clsx(
+      "text-blue-700",
+      "dark:text-blue-400",
+      "hover:underline",
+      "text-xl",
+      "font-medium"
+    ),
     headerDateContainer: clsx(
       "hidden",
       "sm:flex",

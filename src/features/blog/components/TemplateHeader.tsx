@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import { themeClasses } from "~/config/themeClasses"
-import { formatDate } from "../helpers/formatDate"
+import { formatDate } from "~/helpers/formatDate"
 import labels from "~/labels.json"
 import { getIcon } from "~/components/icons"
 

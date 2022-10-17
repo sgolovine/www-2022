@@ -1,5 +1,5 @@
 import { StaticProps } from "~/model/PageProps"
-import { getVersion } from "~/services/getVersion.node"
+import { getVersion } from "~/services/node/getVersion.node"
 
 import { AppPage } from "~/model/PageProps"
 import { StaticRoutes } from "~/model/Routes"
