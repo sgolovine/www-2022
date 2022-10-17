@@ -1,9 +1,14 @@
 import { AllIcons } from "~/components/icons"
 
-export interface CrewsumPageProps {
+export enum LicenseTypes {
+  Proprietary = "proprietary",
+  OpenSource = "open-source",
+}
+
+export interface ProjectPageTemplateProps {
   title: string
   introduction: string
-  licenseType: "proprietary" | "open-source"
+  licenseType: LicenseTypes
   url: string
   startDate: string
   endDate: string
@@ -12,6 +17,9 @@ export interface CrewsumPageProps {
       title: string
       icon: AllIcons
       description: string
+      color: string
     }[]
   }
+  screenshots: string[]
+  onGoBack: () => void
 }

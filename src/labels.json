@@ -57,6 +57,8 @@
     }
   },
   "projectsPage": {
+    "techStack": "Tech Stack",
+    "screenshots": "Screenshots",
     "licenses": {
       "openSource": "Open Source",
       "proprietary": "Proprietary"

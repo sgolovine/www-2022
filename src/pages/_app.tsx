@@ -12,7 +12,7 @@ import {
 
 import "../styles/tailwind.css"
 import "../styles/global.css"
-import "../styles/post-image.css"
+import "../styles/relative-image.css"
 import "../styles/prism-nord-theme.css"
 import { FeaturesContextProvider } from "~/context/FeaturesContext"
 

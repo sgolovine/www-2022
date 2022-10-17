@@ -29,6 +29,8 @@ import { AwsDynamoDb } from "./brand/AwsDynamoDb"
 import { AwsLambda } from "./brand/AwsLambda"
 import { ReactIcon } from "./brand/React"
 import { MaterialUI } from "./brand/MaterialUI"
+import { Serverless } from "./brand/Serverless"
+import Expand from "./hero/Expand"
 
 export const allIcons = {
   aws: Aws,
@@ -59,8 +61,10 @@ export const allIcons = {
   plusCircle: PlusCircle,
   minusCircle: MinusCircle,
   refresh: Refresh,
+  serverless: Serverless,
   terminal: Terminal,
   link: Link,
+  expand: Expand,
 }
 
 export type AllIcons = keyof typeof allIcons

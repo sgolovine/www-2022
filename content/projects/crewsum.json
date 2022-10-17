@@ -7,35 +7,54 @@
       {
         "title": "ReactJS",
         "icon": "react",
-        "description": "Frontend Framework"
+        "description": "Frontend Framework",
+        "color": "#61DAFB"
       },
       {
         "title": "Material UI",
         "icon": "materialUi",
-        "description": "UI Framework"
+        "description": "UI Framework",
+        "color": "#007FFF"
       }
     ],
     "Backend": [
       {
+        "title": "Serverless Framework",
+        "description": "API",
+        "icon": "serverless",
+        "color": "#FD5750"
+      },
+      {
         "title": "AWS Lambda / API Gateway",
-        "description": "Backend API",
-        "icon": "awsLambda"
+        "description": "API Hosting",
+        "icon": "awsLambda",
+        "color": "#FF9900"
       },
       {
         "title": "AWS DynamoDB",
         "description": "Database",
-        "icon": "awsDynamoDb"
+        "icon": "awsDynamoDb",
+        "color": "#FF9900"
       },
       {
         "title": "AWS Cognito",
         "description": "Authentication",
-        "icon": "aws"
+        "icon": "aws",
+        "color": "#FF9900"
       },
       {
         "title": "Amazon SES",
         "description": "Email Service",
-        "icon": "aws"
+        "icon": "aws",
+        "color": "#FF9900"
       }
     ]
-  }
+  },
+  "screenshots": [
+    "crewsum/crewsum-admin-settings.png",
+    "crewsum/crewsum-all-timesheets.png",
+    "crewsum/crewsum-home.png",
+    "crewsum/crewsum-my-time.png",
+    "crewsum/crewsum-user-management.png"
+  ]
 }

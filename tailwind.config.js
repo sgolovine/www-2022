@@ -8,6 +8,11 @@ module.exports = {
         128: "32rem",
         192: "48rem",
       },
+      colors: {
+        "brand-amazon": "#FF9900",
+        "brand-react": "#61DAFB",
+        "brand-mui": "#007FFF",
+      },
     },
   },
   variants: {
