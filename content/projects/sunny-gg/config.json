@@ -50,5 +50,14 @@
       }
     ]
   },
-  "screenshots": []
+  "screenshots": [
+    "sunny-gg/allposts-light.png",
+    "sunny-gg/blog-post-light.png",
+    "sunny-gg/home-dark.png",
+    "sunny-gg/home-light.png",
+    "sunny-gg/project-page-light.png",
+    "sunny-gg/projects-dark.png",
+    "sunny-gg/snippet-light.png",
+    "sunny-gg/snippets-light.png"
+  ]
 }

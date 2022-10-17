@@ -80,7 +80,7 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
 
         <div className={styles.introContainer}>
           {mdx ? (
-            <div className={styles.introText}>
+            <div className="prose prose-lg max-w-none dark:prose-invert">
               <MDXRemote compiledSource={mdx} />
             </div>
           ) : (
