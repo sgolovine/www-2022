@@ -10,6 +10,7 @@ import makeStyles from "./ProjectPageTemplate.classes"
 import { Image } from "~/components/Image"
 import { ExpandImageModal } from "./ExpandImageModal"
 import { useState } from "react"
+import { MDXRemote } from "next-mdx-remote"
 
 const LinkIcon = getIcon("link")
 const Expand = getIcon("expand")
@@ -24,6 +25,7 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
   techStack,
   onGoBack,
   screenshots,
+  mdx,
 }) => {
   console.log("screenshots", screenshots)
 
@@ -77,7 +79,13 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
         </span>
 
         <div className={styles.introContainer}>
-          <p className={styles.introText}>{introduction}</p>
+          {mdx ? (
+            <div className={styles.introText}>
+              <MDXRemote compiledSource={mdx} />
+            </div>
+          ) : (
+            <p className={styles.introText}>{introduction}</p>
+          )}
         </div>
 
         {/* Tech Stack */}

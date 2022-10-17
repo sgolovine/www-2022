@@ -1,5 +1,15 @@
 [
   {
+    "id": "personal-website",
+    "name": "My Personal Website (sunny.gg)",
+    "url": "https://sunny.gg",
+    "description": "My Personal Website. Built with React and NextJS and used for experimenting with various web technologies.",
+    "startDate": "09/04/2022",
+    "endDate": "present",
+    "hide": false,
+    "hasRoute": true
+  },
+  {
     "id": "crewsum",
     "name": "Crewsum",
     "url": "https://crewsum.com",

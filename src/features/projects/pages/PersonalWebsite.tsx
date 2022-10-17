@@ -2,12 +2,9 @@ import { useRouter } from "next/router"
 import { ProjectPageTemplate } from "../component/ProjectPageTemplate"
 import { ProjectPageTemplateProps } from "../model/ProjectPageTemplateProps"
 
-export type CrewsumPageProps = Omit<
-  ProjectPageTemplateProps,
-  "onGoBack" | "mdx"
->
+export type PersonalWebsiteProps = Omit<ProjectPageTemplateProps, "onGoBack">
 
-const CrewsumPage: React.FC<CrewsumPageProps> = ({
+const CrewsumPage: React.FC<PersonalWebsiteProps> = ({
   title,
   introduction,
   url,
@@ -16,6 +13,7 @@ const CrewsumPage: React.FC<CrewsumPageProps> = ({
   licenseType,
   techStack,
   screenshots,
+  mdx,
 }) => {
   const router = useRouter()
   const handleGoBack = () => {
@@ -32,7 +30,7 @@ const CrewsumPage: React.FC<CrewsumPageProps> = ({
       techStack={techStack}
       onGoBack={handleGoBack}
       screenshots={screenshots}
-      mdx={null}
+      mdx={mdx}
     />
   )
 }

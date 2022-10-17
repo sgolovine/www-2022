@@ -1,0 +1,10 @@
+{
+  "title": "My Personal Website",
+  "introMd": "intro.md",
+  "licenseType": "open-source",
+  "introduction": "Compatibility Placeholder",
+  "techStack": {
+    "Frontend": []
+  },
+  "screenshots": []
+}
