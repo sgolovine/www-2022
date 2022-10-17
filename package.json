@@ -20,6 +20,7 @@
     "generate:version": "./scripts/generate-version.sh",
     "generate:postmap": "ts-node ./scripts/generate-postmap.ts",
     "generate:images": "next-image-export-optimizer",
+    "generate:sitemap": "next build && next-sitemap",
     "postinstall": "npm run generate:version",
     "lint-staged": "lint-staged",
     "clean": "./scripts/clean.sh"

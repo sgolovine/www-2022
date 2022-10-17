@@ -4,5 +4,10 @@ module.exports = {
   generateRobotsTxt: true,
   sitemapSize: 7000,
   changefreq: "daily",
-  exclude: [],
+  exclude: [
+    "/apps/template",
+    "/debug",
+    // Exclude all resume pages until feature is ready
+    "/resume/*",
+  ],
 }
