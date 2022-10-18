@@ -20,6 +20,7 @@ export interface ProjectPageTemplateProps {
       color: string
     }[]
   }
+  mdx: string | null
   screenshots: string[]
   onGoBack: () => void
 }

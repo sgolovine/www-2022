@@ -1,0 +1,63 @@
+{
+  "title": "My Personal Website",
+  "licenseType": "open-source",
+  "introduction": "Compatibility Placeholder",
+  "techStack": {
+    "Frontend": [
+      {
+        "title": "ReactJS",
+        "icon": "react",
+        "description": "Frontend Framework",
+        "color": "#61DAFB"
+      },
+      {
+        "title": "NPM",
+        "icon": "npm",
+        "description": "Package Manager",
+        "color": "#CB3837"
+      },
+      {
+        "title": "NextJS",
+        "icon": "nextjs",
+        "description": "React Framework",
+        "color": "#000"
+      },
+      {
+        "title": "TailwindCSS",
+        "icon": "tailwindCss",
+        "description": "CSS Framework",
+        "color": "#06B6D4"
+      },
+      {
+        "title": "HeadlessUI",
+        "icon": "headlessui",
+        "description": "Animations and Transitions",
+        "color": "#66E3FF"
+      }
+    ],
+    "Backend": [
+      {
+        "title": "Netlify",
+        "icon": "netlify",
+        "description": "Static Site Hosting",
+        "color": "#00C7B7"
+      },
+      {
+        "title": "Netlify Functions",
+        "icon": "netlify",
+        "description": "Lambda Functions",
+        "color": "#00C7B7"
+      }
+    ]
+  },
+  "screenshots": [
+    "sunny-gg/allposts-light.png",
+    "sunny-gg/blog-post-light.png",
+    "sunny-gg/home-dark.png",
+    "sunny-gg/home-light.png",
+    "sunny-gg/project-page-light.png",
+    "sunny-gg/projects-dark.png",
+    "sunny-gg/snippet-light.png",
+    "sunny-gg/snippets-light.png"
+  ]
+}
