@@ -49,9 +49,9 @@ export default function makeStyles(licenseType: LicenseTypes) {
 
   const introText = clsx("text-lg", themeClasses.textColor)
 
-  const urlText = clsx("py-2", "text-sm", themeClasses.linkColor)
+  const urlText = clsx("pb-1", "text-sm", themeClasses.linkColor)
 
-  const urlIcon = clsx("h-6", "w-6", themeClasses.textColor)
+  const urlIcon = clsx("h-4", "w-4", themeClasses.textColor)
 
   const dateText = clsx(
     "text-sm",

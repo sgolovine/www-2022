@@ -12,7 +12,8 @@ import { ExpandImageModal } from "./ExpandImageModal"
 import { useState } from "react"
 import { MDXRemote } from "next-mdx-remote"
 
-const LinkIcon = getIcon("link")
+const LinkIcon = getIcon("globe")
+const GithubIcon = getIcon("github")
 const Expand = getIcon("expand")
 
 const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
@@ -26,8 +27,9 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
   onGoBack,
   screenshots,
   mdx,
+  github,
 }) => {
-  console.log("screenshots", screenshots)
+  console.log("github", github)
 
   const styles = makeStyles(licenseType)
 
@@ -63,6 +65,19 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
                 {url}
               </a>
             </span>
+            {github && (
+              <span className={styles.linkContainer}>
+                <GithubIcon className={styles.urlIcon} />
+                <a
+                  href={github.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.urlText}
+                >
+                  {github.label}
+                </a>
+              </span>
+            )}
             <p className={styles.dateText}>
               {formatDate(startDate)} - {formatDate(endDate)}
             </p>

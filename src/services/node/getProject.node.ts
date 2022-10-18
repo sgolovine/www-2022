@@ -7,14 +7,17 @@ import { serialize } from "next-mdx-remote/serialize"
 import { Project } from "~/features/projects/model/Project"
 import { projectsDir, projectsPath } from "../constants"
 
-export const getProject = async <T>(
-  configPath: string,
-  projectId: string,
-  introPath?: string
-): Promise<T> => {
+export const getProject = async <T>({
+  id,
+  configPath,
+  introPath,
+}: {
+  id: string
+  configPath: string
+  introPath: string
+}): Promise<T> => {
   let configFile
   let allProjectsFile: Project[]
-  let mdx: string | null = null
   const fullPath = path.resolve(projectsDir, configPath)
 
   // Get the configuration file for the project
@@ -27,23 +30,22 @@ export const getProject = async <T>(
   }
 
   // Find teh current project in the all projects file.
-  const currentProject = allProjectsFile.find(item => item.id === projectId)
+  const currentProject = allProjectsFile.find(item => item.id === id)
 
-  if (introPath) {
-    const introMd = await fs.readFile(
-      path.resolve(projectsDir, introPath),
-      "utf-8"
-    )
-    const mdxSource = await serialize(introMd, {
-      parseFrontmatter: true,
-    })
-    mdx = mdxSource.compiledSource
-  }
+  const introMd = await fs.readFile(
+    path.resolve(projectsDir, introPath),
+    "utf-8"
+  )
+  const mdxSource = await serialize(introMd, {
+    parseFrontmatter: true,
+  })
+  const mdx = mdxSource.compiledSource
 
   return {
     url: currentProject?.url,
     startDate: currentProject?.startDate,
     endDate: currentProject?.endDate,
+    github: currentProject?.github ?? null,
     mdx: mdx,
     ...configFile,
   }
