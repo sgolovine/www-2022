@@ -4,7 +4,7 @@ import { Project } from "../../model/Project"
 import { getIcon } from "~/components/icons"
 import Link from "next/link"
 
-const LinkIcon = getIcon("link")
+const LinkIcon = getIcon("globe")
 
 const GithubIcon = getIcon("github")
 
@@ -45,16 +45,16 @@ export const ProjectItem: React.FC<Project> = ({
           <p className={styles.headerDateText}>{formatDate(endDate)}</p>
         </span>
       </span>
+      {url && (
+        <a className={styles.urlText} href={url}>
+          <LinkIcon className="h-4 w-4" />
+          {formatUrl(url)}
+        </a>
+      )}
       {github && (
         <a className={styles.urlText} href={github.url}>
           <GithubIcon className="h-4 w-4" />
           {github.label}
-        </a>
-      )}
-      {url && (
-        <a className={styles.urlText} href={url}>
-          <LinkIcon className="h-6 w-6" />
-          {formatUrl(url)}
         </a>
       )}
       <p className={styles.descriptionText}>{description}</p>

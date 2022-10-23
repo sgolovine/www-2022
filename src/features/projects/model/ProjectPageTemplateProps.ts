@@ -12,6 +12,10 @@ export interface ProjectPageTemplateProps {
   url: string
   startDate: string
   endDate: string
+  github?: {
+    label: string
+    url: string
+  }
   techStack: {
     [category: string]: {
       title: string
@@ -20,6 +24,7 @@ export interface ProjectPageTemplateProps {
       color: string
     }[]
   }
+  mdx: string | null
   screenshots: string[]
   onGoBack: () => void
 }

@@ -10,8 +10,10 @@ import makeStyles from "./ProjectPageTemplate.classes"
 import { Image } from "~/components/Image"
 import { ExpandImageModal } from "./ExpandImageModal"
 import { useState } from "react"
+import { MDXRemote } from "next-mdx-remote"
 
-const LinkIcon = getIcon("link")
+const LinkIcon = getIcon("globe")
+const GithubIcon = getIcon("github")
 const Expand = getIcon("expand")
 
 const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
@@ -24,8 +26,10 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
   techStack,
   onGoBack,
   screenshots,
+  mdx,
+  github,
 }) => {
-  console.log("screenshots", screenshots)
+  console.log("github", github)
 
   const styles = makeStyles(licenseType)
 
@@ -61,6 +65,19 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
                 {url}
               </a>
             </span>
+            {github && (
+              <span className={styles.linkContainer}>
+                <GithubIcon className={styles.urlIcon} />
+                <a
+                  href={github.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.urlText}
+                >
+                  {github.label}
+                </a>
+              </span>
+            )}
             <p className={styles.dateText}>
               {formatDate(startDate)} - {formatDate(endDate)}
             </p>
@@ -77,7 +94,13 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
         </span>
 
         <div className={styles.introContainer}>
-          <p className={styles.introText}>{introduction}</p>
+          {mdx ? (
+            <div className="prose prose-lg max-w-none dark:prose-invert">
+              <MDXRemote compiledSource={mdx} />
+            </div>
+          ) : (
+            <p className={styles.introText}>{introduction}</p>
+          )}
         </div>
 
         {/* Tech Stack */}
@@ -107,7 +130,9 @@ const ProjectPageTemplate: React.FC<ProjectPageTemplateProps> = ({
                             borderColor: item.color,
                           }}
                         >
-                          <ItemIcon className={styles.techStackItemIcon} />
+                          {!!ItemIcon && (
+                            <ItemIcon className={styles.techStackItemIcon} />
+                          )}
                           <span>
                             <p className={styles.techStackItemHeaderText}>
                               {item.title}
