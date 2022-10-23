@@ -1,8 +1,7 @@
-import clsx from "clsx"
 import { useState } from "react"
 import { Button } from "~/components/common/button"
+import { Input, TextArea } from "~/components/common/form"
 import { LoaderCore } from "~/components/common/LoaderCore"
-import { themeClasses } from "~/config/themeClasses"
 
 interface Props {
   isError?: boolean
@@ -10,12 +9,12 @@ interface Props {
   successMessage?: string
   isSuccess?: boolean
   isLoading?: boolean
-  onSubmit?: ({ signed, value }: { signed: string; value: string }) => void
+  onSubmit?: ({ signed, comment }: { signed: string; comment: string }) => void
 }
 
-const defaultError = "An Error Occurred Submitting Your Comment."
+const defaultError = "An Error Occurred Submitting Your Guestbook Entry."
 
-const defaultSuccess = "Successfully Submitted Your Comment."
+const defaultSuccess = "Successfully Submitted Your Guestbook Entry"
 
 const CommentBox: React.FC<Props> = ({
   isError,
@@ -25,8 +24,13 @@ const CommentBox: React.FC<Props> = ({
   successMessage,
   onSubmit,
 }) => {
-  const [value, setValue] = useState<string>("")
+  const [comment, setComment] = useState<string>("")
   const [signed, setSigned] = useState<string>("")
+
+  const handleClear = () => {
+    setComment("")
+    setSigned("")
+  }
 
   return (
     <div className="flex flex-col relative">
@@ -40,50 +44,30 @@ const CommentBox: React.FC<Props> = ({
           <p>{successMessage ?? defaultSuccess}</p>
         </div>
       )}
-      <textarea
-        value={value}
-        onChange={e => setValue(e.target.value)}
-        rows={10}
-        className={clsx(
-          themeClasses.textColor,
-          "border",
-          "bg-gray-50",
-          "dark:bg-slate-800",
-          "rounded-lg",
-          "drop-shadow-sm",
-          "border-2",
-          "p-2",
-          "text-lg",
-          "font-medium"
-        )}
+      <TextArea
+        label="Your Comment"
+        id="comment"
         placeholder="Type your comment for the guestbook..."
+        onChange={value => setComment(value)}
+        value={comment}
       />
-      <input
-        className={clsx(
-          themeClasses.textColor,
-          "mt-4",
-          "border",
-          "bg-gray-50",
-          "dark:bg-slate-800",
-          "rounded-lg",
-          "drop-shadow-sm",
-          "border-2",
-          "p-2",
-          "text-lg",
-          "font-medium"
-        )}
-        placeholder="Signed"
+      <Input
+        id="signed"
+        type="text"
+        label="Display Name"
+        placeholder="Enter the display name to show under your entry"
         value={signed}
-        onChange={e => setSigned(e.target.value)}
+        onChange={value => setSigned(value)}
       />
-      <span className="pt-4 inline-flex flex-row items-center gap-5">
+
+      <span className="inline-flex flex-row items-center gap-5">
         <Button
           transparent
-          onClick={() => onSubmit && onSubmit({ value, signed })}
+          onClick={() => onSubmit && onSubmit({ comment, signed })}
         >
           Submit
         </Button>
-        <Button noBorder transparent onClick={() => setValue("")}>
+        <Button noBorder transparent onClick={handleClear}>
           Clear
         </Button>
       </span>

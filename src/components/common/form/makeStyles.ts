@@ -8,7 +8,6 @@ function makeStyles() {
     themeClasses.textColor,
     "border",
     "dark:border-slate-700",
-    "text-lg",
     "py-1",
     "px-2",
     "bg-gray-100",

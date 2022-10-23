@@ -8,6 +8,7 @@ interface InputProps {
   hasError?: boolean
   errorMessage?: string
   placeholder?: string
+  type?: string
 }
 
 const Input: React.FC<InputProps> = ({
@@ -18,6 +19,7 @@ const Input: React.FC<InputProps> = ({
   onChange,
   label,
   placeholder,
+  type,
 }) => {
   const {
     formSectionClasses,
@@ -36,7 +38,7 @@ const Input: React.FC<InputProps> = ({
       <input
         className={formInputClasses}
         id={id}
-        type="text"
+        type={type ?? "text"}
         required
         value={value}
         placeholder={placeholder}
