@@ -36,6 +36,7 @@ import { NextJs } from "./brand/NextJs"
 import { Npm } from "./brand/Npm"
 import { TailwindCss } from "./brand/TailwindCss"
 import { Netlify } from "./brand/Netlify"
+import { Guestbook } from "./material/Guestbook"
 
 export const allIcons = {
   aws: Aws,
@@ -75,6 +76,7 @@ export const allIcons = {
   npm: Npm,
   tailwindCss: TailwindCss,
   netlify: Netlify,
+  guestbook: Guestbook,
 }
 
 export type AllIcons = keyof typeof allIcons

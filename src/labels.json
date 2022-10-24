@@ -17,7 +17,8 @@
     "downloadPdf": "Download PDF",
     "work": "Projects",
     "apps": "Apps",
-    "appsPlatform": "Apps Platform"
+    "appsPlatform": "Apps Platform",
+    "guestbook": "Guestbook"
   },
   "blog": {
     "categories": "Categories",
@@ -99,6 +100,16 @@
     },
     "sendError": "An error occurred sending your message",
     "sendSuccess": "Successfully sent message. Check your inbox for a copy of the message."
+  },
+  "guestbook": {
+    "defaultError": "An Error Occurred Submitting Your Guestbook Entry.",
+    "defaultSuccess": "Successfully Submitted Your Guestbook Entry",
+    "entryLabel": "Your Guestbook Entry",
+    "entryPlaceholder": "Type your comment for the guestbook...",
+    "displayNameLabel": "Display Name",
+    "displayNamePlaceholder": "Enter the display name to show under your entry",
+    "submitBtn": "Submit",
+    "clearBtn": "Clear"
   },
   "apps": {
     "navigation": {

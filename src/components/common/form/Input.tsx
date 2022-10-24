@@ -1,4 +1,4 @@
-import makeStyles from "./makeStyles"
+import makeStyles from "./Form.classes"
 
 interface InputProps {
   id: string

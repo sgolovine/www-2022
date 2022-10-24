@@ -1,5 +1,5 @@
 import clsx from "clsx"
-import makeStyles from "./makeStyles"
+import makeStyles from "./Form.classes"
 
 interface TextAreaProps {
   id: string

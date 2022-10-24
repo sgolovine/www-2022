@@ -4,9 +4,10 @@ export const defaultFeatures = {
   enableResume: false,
   showAppsLink: false,
   alwaysShowDevMenu: false,
+  showGuestbook: true,
 }
 
 // Bump this version when changing default features
 // This ensures that defaultFeatures are applied over
 // Current rules
-export const FEATURES_VERSION = 3
+export const FEATURES_VERSION = 4
