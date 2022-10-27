@@ -8,3 +8,4 @@ tsconfig.tsbuildinfo
 !.env.example
 src/__postmap__.json
 .obsidian
+scripts/guestbook/secrets.ts

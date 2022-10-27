@@ -23,7 +23,9 @@
     "generate:sitemap": "next build && next-sitemap",
     "postinstall": "npm run generate:version",
     "lint-staged": "lint-staged",
-    "clean": "./scripts/clean.sh"
+    "clean": "./scripts/clean.sh",
+    "guestbook:get": "ts-node ./scripts/guestbook/get.ts",
+    "guestbook:update": "ts-node ./scripts/guestbook/update.ts"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",
