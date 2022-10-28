@@ -107,3 +107,19 @@ This site uses Storybook to prototype certain components. As of now, not all com
 ## Sitemap
 
 This site uses [next-sitemap](https://www.npmjs.com/package/next-sitemap) to generate sitemaps. To generate a sitemap run: `npm run generate:sitemap`. The configuration for this can be found in: `next-sitemap.config.js` and outputs can be found in the `public` directory.
+
+## Functions
+
+This site uses Netlify Functions and there are a number of commands to help you test them locally including:
+
+_Note: All commands should be run with `npm run`_
+
+| Command    | Description                                                                       |
+| ---------- | --------------------------------------------------------------------------------- |
+| `fn:build` | Runs [functions:build](https://cli.netlify.com/commands/functions#functionsbuild) |
+| `fn:serve` | Runs [functions:serve](https://cli.netlify.com/commands/functions#functionsserve) |
+| `fn:list`  | Runs [functions:list](https://cli.netlify.com/commands/functions#functionslist)   |
+
+## License
+
+[LICENSE](./LICENSE)

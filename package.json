@@ -25,7 +25,10 @@
     "lint-staged": "lint-staged",
     "clean": "./scripts/clean.sh",
     "guestbook:get": "ts-node ./scripts/guestbook/get.ts",
-    "guestbook:update": "ts-node ./scripts/guestbook/update.ts"
+    "guestbook:update": "ts-node ./scripts/guestbook/update.ts",
+    "fn:list": "netlify functions:list",
+    "fn:serve": "netlify functions:serve",
+    "fn:build": "netlify functions:build"
   },
   "author": "Sunny Golovine",
   "license": "0BSD",
@@ -87,7 +90,7 @@
     "husky": "^8.0.1",
     "image-size": "^1.0.2",
     "lint-staged": "^13.0.3",
-    "netlify-cli": "^12.0.2",
+    "netlify-cli": "^12.0.11",
     "next-sitemap": "^3.1.28",
     "postcss": "^8.4.17",
     "prettier": "^2.7.1",

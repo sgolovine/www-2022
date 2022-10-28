@@ -7,12 +7,18 @@ const handler: Handler = async () => {
       "https://api.github.com/gists/8086d7329fb0bf377805ab314afc0641",
       {
         headers: {
+          // TODO: Add bearer token
           Authorization: `Bearer someToken`,
         },
       }
     )
   } catch (e) {
-    // TODO: 500 Can't Get Guestbook
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "Error Fetching Guestbook",
+      }),
+    }
   }
 
   return {
