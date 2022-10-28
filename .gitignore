@@ -9,3 +9,6 @@ tsconfig.tsbuildinfo
 src/__postmap__.json
 .obsidian
 scripts/guestbook/secrets.ts
+
+.netlify
+!.netlify/state.json
