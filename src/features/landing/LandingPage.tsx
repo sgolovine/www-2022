@@ -10,10 +10,9 @@ import useAppRoutes from "~/config/navigation/useAppRoutes"
 import socialMediaConfig from "~/config/socialMedia"
 import { useMemo } from "react"
 import { Header } from "./components/Header"
-import { useFeatures } from "~/context/FeaturesContext"
+import { features } from "~/config/features"
 
 const LandingPage: React.FC = () => {
-  const features = useFeatures()
   const appRoutes = useAppRoutes()
   const links = appRoutes.filter(route => route.showOnHomepage)
 
@@ -30,7 +29,7 @@ const LandingPage: React.FC = () => {
     <>
       <Header />
       <div className={clsx(themeClasses.container, "pt-12", "px-4", "pb-4")}>
-        {features.isFeatureEnabled("showPunkOnLandingPage") ? (
+        {features.showPunkOnLandingPage ? (
           <div className="flex flex-row items-center justify-center">
             <Punk />
           </div>
