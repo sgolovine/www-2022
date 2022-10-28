@@ -10,13 +10,50 @@
  */
 
 import { Handler } from "@netlify/functions"
-
+import axios from "axios"
 interface Body {
   message: string
   author: string
 }
 
+function createContent(message: string, author: string): string {
+  return message + "\n" + `- ${author}`
+}
+
+function appendToGuestbook(currentGuestbook: string, newMessage: string) {
+  return currentGuestbook + "\n---------------------\n" + newMessage
+}
+
 const handler: Handler = async event => {
+  let guestbookContent: string | null = null
+
+  if (!process.env.GITHUB_TOKEN) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "GITHUB_TOKEN missing",
+      }),
+    }
+  }
+
+  if (!process.env.GUESTBOOK_GIST_ID) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "GUESTBOOK_GIST_ID missing",
+      }),
+    }
+  }
+
+  if (!process.env.GUESTBOOK_FILENAME) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "GUESTBOOK_FILENAME missing" }),
+    }
+  }
+
+  const url = `https://api.github.com/gists/${process.env.GUESTBOOK_GIST_ID}`
+
   if (!event.body) {
     return {
       statusCode: 400,
@@ -46,20 +83,60 @@ const handler: Handler = async event => {
     }
   }
 
-  const template = `${body.message}
+  const axiosInstance = axios.create({
+    headers: {
+      Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+    },
+  })
 
-  - ${body.author}
+  try {
+    const res = await axiosInstance.get(url)
 
-  ------
-  `
+    guestbookContent = res.data?.files?.[process.env.GUESTBOOK_FILENAME].content
+  } catch (e) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "Error Fetching Guestbook",
+      }),
+    }
+  }
 
-  console.log(template)
+  if (!guestbookContent) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "Error fetching current guestbook",
+      }),
+    }
+  }
 
-  return {
-    statusCode: 201,
-    body: JSON.stringify({
-      message: "Success",
-    }),
+  // Create new content
+  const content = createContent(body.message, body.author)
+
+  const newGuestbook = appendToGuestbook(guestbookContent, content)
+
+  try {
+    await axiosInstance.patch(url, {
+      files: {
+        [process.env.GUESTBOOK_FILENAME]: {
+          content: newGuestbook,
+        },
+      },
+    })
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        message: "Successfully updated the guestbook",
+      }),
+    }
+  } catch (e) {
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "Error updating guestbook",
+      }),
+    }
   }
 }
 

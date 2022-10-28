@@ -1,1 +1,0 @@
-module.exports = require('./src/functions/get-guestbook.js')
