@@ -1,9 +1,8 @@
 import pageTitles from "./pageTitles"
 import { AppRoute, StaticRoutes } from "~/model/Routes"
-import { useFeatures } from "~/context/FeaturesContext"
+import { features } from "../features"
 
 const useAppRoutes = () => {
-  const features = useFeatures()
   const appRoutes: AppRoute[] = [
     {
       id: "home",
@@ -32,7 +31,7 @@ const useAppRoutes = () => {
       id: "resume",
       title: pageTitles[StaticRoutes.Resume],
       link: StaticRoutes.Resume,
-      routeEnabled: features.isFeatureEnabled("enableResume"),
+      routeEnabled: features.enableResume,
       showOnHeader: true,
       showOnHomepage: true,
       icon: "documentText",
@@ -49,7 +48,7 @@ const useAppRoutes = () => {
       id: "apps",
       title: pageTitles[StaticRoutes.Apps],
       link: StaticRoutes.Apps,
-      routeEnabled: features.isFeatureEnabled("showAppsLink"),
+      routeEnabled: features.showAppsLink,
       showOnHeader: true,
       showOnHomepage: true,
       icon: "apps",
@@ -69,7 +68,7 @@ const useAppRoutes = () => {
       showOnHeader: true,
       showOnHomepage: true,
       icon: "guestbook",
-      routeEnabled: features.isFeatureEnabled("showGuestbook"),
+      routeEnabled: features.showGuestbook,
     },
   ].filter(route => {
     if (
