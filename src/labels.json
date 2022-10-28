@@ -102,6 +102,7 @@
     "sendSuccess": "Successfully sent message. Check your inbox for a copy of the message."
   },
   "guestbook": {
+    "intro": "Add a comment to this websites guestbook!",
     "defaultError": "An Error Occurred Submitting Your Guestbook Entry.",
     "defaultSuccess": "Successfully Submitted Your Guestbook Entry",
     "entryLabel": "Your Guestbook Entry",

@@ -1,4 +1,5 @@
 import axios from "axios"
+import { Endpoints } from "~/config/endpoints"
 
 export async function updateGuestbook({
   message,
@@ -7,7 +8,7 @@ export async function updateGuestbook({
   message: string
   author: string
 }) {
-  return axios.post("/.netlify/functions/update-guestbook", {
+  return axios.post(Endpoints.UpdateGuestbook, {
     message,
     author,
   })

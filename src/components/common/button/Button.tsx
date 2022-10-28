@@ -1,3 +1,4 @@
+import { getIcon } from "~/components/icons"
 import { makeStyles } from "./Button.classes"
 
 interface ButtonProps {
@@ -7,7 +8,10 @@ interface ButtonProps {
   transparent?: boolean
   isActive?: boolean
   noBorder?: boolean
+  loading?: boolean
 }
+
+const RefreshIcon = getIcon("refresh")
 
 const Button: React.FC<ButtonProps> = ({
   children,
@@ -16,6 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   transparent,
   isActive,
   noBorder,
+  loading,
 }) => {
   const classes = makeStyles({
     active: isActive,
@@ -27,7 +32,7 @@ const Button: React.FC<ButtonProps> = ({
 
   return (
     <button className={classes} onClick={handleClick}>
-      {children}
+      {loading ? <RefreshIcon className="h-4 w-4 animate-spin" /> : children}
     </button>
   )
 }

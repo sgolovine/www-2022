@@ -8,7 +8,7 @@ import {
   QueryClientProvider,
   Hydrate,
   dehydrate,
-} from "react-query"
+} from "@tanstack/react-query"
 
 import "../styles/tailwind.css"
 import "../styles/global.css"

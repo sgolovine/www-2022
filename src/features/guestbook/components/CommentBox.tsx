@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "~/components/common/button"
 import { Input, TextArea } from "~/components/common/form"
-import { LoaderCore } from "~/components/common/LoaderCore"
+import { IconButton } from "~/components/common/iconButton"
 import labels from "~/labels.json"
 import makeStyles from "./CommentBox.classes"
 
@@ -24,13 +24,28 @@ const CommentBox: React.FC<Props> = ({
 }) => {
   const [comment, setComment] = useState<string>("")
   const [signed, setSigned] = useState<string>("")
+  const [showError, setShowError] = useState<boolean>(false)
+  const [showSuccess, setShowSuccess] = useState<boolean>(false)
+
+  useEffect(() => {
+    if (isError) {
+      setShowError(true)
+    }
+  }, [isError])
+
+  useEffect(() => {
+    if (isSuccess) {
+      setShowSuccess(true)
+    }
+  }, [isSuccess])
 
   const {
     container,
     errorContainer,
     successContainer,
     buttonContainer,
-    loaderContainer,
+    errorButtonClasses,
+    successButtonClasses,
   } = makeStyles()
 
   const handleClear = () => {
@@ -40,14 +55,30 @@ const CommentBox: React.FC<Props> = ({
 
   return (
     <div className={container}>
-      {isError && (
+      {showError && (
         <div className={errorContainer}>
-          <p>{errorMessage ?? labels.guestbook.defaultError}</p>
+          <p className="text-white">
+            {errorMessage ?? labels.guestbook.defaultError}
+          </p>
+          <IconButton
+            icon="close"
+            buttonClasses={errorButtonClasses}
+            iconClasses="text-white"
+            onClick={() => setShowError(false)}
+          />
         </div>
       )}
-      {isSuccess && (
+      {showSuccess && (
         <div className={successContainer}>
-          <p>{successMessage ?? labels.guestbook.defaultSuccess}</p>
+          <p className="text-gray-800">
+            {successMessage ?? labels.guestbook.defaultSuccess}
+          </p>
+          <IconButton
+            icon="close"
+            buttonClasses={successButtonClasses}
+            iconClasses="text-gray-800 dark:text-gray-800"
+            onClick={() => setShowSuccess(false)}
+          />
         </div>
       )}
       <TextArea
@@ -70,6 +101,7 @@ const CommentBox: React.FC<Props> = ({
         <Button
           transparent
           onClick={() => onSubmit && onSubmit({ comment, signed })}
+          loading={isLoading}
         >
           {labels.guestbook.submitBtn}
         </Button>
@@ -77,14 +109,6 @@ const CommentBox: React.FC<Props> = ({
           {labels.guestbook.clearBtn}
         </Button>
       </span>
-
-      {isLoading && (
-        <div className={loaderContainer}>
-          <div className="h-32 w-32">
-            <LoaderCore />
-          </div>
-        </div>
-      )}
     </div>
   )
 }

@@ -10,7 +10,11 @@ function makeStyles() {
     "drop-shadow-md",
     "text-gray-900",
     "text-lg",
-    "font-medium"
+    "font-medium",
+    "flex",
+    "flex-row",
+    "items-center",
+    "justify-between"
   )
 
   const container = clsx("flex", "flex-col", "relative")
@@ -30,18 +34,20 @@ function makeStyles() {
     "gap-5"
   )
 
-  const loaderContainer = clsx(
-    "absolute",
-    "top-0",
-    "bottom-0",
-    "left-0",
-    "right-0",
-    "bg-tint-50",
-    "rounded-lg",
-    "flex",
-    "flex-row",
-    "items-center",
-    "justify-center"
+  const errorButtonClasses = clsx(
+    "hover:bg-red-300",
+    "active:bg-red-400",
+    "dark:bg-red-500",
+    "dark:hover:bg-red-400",
+    "dark:active:bg-red-600"
+  )
+
+  const successButtonClasses = clsx(
+    "hover:bg-green-400",
+    "active:bg-green-600",
+    "dark:bg-green-500",
+    "dark:hover:bg-green-400",
+    "dark:active:bg-green-600"
   )
 
   return {
@@ -49,7 +55,8 @@ function makeStyles() {
     errorContainer,
     successContainer,
     buttonContainer,
-    loaderContainer,
+    errorButtonClasses,
+    successButtonClasses,
   }
 }
 

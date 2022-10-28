@@ -15,6 +15,9 @@ module.exports = {
         "tint-75": "rgba(0,0,0,0.75)",
         "tint-90": "rgba(0,0,0,0.90)",
       },
+      minWidth: {
+        28: "7rem",
+      },
     },
   },
   variants: {
