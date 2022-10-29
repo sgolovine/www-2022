@@ -61,6 +61,15 @@ const useAppRoutes = () => {
       showOnHomepage: true,
       icon: "envelope",
     },
+    {
+      id: "guestbook",
+      title: pageTitles[StaticRoutes.Guestbook],
+      link: StaticRoutes.Guestbook,
+      showOnHeader: true,
+      showOnHomepage: true,
+      icon: "guestbook",
+      routeEnabled: features.showGuestbook,
+    },
   ].filter(route => {
     if (
       typeof route.routeEnabled === "undefined" ||

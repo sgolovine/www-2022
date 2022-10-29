@@ -9,6 +9,7 @@ import { TemplateHeader } from "../components/TemplateHeader"
 import { ListItem } from "~/components/listItem"
 import { useRouter } from "next/router"
 import { Divider } from "../components/Divider"
+import Link from "next/link"
 
 const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
   meta,
@@ -53,8 +54,8 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
                 className={clsx(
                   themeClasses.headerColor,
                   "text-xl",
-                  "text-center",
-                  "font-bold"
+                  "font-bold",
+                  "text-center"
                 )}
               >
                 {labels.blog.template.otherPostsHeader}
@@ -62,6 +63,7 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
               <p className={clsx(themeClasses.detailTextColor, "text-center")}>
                 {labels.blog.template.otherPostsDescription}
               </p>
+
               <div className="flex flex-col gap-5 py-5">
                 {recentPosts.map(post => {
                   return (
@@ -77,6 +79,11 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
                   )
                 })}
               </div>
+              <Link href="/guestbook">
+                <a className={clsx(themeClasses.detailTextColor, "mt-2")}>
+                  Sign My Guestbook!
+                </a>
+              </Link>
             </div>
           </>
         )}

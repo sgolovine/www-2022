@@ -1,12 +1,20 @@
+import clsx from "clsx"
 import { AllIcons, getIcon } from "~/components/icons"
 import { makeStyles } from "./IconButton.classes"
 
 interface IconButtonProps {
   icon: AllIcons
   onClick?: () => void
+  buttonClasses?: string
+  iconClasses?: string
 }
 
-const IconButton: React.FC<IconButtonProps> = ({ icon, onClick }) => {
+const IconButton: React.FC<IconButtonProps> = ({
+  icon,
+  onClick,
+  buttonClasses,
+  iconClasses,
+}) => {
   const classes = makeStyles()
 
   const IconComponent = getIcon(icon)
@@ -14,9 +22,9 @@ const IconButton: React.FC<IconButtonProps> = ({ icon, onClick }) => {
   return (
     <button
       onClick={() => onClick && onClick()}
-      className={classes.buttonClasses}
+      className={clsx(buttonClasses, classes.buttonClasses)}
     >
-      <IconComponent className={classes.iconClasses} />
+      <IconComponent className={clsx(iconClasses, classes.iconClasses)} />
     </button>
   )
 }

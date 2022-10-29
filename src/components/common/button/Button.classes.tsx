@@ -8,35 +8,44 @@ export function makeStyles({
 }: Partial<
   Record<"active" | "transparent" | "sm" | "noBorder", boolean>
 >): string {
-  const baseClasses = clsx("font-medium", {
-    // Border
-    border: !noBorder,
-    // Background
-    "bg-blue-500": !transparent,
-    "dark:bg-slate-700": !transparent,
-    "dark:bg-slate-900": transparent,
+  const baseClasses = clsx(
+    "font-medium",
+    "min-w-28",
+    "h-11",
+    "flex",
+    "flex-row",
+    "items-center",
+    "justify-center",
+    {
+      // Border
+      border: !noBorder,
+      // Background
+      "bg-blue-500": !transparent,
+      "dark:bg-slate-700": !transparent,
+      "dark:bg-slate-900": transparent,
 
-    // Text
-    "text-white": !transparent,
-    "text-gray-700": transparent,
-    "dark:text-gray-200": transparent,
-    "dark:text-amber-500": active,
+      // Text
+      "text-white": !transparent,
+      "text-gray-700": transparent,
+      "dark:text-gray-200": transparent,
+      "dark:text-amber-500": active,
 
-    // Borders
-    "dark:border-slate-600": !transparent,
-    "dark:border-slate-700": transparent,
-    "dark:border-amber-400": transparent && active,
+      // Borders
+      "dark:border-slate-600": !transparent,
+      "dark:border-slate-700": transparent,
+      "dark:border-amber-400": transparent && active,
 
-    // Padding
-    "px-4": !sm,
-    "py-2": !sm,
-    "px-3": sm,
-    "py-1": sm,
+      // Padding
+      "px-4": !sm,
+      "py-2": !sm,
+      "px-3": sm,
+      "py-1": sm,
 
-    // Radius
-    "rounded-lg": !sm,
-    "rounded-md": sm,
-  })
+      // Radius
+      "rounded-lg": !sm,
+      "rounded-md": sm,
+    }
+  )
 
   const hoverClasses = clsx({
     "hover:bg-blue-400": !transparent,
