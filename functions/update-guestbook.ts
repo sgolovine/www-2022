@@ -13,7 +13,7 @@ import { Handler } from "@netlify/functions"
 import { clean as filterZalgoText } from "unzalgo"
 import axios from "axios"
 import Filter from "bad-words"
-import DOMPurify from "dompurify"
+import * as DOMPurify from "dompurify"
 
 interface Body {
   message: string
