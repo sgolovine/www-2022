@@ -10,7 +10,7 @@
   for = "/*"
   [headers.values]
     Cross-Origin-Resource-Policy = "same-origin"
-    # Access-Control-All0w-Origin = "https://sunny.gg"
+    Access-Control-Allow-Origin = "https://sunny.gg"
 
 
 [context.production]
