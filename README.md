@@ -41,7 +41,9 @@ npm run generate:postmap
 4. Run the Project
 
 ```bash
-npm run dev
+npm run start # Run just the frontend
+
+npm run dev # Run with local backend
 ```
 
 ## Keeping Things Clean and Organized

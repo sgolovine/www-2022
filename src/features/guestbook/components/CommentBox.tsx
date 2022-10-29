@@ -7,8 +7,6 @@ import makeStyles from "./CommentBox.classes"
 
 interface Props {
   isError?: boolean
-  errorMessage?: string
-  successMessage?: string
   isSuccess?: boolean
   isLoading?: boolean
   onSubmit?: ({ signed, comment }: { signed: string; comment: string }) => void
@@ -18,8 +16,6 @@ const CommentBox: React.FC<Props> = ({
   isError,
   isLoading,
   isSuccess,
-  errorMessage,
-  successMessage,
   onSubmit,
 }) => {
   const [comment, setComment] = useState<string>("")
@@ -57,9 +53,7 @@ const CommentBox: React.FC<Props> = ({
     <div className={container}>
       {showError && (
         <div className={errorContainer}>
-          <p className="text-white">
-            {errorMessage ?? labels.guestbook.defaultError}
-          </p>
+          <p className="text-white">{labels.guestbook.defaultError}</p>
           <IconButton
             icon="close"
             buttonClasses={errorButtonClasses}
@@ -70,9 +64,7 @@ const CommentBox: React.FC<Props> = ({
       )}
       {showSuccess && (
         <div className={successContainer}>
-          <p className="text-gray-800">
-            {successMessage ?? labels.guestbook.defaultSuccess}
-          </p>
+          <p className="text-gray-800">{labels.guestbook.defaultSuccess}</p>
           <IconButton
             icon="close"
             buttonClasses={successButtonClasses}

@@ -1,3 +1,17 @@
 {
-  "siteId": "2fc2a46c-2040-43d7-a58e-62b74b6ec549"
+  "siteId": "2fc2a46c-2040-43d7-a58e-62b74b6ec549",
+  "geolocation": {
+    "data": {
+      "city": "Denver",
+      "country": {
+        "code": "US",
+        "name": "United States"
+      },
+      "subdivision": {
+        "code": "CO",
+        "name": "Colorado"
+      }
+    },
+    "timestamp": 1666999468273
+  }
 }

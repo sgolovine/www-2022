@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prepare": "husky install",
-    "dev": "next dev --port 8080",
+    "start": "next dev --port 8080",
+    "dev": "netlify dev",
     "build": "next build && next export -o dist && npm run generate:images",
     "build:dry": "next build && next export -o .next/dry",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",

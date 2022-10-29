@@ -17,11 +17,11 @@ interface Body {
 }
 
 function createContent(message: string, author: string): string {
-  return message + "\n" + `- ${author}`
+  return message + "\n\n" + `- ${author}`
 }
 
 function appendToGuestbook(currentGuestbook: string, newMessage: string) {
-  return currentGuestbook + "\n---------------------\n" + newMessage
+  return newMessage + "\n\n---\n\n" + currentGuestbook
 }
 
 const handler: Handler = async event => {

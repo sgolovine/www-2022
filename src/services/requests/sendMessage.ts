@@ -1,4 +1,4 @@
-import axios from "axios"
+import axios from "../axiosInstance"
 import { Endpoints } from "~/config/endpoints"
 
 type Body = Record<"name" | "email" | "subject" | "message", string>
