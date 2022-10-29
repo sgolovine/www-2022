@@ -13,6 +13,8 @@ import { Handler } from "@netlify/functions"
 import { clean as filterZalgoText } from "unzalgo"
 import axios from "axios"
 import Filter from "bad-words"
+import DOMPurify from "dompurify"
+
 interface Body {
   message: string
   author: string
@@ -24,8 +26,10 @@ function createContent(message: string, author: string): string {
   const unzalgoAuthorText = filterZalgoText(author)
   const cleanMessageText = filter.clean(unzalgoMessageText)
   const cleanAuthorText = filter.clean(unzalgoAuthorText)
+  const purifiedMessage = DOMPurify.sanitize(cleanMessageText)
+  const purifiedAuthor = DOMPurify.sanitize(cleanAuthorText)
 
-  return cleanMessageText + "\n\n" + `- ${cleanAuthorText}`
+  return purifiedMessage + "\n\n" + `- ${purifiedAuthor}`
 }
 
 function appendToGuestbook(currentGuestbook: string, newMessage: string) {
