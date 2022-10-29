@@ -6,6 +6,13 @@
 [functions]
   directory = "functions"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cross-Origin-Resource-Policy = "same-origin"
+    # Access-Control-All0w-Origin = "https://sunny.gg"
+
+
 [context.production]
   environment = { NETLIFY_NEXT_PLUGIN_SKIP = "true", AWS_LAMBDA_JS_RUNTIME = "nodejs16.x" }
 
