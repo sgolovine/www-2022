@@ -10,14 +10,22 @@
  */
 
 import { Handler } from "@netlify/functions"
+import { clean as filterZalgoText } from "unzalgo"
 import axios from "axios"
+import Filter from "bad-words"
 interface Body {
   message: string
   author: string
 }
 
 function createContent(message: string, author: string): string {
-  return message + "\n\n" + `- ${author}`
+  const filter = new Filter()
+  const unzalgoMessageText = filterZalgoText(message)
+  const unzalgoAuthorText = filterZalgoText(author)
+  const cleanMessageText = filter.clean(unzalgoMessageText)
+  const cleanAuthorText = filter.clean(unzalgoAuthorText)
+
+  return cleanMessageText + "\n\n" + `- ${cleanAuthorText}`
 }
 
 function appendToGuestbook(currentGuestbook: string, newMessage: string) {

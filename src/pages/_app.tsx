@@ -14,6 +14,7 @@ import "../styles/tailwind.css"
 import "../styles/global.css"
 import "../styles/relative-image.css"
 import "../styles/prism-nord-theme.css"
+import "../styles/guestbook.css"
 
 type AppPropsWithLayout = AppProps & {
   Component: AppPage

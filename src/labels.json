@@ -110,7 +110,8 @@
     "displayNameLabel": "Display Name",
     "displayNamePlaceholder": "Enter the display name to show under your entry",
     "submitBtn": "Submit",
-    "clearBtn": "Clear"
+    "clearBtn": "Clear",
+    "ledgerFetchError": "An Error Occurred Fetching The Guestbook"
   },
   "apps": {
     "navigation": {
