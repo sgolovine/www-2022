@@ -4,17 +4,20 @@ import pageTitles from "~/config/navigation/pageTitles"
 import { themeClasses } from "~/config/themeClasses"
 import { StaticRoutes } from "~/model/Routes"
 import CommentBox from "./components/CommentBox"
-import { GuestbookProps } from "./GuestbookProps"
 import labels from "~/labels.json"
 import { Ledger } from "./components/Ledger"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { updateGuestbook } from "~/services/requests/updateGuestbook"
 import { getGuestbook } from "~/services/requests/getGuestbook"
 import { useEffect } from "react"
+import { features } from "~/config/features"
+import { useRouter } from "next/router"
 
 const introClasses = clsx(themeClasses.textColor, "pb-4")
 
-const Guestbook: React.FC<GuestbookProps> = ({}) => {
+const Guestbook: React.FC = () => {
+  const router = useRouter()
+
   const {
     mutate: submitComment,
     isLoading: submitCommentLoading,
@@ -32,6 +35,12 @@ const Guestbook: React.FC<GuestbookProps> = ({}) => {
   useEffect(() => {
     refetchLedger()
   }, [refetchLedger, submitCommentSuccess])
+
+  useEffect(() => {
+    if (!features.showGuestbook) {
+      router.push("/")
+    }
+  })
 
   return (
     <div className={themeClasses.container}>

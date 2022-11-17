@@ -10,6 +10,7 @@ import { ListItem } from "~/components/listItem"
 import { useRouter } from "next/router"
 import { Divider } from "../components/Divider"
 import Link from "next/link"
+import { features } from "~/config/features"
 
 const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
   meta,
@@ -79,11 +80,13 @@ const PostTemplatePage: React.FC<PostTemplatePageProps> = ({
                   )
                 })}
               </div>
-              <Link href="/guestbook">
-                <a className={clsx(themeClasses.detailTextColor, "mt-2")}>
-                  Sign My Guestbook!
-                </a>
-              </Link>
+              {features.showGuestbook && (
+                <Link href="/guestbook">
+                  <a className={clsx(themeClasses.detailTextColor, "mt-2")}>
+                    Sign My Guestbook!
+                  </a>
+                </Link>
+              )}
             </div>
           </>
         )}
