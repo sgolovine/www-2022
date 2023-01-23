@@ -1,0 +1,5 @@
+export { default as CashApp } from "./pages/CashApp"
+export { default as ContactFile } from "./pages/ContactFile"
+export { default as Instagram } from "./pages/Instagram"
+export { default as Venmo } from "./pages/Venmo"
+export { default as WhatsApp } from "./pages/WhatsApp"

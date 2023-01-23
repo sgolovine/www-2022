@@ -122,6 +122,21 @@ _Note: All commands should be run with `npm run`_
 | `fn:serve` | Runs [functions:serve](https://cli.netlify.com/commands/functions#functionsserve) |
 | `fn:list`  | Runs [functions:list](https://cli.netlify.com/commands/functions#functionslist)   |
 
+## Social Redirects
+
+Often times I have a friend ask for my Venmo, WhatsApp, etc. This site is setup to offer a quick redirect ot those services. Below is a table of all redirects. This is so instead of having to find my Venmo, CashApp, WhatApp link, I can just tell them: "go to sunny.gg/wa for my whatsapp". Config for this can be found in `config/quicklinks.ts`
+
+| Route        | Redirect To       |
+| ------------ | ----------------- |
+| `/cashapp`   | CashApp           |
+| `/contact`   | Contact Info Card |
+| `/ig`        | Instagram         |
+| `/insta`     | Instagram         |
+| `/instagram` | Instagram         |
+| `/venmo`     | Venmo             |
+| `/wa`        | WhatsApp          |
+| `/whatsapp`  | WhatsApp          |
+
 ## License
 
 [LICENSE](./LICENSE)

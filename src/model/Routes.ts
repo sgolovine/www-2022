@@ -8,7 +8,7 @@ export enum StaticRoutes {
   Resume = "/resume",
   ResumeDownloadDoc = "/resume/download-doc",
   ResumeDownloadPdf = "/resume/download-pdf",
-  Contact = "/contact",
+  Contact = "/contactme",
   Apps = "/apps",
   Guestbook = "/guestbook",
 }
