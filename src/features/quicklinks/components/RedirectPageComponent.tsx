@@ -1,3 +1,6 @@
+import Router from "next/router"
+import { useEffect } from "react"
+
 interface Props {
   label: string
   redirectLink: string
@@ -7,6 +10,12 @@ export const RedirectPageComponent: React.FC<Props> = ({
   label,
   redirectLink,
 }) => {
+  useEffect(() => {
+    if (redirectLink) {
+      Router.push(redirectLink)
+    }
+  }, [redirectLink])
+
   return (
     <div className="max-w-2xl mx-auto py-12 text-center">
       <h1 className="font-bold text-3xl">Redirecting you to {label}</h1>

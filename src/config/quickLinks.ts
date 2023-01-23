@@ -3,4 +3,5 @@ export enum QuickLinks {
   WhatsApp = "https://wa.me/qr/R7DNLZIG6BIEC1",
   Venmo = "https://venmo.com/u/sgolovine",
   CashApp = "https://cash.app/$sglvn",
+  Contact = "https://sunny.gg/vcard.vcf",
 }

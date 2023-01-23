@@ -1,5 +1,13 @@
+import { RedirectPageComponent } from "../components/RedirectPageComponent"
+import { QuickLinks } from "~/config/quickLinks"
+
 const Page = () => {
-  return <p>Contact Page</p>
+  return (
+    <RedirectPageComponent
+      label="Contact Info"
+      redirectLink={QuickLinks.Contact}
+    />
+  )
 }
 
 export default Page
